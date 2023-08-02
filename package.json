@@ -10,10 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.3",
+    "@mui/styled-engine-sc": "^5.12.0",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
-    "sass": "^1.63.6",
-    "styled-components": "^6.0.3"
+    "react-router-dom": "^6.14.2",
+    "sass": "^1.64.2",
+    "styled-components": "^6.0.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
