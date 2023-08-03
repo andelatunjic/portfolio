@@ -8,6 +8,14 @@ const Home = () => {
     <HomeSection>
       <Intro illustration={GirlIllustration} />
       <section>Here is all about me.</section>
+      <p>hej</p>
+      <p>hej</p>
+      <p>hej</p>
+      <p>hej</p>
+      <p>hej</p>
+      <p>hej</p>
+      <p>hej</p>
+      <p>hej</p>
     </HomeSection>
   );
 };

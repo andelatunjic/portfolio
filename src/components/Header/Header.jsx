@@ -1,9 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useCookies } from "react-cookie";
 import { OptionsContext } from "../../context/OptionsContext";
 import { Link } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 import LanguageIcon from "../../assets/images/language.png";
+import Hamburger from "../../assets/images/hamburger.png";
 import {
   HeaderWrapper,
   HeaderInner,
@@ -17,20 +18,16 @@ import {
   Language,
   LanguageImg,
   LanguageWrapper,
+  HamburgerIcon,
 } from "./HeaderStyle";
 
 const Header = () => {
   const { darkMode, setDarkMode, language, setLanguage } =
     useContext(OptionsContext);
   const [cookies, setCookie] = useCookies(["theme", "language"]);
-
-  const themeHandler = () => {
-    setDarkMode(!darkMode);
-  };
-
-  const languageHandler = () => {
-    setLanguage(language == "english" ? "croatian" : "english");
-  };
+  const [position, setPosition] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
 
   useEffect(() => {
     if (cookies.theme) {
@@ -51,9 +48,43 @@ const Header = () => {
     setCookie("language", cookieValue);
   }, [language]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      let moving = window.pageYOffset;
+
+      setVisible(position > moving);
+      setPosition(moving);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
+  const cls = visible ? "visible" : "hidden";
+
+  const themeHandler = () => {
+    setDarkMode(!darkMode);
+  };
+
+  const languageHandler = () => {
+    setLanguage(language == "english" ? "croatian" : "english");
+  };
+
+  const sidebarHandler = () => {
+    setSidebar(!sidebar);
+  };
+
   return (
-    <HeaderWrapper dark={darkMode ? "true" : "false"}>
+    <HeaderWrapper dark={darkMode ? "true" : "false"} scroll={cls}>
       <HeaderInner>
+        <HamburgerIcon
+          src={Hamburger}
+          alt="Hamburger menu icon"
+          onClick={sidebarHandler}
+        />
         <Link to="/">
           <Logo>Tunjich.dev</Logo>
         </Link>

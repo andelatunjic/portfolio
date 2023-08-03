@@ -10,6 +10,7 @@ import {
   Subtitle,
   Image,
   Buttons,
+  ImageWrapper,
 } from "./IntroStyle";
 
 const Intro = ({ illustration }) => {
@@ -37,7 +38,9 @@ const Intro = ({ illustration }) => {
           </a>
         </Buttons>
       </TextContent>
-      <Image src={illustration} alt="Design illustration" />
+      <ImageWrapper>
+        <Image src={illustration} alt="Design illustration" />
+      </ImageWrapper>
     </IntroWrapper>
   );
 };

@@ -11,6 +11,9 @@ export const HeaderWrapper = styled.header`
   right: 0;
   left: 0;
 
+  top: ${(props) => (props.scroll === "visible" ? "0" : "-80px")};
+  transition: top 0.4s ease-out;
+
   font-family: ${fonts.primary};
   background-color: ${colors.backgroundLight};
   color: ${colors.textPrimaryLight};
@@ -50,11 +53,22 @@ export const Logo = styled.div`
   font-family: ${fonts.secondary};
   font-size: 22px;
   font-weight: 800;
+  display: none;
+
+  @media screen and (${breakpoints.tablet}) {
+    display: block;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const HeaderContent = styled.div`
-  display: flex;
-  flex-direction: column;
+  @media screen and (${breakpoints.tablet}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const WebsiteOptions = styled.div`
@@ -62,7 +76,10 @@ export const WebsiteOptions = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 16px;
-  margin-bottom: 15px;
+
+  @media screen and (${breakpoints.tablet}) {
+    margin-bottom: 15px;
+  }
 `;
 
 export const ThemeSwitch = styled(Switch)(() => ({
@@ -97,8 +114,14 @@ export const SwitchLabel = styled(FormControlLabel)`
 `;
 
 export const Navigation = styled.nav`
+  display: none;
+
   > *:not(:last-child) {
     margin-right: 32px;
+  }
+
+  @media screen and (${breakpoints.tablet}) {
+    display: block;
   }
 `;
 
@@ -137,4 +160,16 @@ export const LanguageWrapper = styled.div`
   align-items: center;
 `;
 
+export const HamburgerIcon = styled.img`
+  display: block;
+  cursor: pointer;
+  height: 25px;
 
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media screen and (${breakpoints.tablet}) {
+    display: none;
+  }
+`;

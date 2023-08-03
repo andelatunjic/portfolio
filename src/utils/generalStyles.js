@@ -3,7 +3,7 @@ import { breakpoints, colors, fonts } from "./theme";
 
 export const Button = styled.button`
   display: inline-block;
-  padding: 10px 18px;
+  padding: 6px 12px;
   border-radius: 4px;
   background: linear-gradient(
     to right,
@@ -15,6 +15,12 @@ export const Button = styled.button`
   font-family: ${fonts.secondary};
   color: ${colors.textPrimaryLight};
   font-weight: 500;
+  font-size: 12px;
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 
   &:hover {
     background: linear-gradient(
@@ -23,26 +29,24 @@ export const Button = styled.button`
       ${colors.accentColorYellow}
     );
   }
-
-  ${(props) =>
-    props.outline == "true" &&
-    `
-      border: 1px solid ${colors.accentColorPink};
-      background-color: ${colors.backgroundLight};
-      color: ${colors.textPrimaryLight};
-  `}
 `;
 
 export const OutlineButton = styled.button`
   display: inline-block;
-  padding: 10px 18px;
+  padding: 6px 12px;
   border-radius: 4px;
   transition: background-color 0.3s ease-out;
   font-family: ${fonts.secondary};
   font-weight: 500;
+  font-size: 12px;
   border: 1.8px solid ${colors.accentColorPink};
   background-color: ${colors.backgroundLight};
   color: ${colors.textPrimaryLight};
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 
   &:hover {
     background: linear-gradient(
