@@ -24,7 +24,7 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const HeaderInner = styled.div`
-  height: 70px;
+  height: 80px;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
@@ -60,7 +60,9 @@ export const HeaderContent = styled.div`
 export const WebsiteOptions = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 10px;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 15px;
 `;
 
 export const ThemeSwitch = styled(Switch)(() => ({
@@ -102,6 +104,7 @@ export const Navigation = styled.nav`
 
 export const NavigationLink = styled(NavLink)`
   transition: color 0.3s ease-out;
+  font-size: 16px;
 
   &.active {
     text-decoration: underline;
@@ -113,3 +116,25 @@ export const NavigationLink = styled(NavLink)`
     color: ${colors.accentColorPurple};
   }
 `;
+
+export const Language = styled.p`
+  margin-left: 4px;
+  font-size: 12px;
+  line-height: 0px;
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.accentColorPurple};
+  }
+`;
+
+export const LanguageImg = styled.img`
+  height: 18px;
+`;
+
+export const LanguageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+

@@ -2,6 +2,8 @@ import React, { useEffect, useContext } from "react";
 import { useCookies } from "react-cookie";
 import { OptionsContext } from "../../context/OptionsContext";
 import { Link } from "react-router-dom";
+import Tooltip from "@mui/material/Tooltip";
+import LanguageIcon from "../../assets/images/language.png";
 import {
   HeaderWrapper,
   HeaderInner,
@@ -12,19 +14,30 @@ import {
   SwitchLabel,
   Navigation,
   NavigationLink,
+  Language,
+  LanguageImg,
+  LanguageWrapper,
 } from "./HeaderStyle";
 
 const Header = () => {
-  const { darkMode, setDarkMode } = useContext(OptionsContext);
-  const [cookies, setCookie, removeCookie] = useCookies(["theme"]);
+  const { darkMode, setDarkMode, language, setLanguage } =
+    useContext(OptionsContext);
+  const [cookies, setCookie] = useCookies(["theme", "language"]);
 
   const themeHandler = () => {
     setDarkMode(!darkMode);
   };
 
+  const languageHandler = () => {
+    setLanguage(language == "english" ? "croatian" : "english");
+  };
+
   useEffect(() => {
     if (cookies.theme) {
       setDarkMode(cookies.theme == "dark" ? true : false);
+    }
+    if (cookies.language) {
+      setLanguage(cookies.language == "english" ? "english" : "croatian");
     }
   }, []);
 
@@ -32,6 +45,11 @@ const Header = () => {
     const cookieValue = darkMode ? "dark" : "light";
     setCookie("theme", cookieValue);
   }, [darkMode]);
+
+  useEffect(() => {
+    const cookieValue = language == "english" ? "english" : "croatian";
+    setCookie("language", cookieValue);
+  }, [language]);
 
   return (
     <HeaderWrapper dark={darkMode ? "true" : "false"}>
@@ -58,6 +76,14 @@ const Header = () => {
                 },
               }}
             />
+            <LanguageWrapper>
+              <LanguageImg src={LanguageIcon} alt="Language icon" />
+              <Tooltip title="Change language">
+                <Language onClick={languageHandler}>
+                  {language == "english" ? "EN" : "HR"}
+                </Language>
+              </Tooltip>
+            </LanguageWrapper>
           </WebsiteOptions>
           <Navigation>
             <NavigationLink to={"/"}>Home</NavigationLink>

@@ -1,5 +1,5 @@
 import React from "react";
-import Section from "../../components/Section/Section";
+import Section from "../../components/HomeSection/HomeSection";
 
 const Skills = () => {
   return <Section>Skills</Section>;

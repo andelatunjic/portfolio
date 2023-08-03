@@ -4,9 +4,9 @@ import { OptionsContext } from "../../context/OptionsContext";
 import {
   SectionWrapper,
   SectionInner,
-} from './SectionStyle';
+} from './HomeSectionStyle';
 
-const Section = ({ children }) => {
+const HomeSection = ({ children }) => {
   const { darkMode } = useContext(OptionsContext);
 
   return (
@@ -18,8 +18,8 @@ const Section = ({ children }) => {
   );
 };
 
-Section.propTypes = {
+HomeSection.propTypes = {
   children: PropTypes.node,
 };
 
-export default Section;
+export default HomeSection;

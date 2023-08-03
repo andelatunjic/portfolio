@@ -3,11 +3,6 @@ import { colors, fonts, breakpoints } from "../../utils/theme";
 
 export const SectionWrapper = styled.div`
   font-family: ${fonts.primary};
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  right: 0;
-  left: 0;
 
   background-color: ${colors.backgroundLight};
   color: ${colors.textPrimaryLight};
@@ -21,19 +16,19 @@ export const SectionWrapper = styled.div`
 `;
 
 export const SectionInner = styled.div`
-  padding: 84px 24px;
+  padding: 0 24px;
 
   @media screen and (${breakpoints.tablet}) {
-    padding: 100px 70px;
+    padding: 0 70px;
   }
 
   @media screen and (${breakpoints.desktopSmall}) {
-    padding: 100px 40px;
-    max-width: 930px;
+    padding: 0 40px;
+    max-width: 1030px;
     margin: 0 auto;
   }
 
   @media screen and (${breakpoints.desktop}) {
-    max-width: 1280px;
+    max-width: 1380px;
   }
 `;

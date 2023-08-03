@@ -1,13 +1,14 @@
 import React from "react";
-import Section from "../../components/Section/Section";
-import GirlIllustration from '../../assets/girl.png';
+import HomeSection from "../../components/HomeSection/HomeSection";
+import GirlIllustration from "../../assets/images/girl.png";
 import Intro from "../../components/Intro/Intro";
 
 const Home = () => {
   return (
-    <Section>
+    <HomeSection>
       <Intro illustration={GirlIllustration} />
-    </Section>
+      <section>Here is all about me.</section>
+    </HomeSection>
   );
 };
 

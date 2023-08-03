@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
+import { Button, OutlineButton } from "../../utils/generalStyles";
+import CV from "../../assets/files/CV.pdf";
 import {
   IntroWrapper,
   TextContent,
   Title,
   Subtitle,
   Image,
+  Buttons,
 } from "./IntroStyle";
 
 const Intro = ({ illustration }) => {
@@ -20,6 +23,19 @@ const Intro = ({ illustration }) => {
           Hello, I'm Anđela Tunjić, a front-end React developer from Varaždin,
           Croatia.
         </Subtitle>
+        <Buttons>
+          <Button>About Me</Button>
+          <a
+            href={CV}
+            download="CV - Anđela Tunjić"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <OutlineButton dark={darkMode ? "true" : "false"}>
+              Download CV
+            </OutlineButton>
+          </a>
+        </Buttons>
       </TextContent>
       <Image src={illustration} alt="Design illustration" />
     </IntroWrapper>
