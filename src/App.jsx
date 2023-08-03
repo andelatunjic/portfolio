@@ -4,12 +4,14 @@ import Home from "./pages/Home/Home";
 import Skills from "./pages/Skills/Skills";
 import Experience from "./pages/Experience/Experience";
 import Login from "./pages/Login/Login";
+import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 function App() {
   return (
     <>
       <Header />
       <main>
+        <ScrollUp />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/skills" element={<Skills />} />

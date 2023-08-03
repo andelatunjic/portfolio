@@ -20,6 +20,7 @@ import {
   LanguageWrapper,
   HamburgerIcon,
 } from "./HeaderStyle";
+import Sidebar from "../SideBar/Sidebar";
 
 const Header = () => {
   const { darkMode, setDarkMode, language, setLanguage } =
@@ -40,6 +41,7 @@ const Header = () => {
 
   useEffect(() => {
     const cookieValue = darkMode ? "dark" : "light";
+    document.body.style.backgroundColor = darkMode ? "#1F2937" : "#FFFFFF";
     setCookie("theme", cookieValue);
   }, [darkMode]);
 
@@ -50,10 +52,8 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      let moving = window.pageYOffset;
-
-      setVisible(position > moving);
-      setPosition(moving);
+      setVisible(position > window.pageYOffset);
+      setPosition(window.pageYOffset);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -124,6 +124,7 @@ const Header = () => {
           </Navigation>
         </HeaderContent>
       </HeaderInner>
+      <Sidebar closeMenu={sidebarHandler} show={sidebar} />
     </HeaderWrapper>
   );
 };

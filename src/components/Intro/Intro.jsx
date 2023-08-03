@@ -13,7 +13,7 @@ import {
   ImageWrapper,
 } from "./IntroStyle";
 
-const Intro = ({ illustration }) => {
+const Intro = ({ illustration, clickHandler }) => {
   const { darkMode } = useContext(OptionsContext);
 
   return (
@@ -25,7 +25,7 @@ const Intro = ({ illustration }) => {
           Croatia.
         </Subtitle>
         <Buttons>
-          <Button>About Me</Button>
+          <Button onClick={clickHandler}>About Me</Button>
           <a
             href={CV}
             download="CV - Anđela Tunjić"
@@ -47,6 +47,7 @@ const Intro = ({ illustration }) => {
 
 Intro.propTypes = {
   illustration: PropTypes.string,
+  clickHandler: PropTypes.func,
 };
 
 export default Intro;

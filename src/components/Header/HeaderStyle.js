@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.header`
   left: 0;
 
   top: ${(props) => (props.scroll === "visible" ? "0" : "-80px")};
-  transition: top 0.4s ease-out;
+  transition: top 0.3s ease-out;
 
   font-family: ${fonts.primary};
   background-color: ${colors.backgroundLight};
