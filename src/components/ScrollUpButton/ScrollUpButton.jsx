@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ScrollButton, Arrow } from "./ScrollUpStyle";
+import { ScrollButton, Arrow } from "./ScrollUpButtonStyle";
 import UpArrow from "../../assets/images/up-arrow.png";
 
-const ScrollUp = () => {
+const ScrollUpButton = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -28,4 +28,4 @@ const ScrollUp = () => {
   );
 };
 
-export default ScrollUp;
+export default ScrollUpButton;

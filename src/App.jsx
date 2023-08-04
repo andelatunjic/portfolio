@@ -4,15 +4,17 @@ import Home from "./pages/Home/Home";
 import Skills from "./pages/Skills/Skills";
 import Experience from "./pages/Experience/Experience";
 import Login from "./pages/Login/Login";
-import ScrollUp from "./components/ScrollUp/ScrollUp";
+import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        <ScrollUp />
+        <ScrollToTop />
+        <ScrollUpButton />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/skills" element={<Skills />} />
