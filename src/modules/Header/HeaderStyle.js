@@ -48,22 +48,11 @@ export const HeaderInner = styled.div`
   }
 `;
 
-export const HeaderContent = styled.div`
-  @media screen and (${breakpoints.tablet}) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
-
 export const WebsiteOptions = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 16px;
-
-  @media screen and (${breakpoints.tablet}) {
-    margin-bottom: 15px;
-  }
 `;
 
 export const ThemeSwitch = styled(Switch)(() => ({
@@ -100,27 +89,39 @@ export const SwitchLabel = styled(FormControlLabel)`
 export const Navigation = styled.nav`
   display: none;
 
-  > *:not(:last-child) {
-    margin-right: 32px;
-  }
-
   @media screen and (${breakpoints.tablet}) {
     display: block;
+
+    > *:not(:last-child) {
+      margin-right: 22px;
+    }
+  }
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    > *:not(:last-child) {
+      margin-right: 32px;
+    }
   }
 `;
 
 export const NavigationLink = styled(NavLink)`
   transition: font 0.3s ease-out;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
 
+  @media screen and (${breakpoints.desktopSmall}) {
+    font-size: 16px;
+  }
+
   &.active {
-    color: ${colors.accentColorPurple};
-    font-weight: 700;
+    background-color: rgba(134, 134, 134, 0.3);
+    padding: 6px 14px;
+    border-radius: 12px;
   }
 
   &:hover {
     font-weight: 700;
+    
   }
 `;
 
@@ -131,7 +132,7 @@ export const Language = styled.p`
   cursor: pointer;
 
   &:hover {
-    color: ${colors.accentColorPurple};
+    color: ${colors.accentColorPurpleLight};
   }
 `;
 

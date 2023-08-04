@@ -47,35 +47,46 @@ export const SocialMediaLogo = styled.img`
   transition: 0.5s;
 
   &:hover {
-    
     transform: translateY(-10px);
   }
 `;
 
-export const Navigation = styled.div`
+export const Navigation = styled.nav`
   display: none;
-
-  > *:not(:last-child) {
-    margin-right: 32px;
-  }
 
   @media screen and (${breakpoints.tablet}) {
     display: block;
+
+    > *:not(:last-child) {
+      margin-right: 22px;
+    }
+  }
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    > *:not(:last-child) {
+      margin-right: 32px;
+    }
   }
 `;
 
 export const NavigationLink = styled(NavLink)`
   transition: font 0.3s ease-out;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
 
+  @media screen and (${breakpoints.desktopSmall}) {
+    font-size: 16px;
+  }
+
   &.active {
-    color: ${colors.accentColorPurple};
-    font-weight: 700;
+    background-color: rgba(134, 134, 134, 0.3);
+    padding: 6px 14px;
+    border-radius: 12px;
   }
 
   &:hover {
     font-weight: 700;
+    
   }
 `;
 

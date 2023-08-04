@@ -9,7 +9,6 @@ import Logo from "../../components/Logo/Logo";
 import {
   HeaderWrapper,
   HeaderInner,
-  HeaderContent,
   WebsiteOptions,
   ThemeSwitch,
   SwitchLabel,
@@ -85,41 +84,39 @@ const Header = () => {
           onClick={sidebarHandler}
         />
         <Logo isHeader />
-        <HeaderContent>
-          <WebsiteOptions>
-            <SwitchLabel
-              dark={darkMode ? "true" : "false"}
-              control={
-                <ThemeSwitch
-                  size="small"
-                  checked={darkMode}
-                  onChange={themeHandler}
-                />
-              }
-              label={darkMode ? "Dark" : "Light"}
-              sx={{
-                fontSize: 8,
-                "& .MuiTypography-root": {
-                  fontSize: 12,
-                },
-              }}
-            />
-            <LanguageWrapper>
-              <LanguageImg src={LanguageIcon} alt="Language icon" />
-              <Tooltip title="Change language">
-                <Language onClick={languageHandler}>
-                  {language == "english" ? "EN" : "HR"}
-                </Language>
-              </Tooltip>
-            </LanguageWrapper>
-          </WebsiteOptions>
-          <Navigation>
-            <NavigationLink to={"/"}>Home</NavigationLink>
-            <NavigationLink to={"/skills"}>Skills</NavigationLink>
-            <NavigationLink to={"/experience"}>Experience</NavigationLink>
-            <NavigationLink to={"/login"}>Login</NavigationLink>
-          </Navigation>
-        </HeaderContent>
+        <Navigation>
+          <NavigationLink to={"/"}>Home</NavigationLink>
+          <NavigationLink to={"/skills"}>Skills</NavigationLink>
+          <NavigationLink to={"/experience"}>Experience</NavigationLink>
+          <NavigationLink to={"/login"}>Login</NavigationLink>
+        </Navigation>
+        <WebsiteOptions>
+          <SwitchLabel
+            dark={darkMode ? "true" : "false"}
+            control={
+              <ThemeSwitch
+                size="small"
+                checked={darkMode}
+                onChange={themeHandler}
+              />
+            }
+            label={darkMode ? "Dark" : "Light"}
+            sx={{
+              fontSize: 8,
+              "& .MuiTypography-root": {
+                fontSize: 12,
+              },
+            }}
+          />
+          <LanguageWrapper>
+            <LanguageImg src={LanguageIcon} alt="Language icon" />
+            <Tooltip title="Change language">
+              <Language onClick={languageHandler}>
+                {language == "english" ? "EN" : "HR"}
+              </Language>
+            </Tooltip>
+          </LanguageWrapper>
+        </WebsiteOptions>
       </HeaderInner>
       <Sidebar closeMenu={sidebarHandler} show={sidebar} />
     </HeaderWrapper>

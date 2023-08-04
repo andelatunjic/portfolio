@@ -26,7 +26,10 @@ const Footer = () => {
           <a target="_blank" href="mailto:andtunjic@gmail.com">
             <SocialMediaLogo src={Mail} />
           </a>
-          <a target="_blank" href="http://linkedin.com/in/an%C4%91ela-tunji%C4%87-a72012227">
+          <a
+            target="_blank"
+            href="http://linkedin.com/in/an%C4%91ela-tunji%C4%87-a72012227"
+          >
             <SocialMediaLogo src={LinkedIn} />
           </a>
         </SocialMedia>
