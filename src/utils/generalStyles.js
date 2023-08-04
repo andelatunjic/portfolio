@@ -8,7 +8,7 @@ export const Button = styled.button`
   background: linear-gradient(
     to right,
     ${colors.accentColorPink},
-    ${colors.accentColorPurple}
+    ${colors.accentColorYellow}
   );
   transition: background-color 0.3s ease-out;
   border: none;
@@ -23,11 +23,15 @@ export const Button = styled.button`
   }
 
   &:hover {
-    background: linear-gradient(
-      to right,
-      ${colors.accentColorPink},
-      ${colors.accentColorYellow}
-    );
+    background: ${colors.backgroundLight};
+    border: 1.8px solid ${colors.accentColorPink};
+
+    ${(props) =>
+      props.dark == "true" &&
+      `
+      background: ${colors.backgroundDark};
+      color: ${colors.textPrimaryDark}
+    `}
   }
 `;
 

@@ -28,7 +28,7 @@ const Sidebar = ({ closeMenu, show }) => {
         <Logo isSidebar />
       </Header>
       <Navigation>
-        <Content>
+        <Content onClick={closeMenu}>
           <MenuItem imgSrc={Home} imgAlt="Home" itemText="Home" path="/" />
           <MenuItem
             imgSrc={Skills}
@@ -43,7 +43,7 @@ const Sidebar = ({ closeMenu, show }) => {
             path="/experience"
           />
         </Content>
-        <LogoutWrapper>
+        <LogoutWrapper onClick={closeMenu}>
           <MenuItem
             imgSrc={Logout}
             imgAlt="Logout"

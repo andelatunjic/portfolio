@@ -110,17 +110,17 @@ export const Navigation = styled.nav`
 `;
 
 export const NavigationLink = styled(NavLink)`
-  transition: color 0.3s ease-out;
+  transition: font 0.3s ease-out;
   font-size: 16px;
+  font-weight: 400;
 
   &.active {
-    text-decoration: underline;
     color: ${colors.accentColorPurple};
-    font-weight: 800;
+    font-weight: 700;
   }
 
   &:hover {
-    color: ${colors.accentColorPurple};
+    font-weight: 700;
   }
 `;
 

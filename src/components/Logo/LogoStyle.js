@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors, breakpoints, fonts } from "../../utils/theme";
 
 export const LogoWrapper = styled.div`
-  color: ${colors.accentColorPurple};
+  color: ${colors.accentColorPurpleLight};
   font-family: ${fonts.secondary};
   font-size: 22px;
   font-weight: 800;

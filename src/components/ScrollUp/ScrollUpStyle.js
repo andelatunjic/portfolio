@@ -30,11 +30,10 @@ export const ScrollButton = styled.div`
   }
 
   &:hover {
-    
     background: radial-gradient(
     circle at center,
     ${colors.accentColorPurple},
-    ${colors.accentColorPink}
+    ${colors.accentColorPurpleLight}
   );
   }
 `;

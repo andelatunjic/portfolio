@@ -22,10 +22,10 @@ const Intro = ({ illustration, clickHandler }) => {
         <Title>Front-End React Developer</Title>
         <Subtitle>
           Hello, I'm Anđela Tunjić, a front-end React developer from Varaždin,
-          Croatia.
+          Croatia. Be free to <a style={{color:"#B3AFF8"}}>contact me</a>.
         </Subtitle>
         <Buttons>
-          <Button onClick={clickHandler}>About Me</Button>
+          <Button onClick={clickHandler} dark={darkMode ? "true" : "false"}>About Me</Button>
           <a
             href={CV}
             download="CV - Anđela Tunjić"

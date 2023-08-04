@@ -13,7 +13,8 @@ export const colors = {
   textSecondary: '#a4a9b0',
 
   accentColorPink: '#FFA3A4',
-  accentColorPurple: '#B3AFF8',
+  accentColorPurple: '#5c6bc0',
+  accentColorPurpleLight: '#B3AFF8',
   accentColorYellow: '#FFD087',
   accentColorRed: '#FF6668',
 };

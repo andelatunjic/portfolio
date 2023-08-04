@@ -5,6 +5,7 @@ import Skills from "./pages/Skills/Skills";
 import Experience from "./pages/Experience/Experience";
 import Login from "./pages/Login/Login";
 import ScrollUp from "./components/ScrollUp/ScrollUp";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer />
       </main>
     </>
   );
