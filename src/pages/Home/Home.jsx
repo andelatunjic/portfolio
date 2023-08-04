@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
-import HomeSection from "../../components/HomeSection/HomeSection";
 import GirlIllustration from "../../assets/images/girl.png";
-import Intro from "../../components/Intro/Intro";
+import HomeSection from "../../components/HomeSection/HomeSection";
+import Intro from "../../modules/Intro/Intro";
 
 const Home = () => {
   const ref = useRef(null);

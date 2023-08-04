@@ -1,14 +1,14 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useCookies } from "react-cookie";
 import { OptionsContext } from "../../context/OptionsContext";
-import { Link } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 import LanguageIcon from "../../assets/images/language.png";
 import Hamburger from "../../assets/images/hamburger.png";
+import Sidebar from "../Sidebar/Sidebar";
+import Logo from "../../components/Logo/Logo";
 import {
   HeaderWrapper,
   HeaderInner,
-  Logo,
   HeaderContent,
   WebsiteOptions,
   ThemeSwitch,
@@ -20,7 +20,6 @@ import {
   LanguageWrapper,
   HamburgerIcon,
 } from "./HeaderStyle";
-import Sidebar from "../SideBar/Sidebar";
 
 const Header = () => {
   const { darkMode, setDarkMode, language, setLanguage } =
@@ -85,9 +84,7 @@ const Header = () => {
           alt="Hamburger menu icon"
           onClick={sidebarHandler}
         />
-        <Link to="/">
-          <Logo>Tunjich.dev</Logo>
-        </Link>
+        <Logo isHeader />
         <HeaderContent>
           <WebsiteOptions>
             <SwitchLabel

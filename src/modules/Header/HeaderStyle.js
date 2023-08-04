@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.header`
   top: 0;
   right: 0;
   left: 0;
-
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   top: ${(props) => (props.scroll === "visible" ? "0" : "-80px")};
   transition: top 0.3s ease-out;
 
@@ -45,22 +45,6 @@ export const HeaderInner = styled.div`
 
   @media screen and (${breakpoints.desktop}) {
     max-width: 1380px;
-  }
-`;
-
-export const Logo = styled.div`
-  color: ${colors.accentColorPurple};
-  font-family: ${fonts.secondary};
-  font-size: 22px;
-  font-weight: 800;
-  display: none;
-
-  @media screen and (${breakpoints.tablet}) {
-    display: block;
-  }
-
-  &:hover {
-    transform: scale(1.05);
   }
 `;
 
@@ -163,10 +147,14 @@ export const LanguageWrapper = styled.div`
 export const HamburgerIcon = styled.img`
   display: block;
   cursor: pointer;
-  height: 25px;
+  height: 18px;
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    height: 22px;
   }
 
   @media screen and (${breakpoints.tablet}) {

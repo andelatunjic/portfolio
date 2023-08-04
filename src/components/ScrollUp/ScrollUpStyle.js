@@ -11,11 +11,7 @@ export const ScrollButton = styled.div`
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
   opacity: ${(props) => (props.show ? 1 : 0)};
   transition: opacity 0.3s, visibility 0.3s;
-  background: radial-gradient(
-    circle at center,
-    ${colors.accentColorPurple},
-    ${colors.accentColorPink}
-  );
+  background: ${colors.accentColorPurple};
 
   height: 30px;
   width: 30px;
@@ -34,7 +30,12 @@ export const ScrollButton = styled.div`
   }
 
   &:hover {
-    background: ${colors.accentColorPurple};
+    
+    background: radial-gradient(
+    circle at center,
+    ${colors.accentColorPurple},
+    ${colors.accentColorPink}
+  );
   }
 `;
 
