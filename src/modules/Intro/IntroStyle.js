@@ -99,7 +99,7 @@ export const Buttons = styled.div`
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 48px;
 
   @media screen and (${breakpoints.desktopSmall}) {
     justify-content: flex-start;

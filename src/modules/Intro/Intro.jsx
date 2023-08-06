@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
 import { Button, OutlineButton } from "../../utils/generalStyles";
-import CV from "../../assets/files/CV.pdf";
+import Section from "../../components/Section/Section";
+import SocialMedia from "../../components/SocialMedia/SocialMedia";
 import {
   IntroWrapper,
   TextContent,
@@ -17,31 +18,29 @@ const Intro = ({ illustration, clickHandler }) => {
   const { darkMode } = useContext(OptionsContext);
 
   return (
-    <IntroWrapper>
-      <TextContent>
-        <Title>Front-End React Developer</Title>
-        <Subtitle>
-          Hello, I'm Anđela Tunjić, a front-end React developer from Varaždin,
-          Croatia. Be free to <a style={{color:"#B3AFF8"}}>contact me</a>.
-        </Subtitle>
-        <Buttons>
-          <Button onClick={clickHandler} dark={darkMode ? "true" : "false"}>About Me</Button>
-          <a
-            href={CV}
-            download="CV - Anđela Tunjić"
-            target="_blank"
-            rel="noreferrer"
-          >
+    <Section>
+      <IntroWrapper>
+        <TextContent>
+          <Title>Front-End React Developer</Title>
+          <Subtitle>
+            Hello, I'm Anđela Tunjić, a front-end React developer from Varaždin,
+            Croatia.
+          </Subtitle>
+          <Buttons>
+            <Button onClick={clickHandler} dark={darkMode ? "true" : "false"}>
+              About Me
+            </Button>
             <OutlineButton dark={darkMode ? "true" : "false"}>
-              Download CV
+              Contact Me
             </OutlineButton>
-          </a>
-        </Buttons>
-      </TextContent>
-      <ImageWrapper>
-        <Image src={illustration} alt="Design illustration" />
-      </ImageWrapper>
-    </IntroWrapper>
+          </Buttons>
+          <SocialMedia />
+        </TextContent>
+        <ImageWrapper>
+          <Image src={illustration} alt="Design illustration" />
+        </ImageWrapper>
+      </IntroWrapper>
+    </Section>
   );
 };
 

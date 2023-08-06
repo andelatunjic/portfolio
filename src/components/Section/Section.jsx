@@ -4,13 +4,13 @@ import { OptionsContext } from "../../context/OptionsContext";
 import {
   SectionWrapper,
   SectionInner,
-} from './HomeSectionStyle';
+} from './SectionStyle';
 
-const HomeSection = ({ children }) => {
+const Section = ({ children, background }) => {
   const { darkMode } = useContext(OptionsContext);
 
   return (
-    <SectionWrapper dark={darkMode ? "true" : "false"}>
+    <SectionWrapper dark={darkMode} background={background}>
       <SectionInner>
         {children}
       </SectionInner>
@@ -18,8 +18,9 @@ const HomeSection = ({ children }) => {
   );
 };
 
-HomeSection.propTypes = {
+Section.propTypes = {
   children: PropTypes.node,
+  background: PropTypes.string,
 };
 
-export default HomeSection;
+export default Section;

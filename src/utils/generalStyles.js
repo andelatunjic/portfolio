@@ -13,7 +13,7 @@ export const Button = styled.button`
   transition: background-color 0.3s ease-out;
   border: none;
   font-family: ${fonts.secondary};
-  color: ${colors.textPrimaryLight};
+  color: ${colors.textPrimaryDark};
   font-weight: 500;
   font-size: 12px;
 
@@ -23,14 +23,14 @@ export const Button = styled.button`
   }
 
   &:hover {
-    background: ${colors.backgroundLight};
+    background: transparent;
     border: 1.8px solid ${colors.accentColorPink};
 
     ${(props) =>
       props.dark == "true" &&
       `
-      background: ${colors.backgroundDark};
-      color: ${colors.textPrimaryDark}
+      background: transparent;
+      color: ${colors.textPrimaryLight}
     `}
   }
 `;
@@ -44,8 +44,8 @@ export const OutlineButton = styled.button`
   font-weight: 500;
   font-size: 12px;
   border: 1.8px solid ${colors.accentColorPink};
-  background-color: ${colors.backgroundLight};
-  color: ${colors.textPrimaryLight};
+  background-color: transparent;
+  color: ${colors.textPrimaryDark};
 
   @media screen and (${breakpoints.desktopSmall}) {
     padding: 10px 18px;
@@ -58,14 +58,13 @@ export const OutlineButton = styled.button`
       ${colors.accentColorPink},
       ${colors.accentColorYellow}
     );
-    color: ${colors.textPrimaryLight};
+    color: ${colors.textPrimaryDark};
   }
 
   ${(props) =>
     props.dark == "true" &&
     `
-    background-color: ${colors.backgroundDark};
-    color: ${colors.textPrimaryDark}
+    color: ${colors.textPrimaryLight}
   `}
 `;
 

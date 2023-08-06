@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { colors, breakpoints, fonts } from "../../utils/theme";
-import { NavLink } from "react-router-dom";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
@@ -16,13 +15,13 @@ export const HeaderWrapper = styled.header`
 
   font-family: ${fonts.primary};
   background-color: ${colors.backgroundLight};
-  color: ${colors.textPrimaryLight};
+  color: ${colors.textPrimaryDark};
 
   ${(props) =>
     props.dark == "true" &&
     `
     background-color: ${colors.backgroundDark};
-    color: ${colors.textPrimaryDark}
+    color: ${colors.textPrimaryLight}
   `}
 `;
 
@@ -75,53 +74,14 @@ export const ThemeSwitch = styled(Switch)(() => ({
 
 export const SwitchLabel = styled(FormControlLabel)`
   && {
-    color: ${colors.textPrimaryLight};
+    color: ${colors.textPrimaryDark};
     margin: 0;
 
     ${(props) =>
       props.dark == "true" &&
       `
-      color: ${colors.textPrimaryDark}
+      color: ${colors.textPrimaryLight}
     `}
-  }
-`;
-
-export const Navigation = styled.nav`
-  display: none;
-
-  @media screen and (${breakpoints.tablet}) {
-    display: block;
-
-    > *:not(:last-child) {
-      margin-right: 22px;
-    }
-  }
-
-  @media screen and (${breakpoints.desktopSmall}) {
-    > *:not(:last-child) {
-      margin-right: 32px;
-    }
-  }
-`;
-
-export const NavigationLink = styled(NavLink)`
-  transition: font 0.3s ease-out;
-  font-size: 14px;
-  font-weight: 400;
-
-  @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 16px;
-  }
-
-  &.active {
-    background-color: rgba(134, 134, 134, 0.3);
-    padding: 6px 14px;
-    border-radius: 12px;
-  }
-
-  &:hover {
-    font-weight: 700;
-    
   }
 `;
 

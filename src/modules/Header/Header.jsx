@@ -6,14 +6,13 @@ import LanguageIcon from "../../assets/images/language.png";
 import Hamburger from "../../assets/images/hamburger.png";
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../../components/Logo/Logo";
+import Navigation from "../../components/Navigation/Navigation";
 import {
   HeaderWrapper,
   HeaderInner,
   WebsiteOptions,
   ThemeSwitch,
   SwitchLabel,
-  Navigation,
-  NavigationLink,
   Language,
   LanguageImg,
   LanguageWrapper,
@@ -84,12 +83,7 @@ const Header = () => {
           onClick={sidebarHandler}
         />
         <Logo isHeader />
-        <Navigation>
-          <NavigationLink to={"/"}>Home</NavigationLink>
-          <NavigationLink to={"/skills"}>Skills</NavigationLink>
-          <NavigationLink to={"/experience"}>Experience</NavigationLink>
-          <NavigationLink to={"/login"}>Login</NavigationLink>
-        </Navigation>
+        <Navigation />
         <WebsiteOptions>
           <SwitchLabel
             dark={darkMode ? "true" : "false"}

@@ -5,10 +5,12 @@ export const fonts = {
 
 export const colors = {
   backgroundDark: '#1F2937',
+  backgroundDarkSecondary: '#314158',
   backgroundLight: '#FFFFFF',
+  backgroundLightSecondary: '#E6E6E6',
 
-  textPrimaryDark: '#F9FAFB',
-  textPrimaryLight: '#1F2937',
+  textPrimaryDark: '#1F2937',
+  textPrimaryLight: '#F9FAFB',
 
   textSecondary: '#a4a9b0',
 

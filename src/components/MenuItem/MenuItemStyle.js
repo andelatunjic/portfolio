@@ -40,7 +40,7 @@ export const ItemImage = styled.img`
 `;
 
 export const ItemText = styled.p`
-  color: ${colors.textPrimaryLight};
+  color: ${colors.textPrimaryDark};
   font-family: ${fonts.secondary};
   font-size: 12px;
 
