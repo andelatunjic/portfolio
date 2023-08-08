@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
-import { Button, OutlineButton } from "../../utils/generalStyles";
+import { Button, OutlineButton, Title, Subtitle } from "../../utils/generalStyles";
 import Section from "../../components/Section/Section";
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
 import {
   IntroWrapper,
   TextContent,
-  Title,
-  Subtitle,
   Image,
   Buttons,
   ImageWrapper,

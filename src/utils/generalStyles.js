@@ -84,3 +84,72 @@ export const Grid = styled.div`
     grid-template-columns: repeat(4, 1fr);
   }
 `;
+
+export const Title = styled.h1`
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  text-align: center;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    font-size: 40px;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  @media screen and (${breakpoints.desktop}) {
+    font-size: 48px;
+  }
+`;
+
+export const Subtitle = styled.div`
+  color: ${colors.textSecondary};
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-align: center;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  @media screen and (${breakpoints.desktop}) {
+    font-size: 18px;
+  }
+`;
+
+export const Text = styled.p`
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-align: center;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  @media screen and (${breakpoints.desktop}) {
+    font-size: 16px;
+  }
+`;
