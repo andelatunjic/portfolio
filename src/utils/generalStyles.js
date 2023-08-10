@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { breakpoints, colors, fonts } from "./theme";
 
 export const Button = styled.button`
+  cursor: pointer;
   display: inline-block;
   padding: 6px 12px;
   border-radius: 4px;
@@ -33,9 +34,20 @@ export const Button = styled.button`
       color: ${colors.textPrimaryLight}
     `}
   }
+
+  &:disabled {
+    background: ${colors.textSecondary};
+    border: 0px;
+    cursor: not-allowed;
+
+    &:hover {
+      color: ${colors.textPrimaryDark};
+    }
+  }
 `;
 
 export const OutlineButton = styled.button`
+  cursor: pointer;
   display: inline-block;
   padding: 6px 12px;
   border-radius: 4px;

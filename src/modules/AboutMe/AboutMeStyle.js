@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors, breakpoints } from "../../utils/theme";
 
 export const AboutMeWrapper = styled.div`
-  padding: 32px 0;
+  padding: 80px 0;
   display: flex;
   align-items: center;
   justify-content: center;

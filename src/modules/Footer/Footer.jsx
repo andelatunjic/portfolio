@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from 'prop-types';
 import { OptionsContext } from "../../context/OptionsContext";
 import Section from "../../components/Section/Section";
 import Navigation from "../../components/Navigation/Navigation";
@@ -9,11 +10,11 @@ import {
   Rights,
 } from "./FooterStyle";
 
-const Footer = () => {
+const Footer = ({background}) => {
   const { darkMode } = useContext(OptionsContext);
 
   return (
-    <Section>
+    <Section background={background}>
       <FooterWrapper dark={darkMode}>
         <FooterInner>
           <SocialMedia />
@@ -23,6 +24,10 @@ const Footer = () => {
       </FooterWrapper>
     </Section>
   );
+};
+
+Footer.propTypes = {
+  background: PropTypes.string,
 };
 
 export default Footer;
