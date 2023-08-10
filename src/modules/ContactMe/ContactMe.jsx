@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
 import emailjs from "@emailjs/browser";
 import TextField from "@mui/material/TextField";
@@ -16,7 +17,7 @@ import {
   Form,
 } from "./ContactMeStyle";
 
-const ContactMe = () => {
+const ContactMe = ({ reference }) => {
   const { darkMode } = useContext(OptionsContext);
 
   const textFieldTheme = useTheme();
@@ -140,7 +141,7 @@ const ContactMe = () => {
 
   return (
     <Section>
-      <ContactWrapper>
+      <ContactWrapper ref={reference}>
         <TextWrapper>
           <Title>Let's talk</Title>
           <Subtitle moreContrast>Ask me anything or just say hi!</Subtitle>

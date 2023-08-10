@@ -12,7 +12,7 @@ import {
   ImageWrapper,
 } from "./IntroStyle";
 
-const Intro = ({ illustration, clickHandler }) => {
+const Intro = ({ illustration, aboutMeHandler, contactMeHandler }) => {
   const { darkMode } = useContext(OptionsContext);
 
   return (
@@ -25,10 +25,10 @@ const Intro = ({ illustration, clickHandler }) => {
             Croatia.
           </Subtitle>
           <Buttons>
-            <Button onClick={clickHandler} dark={darkMode ? "true" : "false"}>
+            <Button onClick={aboutMeHandler} dark={darkMode ? "true" : "false"}>
               About Me
             </Button>
-            <OutlineButton dark={darkMode ? "true" : "false"}>
+            <OutlineButton onClick={contactMeHandler} dark={darkMode ? "true" : "false"}>
               Contact Me
             </OutlineButton>
           </Buttons>

@@ -6,17 +6,22 @@ import ContactMe from "../../modules/ContactMe/ContactMe";
 import Footer from "../../modules/Footer/Footer";
 
 const Home = () => {
-  const ref = useRef(null);
+  const aboutMeRef = useRef(null);
+  const contactMeRef = useRef(null);
 
-  const scrollToSection = () => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToAboutMe = () => {
+    aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToContactMe = () => {
+    contactMeRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      <Intro clickHandler={scrollToSection} illustration={GirlIllustration} />
-      <AboutMe reference={ref}>Here is all about me.</AboutMe>
-      <ContactMe />
+      <Intro aboutMeHandler={scrollToAboutMe} contactMeHandler={scrollToContactMe} illustration={GirlIllustration} />
+      <AboutMe reference={aboutMeRef} />
+      <ContactMe reference={contactMeRef} />
       <Footer background="secondary" />
     </>
   );
