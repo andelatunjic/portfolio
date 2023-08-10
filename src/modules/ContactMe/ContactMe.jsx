@@ -9,7 +9,12 @@ import MuiAlert from "@mui/material/Alert";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { Button, Subtitle, Title } from "../../utils/generalStyles";
 import Section from "../../components/Section/Section";
-import { ContactWrapper, TextWrapper, Form } from "./ContactMeStyle";
+import {
+  ContactWrapper,
+  TextWrapper,
+  ButtonWrapper,
+  Form,
+} from "./ContactMeStyle";
 
 const ContactMe = () => {
   const { darkMode } = useContext(OptionsContext);
@@ -36,7 +41,7 @@ const ContactMe = () => {
           styleOverrides: {
             root: {
               "& label.Mui-focused": {
-                color: darkMode ? "#FFD087" : "#5c6bc0" ,
+                color: darkMode ? "#FFD087" : "#5c6bc0",
               },
               "& label": {
                 color: darkMode ? "#a4a9b0" : "#1F2937",
@@ -54,10 +59,14 @@ const ContactMe = () => {
                 borderBottom: "2px solid #B3AFF8",
               },
               "&:hover:not(.Mui-disabled, .Mui-error):before": {
-                borderBottom: darkMode? "2px solid #FFD087" : "2px solid #5c6bc0",
+                borderBottom: darkMode
+                  ? "2px solid #FFD087"
+                  : "2px solid #5c6bc0",
               },
               "&.Mui-focused:after": {
-                borderBottom: darkMode? "2px solid #FFD087" : "2px solid #5c6bc0",
+                borderBottom: darkMode
+                  ? "2px solid #FFD087"
+                  : "2px solid #5c6bc0",
               },
               "& input": {
                 color: darkMode ? "#FFFFFF" : "#1F2937",
@@ -134,7 +143,7 @@ const ContactMe = () => {
       <ContactWrapper>
         <TextWrapper>
           <Title>Let's talk</Title>
-          <Subtitle>Ask me anything or just say hi!</Subtitle>
+          <Subtitle moreContrast>Ask me anything or just say hi!</Subtitle>
         </TextWrapper>
         <Form ref={form} onSubmit={submitHandler}>
           <ThemeProvider theme={customTheme(textFieldTheme)}>
@@ -213,13 +222,15 @@ const ContactMe = () => {
               color: darkMode ? "#a4a9b0" : "#1F2937",
             }}
           />
-          <Button
-            dark={darkMode ? "true" : "false"}
-            type="submit"
-            disabled={sending}
-          >
-            Send
-          </Button>
+          <ButtonWrapper>
+            <Button fullWidth
+              dark={darkMode ? "true" : "false"}
+              type="submit"
+              disabled={sending}
+            >
+              Send
+            </Button>
+          </ButtonWrapper>
         </Form>
       </ContactWrapper>
       <Snackbar

@@ -17,6 +17,7 @@ export const Button = styled.button`
   color: ${colors.textPrimaryDark};
   font-weight: 500;
   font-size: 12px;
+  width: ${(props) => (props.fullWidth && "100%")};
 
   @media screen and (${breakpoints.desktopSmall}) {
     padding: 10px 18px;
@@ -120,7 +121,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.div`
-  color: ${colors.textSecondary};
+  color: ${(props) => (!props.moreContrast && colors.textSecondary)};
   font-size: 12px;
   letter-spacing: 1px;
   line-height: 1.5;
@@ -165,3 +166,5 @@ export const Text = styled.p`
     font-size: 16px;
   }
 `;
+
+
