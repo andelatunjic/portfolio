@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { useCookies } from "react-cookie";
 import { OptionsContext } from "../../context/OptionsContext";
 import Tooltip from "@mui/material/Tooltip";
+import { useTranslation } from "react-i18next";
 import LanguageIcon from "../../assets/images/language.png";
 import Hamburger from "../../assets/images/hamburger.png";
 import Sidebar from "../Sidebar/Sidebar";
@@ -20,8 +21,9 @@ import {
 } from "./HeaderStyle";
 
 const Header = () => {
-  const { darkMode, setDarkMode, language, setLanguage } =
-    useContext(OptionsContext);
+  const { t, i18n } = useTranslation();
+
+  const { darkMode, setDarkMode } = useContext(OptionsContext);
   const [cookies, setCookie] = useCookies(["theme", "language"]);
   const [position, setPosition] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
@@ -31,9 +33,6 @@ const Header = () => {
     if (cookies.theme) {
       setDarkMode(cookies.theme == "dark" ? true : false);
     }
-    if (cookies.language) {
-      setLanguage(cookies.language == "english" ? "english" : "croatian");
-    }
   }, []);
 
   useEffect(() => {
@@ -41,11 +40,6 @@ const Header = () => {
     document.body.style.backgroundColor = darkMode ? "#1F2937" : "#FFFFFF";
     setCookie("theme", cookieValue);
   }, [darkMode]);
-
-  useEffect(() => {
-    const cookieValue = language == "english" ? "english" : "croatian";
-    setCookie("language", cookieValue);
-  }, [language]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,10 +58,6 @@ const Header = () => {
 
   const themeHandler = () => {
     setDarkMode(!darkMode);
-  };
-
-  const languageHandler = () => {
-    setLanguage(language == "english" ? "croatian" : "english");
   };
 
   const sidebarHandler = () => {
@@ -102,14 +92,20 @@ const Header = () => {
               },
             }}
           />
-          <LanguageWrapper>
-            <LanguageImg src={LanguageIcon} alt="Language icon" />
-            <Tooltip title="Change language">
-              <Language onClick={languageHandler}>
-                {language == "english" ? "EN" : "HR"}
+          <Tooltip title={t("languageTooltip")}>
+            <LanguageWrapper
+              onClick={() =>
+                i18n.changeLanguage(
+                  i18n.resolvedLanguage === "en" ? "hrv" : "en"
+                )
+              }
+            >
+              <LanguageImg src={LanguageIcon} alt="Language icon" />
+              <Language>
+                {i18n.resolvedLanguage === "en" ? "EN" : "HRV"}
               </Language>
-            </Tooltip>
-          </LanguageWrapper>
+            </LanguageWrapper>
+          </Tooltip>
         </WebsiteOptions>
       </HeaderInner>
       <Sidebar closeMenu={sidebarHandler} show={sidebar} />

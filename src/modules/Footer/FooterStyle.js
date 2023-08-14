@@ -13,6 +13,6 @@ export const FooterInner = styled.div`
   align-items: center;
 `;
 
-export const Rights = styled.p`
+export const Rights = styled.div`
   font-size: 12px;
 `;

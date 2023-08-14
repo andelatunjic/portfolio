@@ -7,7 +7,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import CustomTheme from "../../components/CustomTheme/CustomTheme";
 import { Button, Subtitle, Title } from "../../utils/generalStyles";
 import Section from "../../components/Section/Section";
 import {
@@ -19,8 +19,6 @@ import {
 
 const ContactMe = ({ reference }) => {
   const { darkMode } = useContext(OptionsContext);
-
-  const textFieldTheme = useTheme();
 
   const [errorToast, setErrorToast] = useState(false);
   const [successToast, setSuccessToast] = useState(false);
@@ -34,49 +32,6 @@ const ContactMe = ({ reference }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-
-  const customTheme = (textFieldTheme) =>
-    createTheme({
-      components: {
-        MuiTextField: {
-          styleOverrides: {
-            root: {
-              "& label.Mui-focused": {
-                color: darkMode ? "#FFD087" : "#5c6bc0",
-              },
-              "& label": {
-                color: darkMode ? "#a4a9b0" : "#1F2937",
-              },
-              "& textarea": {
-                color: darkMode ? "#FFFFFF" : "#1F2937",
-              },
-            },
-          },
-        },
-        MuiInput: {
-          styleOverrides: {
-            root: {
-              "&:before": {
-                borderBottom: "2px solid #B3AFF8",
-              },
-              "&:hover:not(.Mui-disabled, .Mui-error):before": {
-                borderBottom: darkMode
-                  ? "2px solid #FFD087"
-                  : "2px solid #5c6bc0",
-              },
-              "&.Mui-focused:after": {
-                borderBottom: darkMode
-                  ? "2px solid #FFD087"
-                  : "2px solid #5c6bc0",
-              },
-              "& input": {
-                color: darkMode ? "#FFFFFF" : "#1F2937",
-              },
-            },
-          },
-        },
-      },
-    });
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -147,7 +102,7 @@ const ContactMe = ({ reference }) => {
           <Subtitle moreContrast>Ask me anything or just say hi!</Subtitle>
         </TextWrapper>
         <Form ref={form} onSubmit={submitHandler}>
-          <ThemeProvider theme={customTheme(textFieldTheme)}>
+          <CustomTheme>
             <TextField
               label="Subject"
               name="subject"
@@ -202,7 +157,7 @@ const ContactMe = ({ reference }) => {
               type="text"
               inputProps={{ maxLength: 3000 }}
             />
-          </ThemeProvider>
+          </CustomTheme>
           <FormControlLabel
             control={
               <Checkbox
@@ -224,7 +179,8 @@ const ContactMe = ({ reference }) => {
             }}
           />
           <ButtonWrapper>
-            <Button fullWidth
+            <Button
+              fullWidth
               dark={darkMode ? "true" : "false"}
               type="submit"
               disabled={sending}

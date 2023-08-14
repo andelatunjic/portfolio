@@ -89,11 +89,6 @@ export const Language = styled.p`
   margin-left: 4px;
   font-size: 12px;
   line-height: 0px;
-  cursor: pointer;
-
-  &:hover {
-    color: ${colors.accentColorPurpleLight};
-  }
 `;
 
 export const LanguageImg = styled.img`
@@ -103,6 +98,11 @@ export const LanguageImg = styled.img`
 export const LanguageWrapper = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.accentColorPurpleLight};
+  }
 `;
 
 export const HamburgerIcon = styled.img`

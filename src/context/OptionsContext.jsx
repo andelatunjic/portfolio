@@ -4,11 +4,10 @@ const OptionsContext = createContext();
 
 const OptionsProvider = (props) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState("english");
 
   return (
     <OptionsContext.Provider
-      value={{ darkMode, setDarkMode, language, setLanguage }}
+      value={{ darkMode, setDarkMode }}
     >
       {props.children}
     </OptionsContext.Provider>
