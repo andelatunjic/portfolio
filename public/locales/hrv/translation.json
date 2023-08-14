@@ -1,7 +1,29 @@
 {
-    "firstNavItem": "Početna",
-    "secondNavItem": "Vještine",
-    "thirdNavItem": "Iskustvo",
-    "forthNavItem": "Prijava",
-    "languageTooltip": "Promijeni jezik"
+  "firstNavItem": "Početna",
+  "secondNavItem": "Vještine",
+  "thirdNavItem": "Iskustvo",
+  "forthNavItem": "Prijava",
+
+  "languageTooltip": "Promijeni jezik",
+  "dark": "Tamna tema",
+  "light": "Svijetla tema",
+
+  "introTitle": "Front-End React Programer",
+  "introSubtitle": "Pozdrav, ja sam Anđela Tunjić, front-end React programer iz Varaždina.",
+  "introAboutMeButton": "O meni",
+  "introContactMeButton": "Kontaktiraj me",
+
+  "aboutMeTitle": "O meni",
+  "aboutMeSubtitle": "Bok! Ja sam Anđela, React frontend programer s oštrim okom za čist i učinkovit kod.",
+  "aboutMeContent": "Uživam u istraživanju novih tehnologija i učenju novih stvari. Rado prihvaćam nove prilike za vlastiti rast i razvoj kao što su akademije i tečajevi. <br /> Volim pretvarati složene probleme u elegantna rješenja. <br /> Moj fokus je na stvaranju ugodnih korisničkih iskustava i poniranju u svijet UI/UX. (Izgradimo nešto izvanredno zajedno! --- za kontaktirajte me)",
+  "aboutMeCVButton": "Preuzmi CV",
+
+  "contactMeTitle": "Pošalji poruku",
+  "contactMeSubtitle": "Izgradimo zajedno nešto izvanredno! Pitaj bilo što ili samo reci bok.",
+  "contactMeSubject": "Tema",
+  "contactMeName": "Puno ime",
+  "contactMeEmail": "Email",
+  "contactMeMessage": "Poruka",
+  "contactMeRobot": "Nisam robot",
+  "contactMeSend": "Pošalji"
 }

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { OptionsContext } from "../../context/OptionsContext";
 import { Button, OutlineButton, Title, Subtitle } from "../../utils/generalStyles";
 import Section from "../../components/Section/Section";
@@ -14,22 +15,22 @@ import {
 
 const Intro = ({ illustration, aboutMeHandler, contactMeHandler }) => {
   const { darkMode } = useContext(OptionsContext);
+  const { t } = useTranslation();
 
   return (
     <Section>
       <IntroWrapper>
         <TextContent>
-          <Title>Front-End React Developer</Title>
+          <Title>{t("introTitle")}</Title>
           <Subtitle>
-            Hello, I'm Anđela Tunjić, a front-end React developer from Varaždin,
-            Croatia.
+          {t("introSubtitle")}
           </Subtitle>
           <Buttons>
             <Button onClick={aboutMeHandler} dark={darkMode ? "true" : "false"}>
-              About Me
+            {t("introAboutMeButton")}
             </Button>
             <OutlineButton onClick={contactMeHandler} dark={darkMode ? "true" : "false"}>
-              Contact Me
+            {t("introContactMeButton")}
             </OutlineButton>
           </Buttons>
           <SocialMedia />

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { OptionsContext } from "../../context/OptionsContext";
 import Home from "../../assets/images/home.png";
 import Skills from "../../assets/images/settings.png";
@@ -20,6 +21,7 @@ import {
 
 const Sidebar = ({ closeMenu, show }) => {
   const { darkMode } = useContext(OptionsContext);
+  const { t } = useTranslation();
 
   return (
     <SidebarWrapper show={show} dark={darkMode}>
@@ -29,17 +31,17 @@ const Sidebar = ({ closeMenu, show }) => {
       </Header>
       <Navigation>
         <Content onClick={closeMenu}>
-          <MenuItem imgSrc={Home} imgAlt="Home" itemText="Home" path="/" />
+          <MenuItem imgSrc={Home} imgAlt="Home" itemText={t("firstNavItem")} path="/" />
           <MenuItem
             imgSrc={Skills}
             imgAlt="Skills"
-            itemText="Skills"
+            itemText={t("secondNavItem")}
             path="/skills"
           />
           <MenuItem
             imgSrc={Experience}
             imgAlt="Experience"
-            itemText="Experience"
+            itemText={t("thirdNavItem")}
             path="/experience"
           />
         </Content>
@@ -47,7 +49,7 @@ const Sidebar = ({ closeMenu, show }) => {
           <MenuItem
             imgSrc={Logout}
             imgAlt="Logout"
-            itemText="Log out"
+            itemText={t("forthNavItem")}
             path="/login"
           />
         </LogoutWrapper>

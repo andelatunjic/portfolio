@@ -1,8 +1,30 @@
 {
-    "firstNavItem": "Home",
-    "secondNavItem": "Skills",
-    "thirdNavItem": "Experience",
-    "forthNavItem": "Login",
-    "languageTooltip": "Switch language"
-}
+  "firstNavItem": "Home",
+  "secondNavItem": "Skills",
+  "thirdNavItem": "Experience",
+  "forthNavItem": "Login",
+  "fifthNavItem": "Logout",
 
+  "languageTooltip": "Switch language",
+  "dark": "Dark",
+  "light": "Light",
+
+  "introTitle": "Front-End React Developer",
+  "introSubtitle": "Hello, I'm Anđela Tunjić, a front-end React developer from Varaždin, Croatia.",
+  "introAboutMeButton": "About Me",
+  "introContactMeButton": "Contact Me",
+
+  "aboutMeTitle": "About Me",
+  "aboutMeSubtitle": "Hi there! I'm Anđela, a React frontend developer with a keen eye for clean and efficient code.",
+  "aboutMeContent": "I enjoy exploring new technologies and continuously improving my skills. <br /> I love turning complex problems into elegant solutions through the power of web development. <br /> My focus is on crafting seamless user experiences and diving into the world of UI/UX.",
+  "aboutMeCVButton": "Download CV",
+
+  "contactMeTitle": "Let's talk",
+  "contactMeSubtitle": "Let's build something extraordinary together! Ask me anything or just say hi.",
+  "contactMeSubject": "Subject",
+  "contactMeName": "Full name",
+  "contactMeEmail": "Email",
+  "contactMeMessage": "Message",
+  "contactMeRobot": "I am not a robot",
+  "contactMeSend": "Send"
+}

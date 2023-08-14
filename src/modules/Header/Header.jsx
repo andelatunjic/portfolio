@@ -84,7 +84,7 @@ const Header = () => {
                 onChange={themeHandler}
               />
             }
-            label={darkMode ? "Dark" : "Light"}
+            label={darkMode ? t("dark") : t("light")}
             sx={{
               fontSize: 8,
               "& .MuiTypography-root": {

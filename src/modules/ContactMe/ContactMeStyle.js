@@ -18,10 +18,16 @@ export const ContactWrapper = styled.div`
   @media screen and (${breakpoints.desktopSmall}) {
     flex-direction: row;
   }
-
 `;
 
-export const TextWrapper = styled.div``;
+export const TextWrapper = styled.div`
+  max-width: 400px;
+  align-items: center;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    max-width: 500px;
+  }
+`;
 
 export const ButtonWrapper = styled.div`
   height: 40px;

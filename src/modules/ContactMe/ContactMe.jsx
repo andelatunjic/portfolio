@@ -1,5 +1,6 @@
 import React, { useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { OptionsContext } from "../../context/OptionsContext";
 import emailjs from "@emailjs/browser";
 import TextField from "@mui/material/TextField";
@@ -19,6 +20,7 @@ import {
 
 const ContactMe = ({ reference }) => {
   const { darkMode } = useContext(OptionsContext);
+  const { t } = useTranslation();
 
   const [errorToast, setErrorToast] = useState(false);
   const [successToast, setSuccessToast] = useState(false);
@@ -98,13 +100,13 @@ const ContactMe = ({ reference }) => {
     <Section>
       <ContactWrapper ref={reference}>
         <TextWrapper>
-          <Title>Let's talk</Title>
-          <Subtitle moreContrast>Ask me anything or just say hi!</Subtitle>
+          <Title>{t("contactMeTitle")}</Title>
+          <Subtitle moreContrast>{t("contactMeSubtitle")}</Subtitle>
         </TextWrapper>
         <Form ref={form} onSubmit={submitHandler}>
           <CustomTheme>
             <TextField
-              label="Subject"
+              label={t("contactMeSubject")}
               name="subject"
               value={subject}
               onChange={inputChangeHandler}
@@ -117,7 +119,7 @@ const ContactMe = ({ reference }) => {
               inputProps={{ maxLength: 50 }}
             />
             <TextField
-              label="Name"
+              label={t("contactMeName")}
               name="name"
               value={name}
               onChange={inputChangeHandler}
@@ -130,7 +132,7 @@ const ContactMe = ({ reference }) => {
               inputProps={{ maxLength: 35 }}
             />
             <TextField
-              label="Email"
+              label={t("contactMeEmail")}
               name="email"
               value={email}
               onChange={inputChangeHandler}
@@ -143,7 +145,7 @@ const ContactMe = ({ reference }) => {
               inputProps={{ maxLength: 50 }}
             />
             <TextField
-              label="Message"
+              label={t("contactMeMessage")}
               name="message"
               value={message}
               onChange={inputChangeHandler}
@@ -173,7 +175,7 @@ const ContactMe = ({ reference }) => {
                 }}
               />
             }
-            label="I am not a robot"
+            label={t("contactMeRobot")}
             sx={{
               color: darkMode ? "#a4a9b0" : "#1F2937",
             }}
@@ -185,7 +187,7 @@ const ContactMe = ({ reference }) => {
               type="submit"
               disabled={sending}
             >
-              Send
+              {t("contactMeSend")}
             </Button>
           </ButtonWrapper>
         </Form>
