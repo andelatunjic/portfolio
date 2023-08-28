@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { OptionsContext } from "../../context/OptionsContext";
 import Section from "../../components/Section/Section";
+import ForgottenPassword from "../ForgottenPassword/ForgottenPassword";
 import {
   LoginFormWrapper,
   Form,
@@ -21,9 +23,11 @@ import { auth } from "../../firebase/firebase";
 
 const LoginForm = () => {
   const { darkMode, setAuthUser } = useContext(OptionsContext);
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [errorToast, setErrorToast] = useState(false);
+  const [newPassword, setNewPassword] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -87,14 +91,18 @@ const LoginForm = () => {
   };
 
   const showPasswordHandler = () => {
-    setShowPassword(!show);
+    setShowPassword(!showPassword);
+  };
+
+  const forgottenPasswordHandler = () => {
+    setNewPassword(!newPassword);
   };
 
   return (
     <Section>
       <LoginFormWrapper>
-        <Title>Welcome back</Title>
-        <Subtitle>Log in to your account</Subtitle>
+        <Title>{t("LoginTitle")}</Title>
+        <Subtitle>{t("LoginSubtitle")}</Subtitle>
         <CustomTheme>
           <Form onSubmit={loginHandler}>
             <CustomTheme>
@@ -114,7 +122,7 @@ const LoginForm = () => {
               />
               <PasswordWrapper>
                 <TextField
-                  label="Password"
+                  label={t("LoginPassword")}
                   name="password"
                   value={password}
                   onChange={inputChangeHandler}
@@ -143,15 +151,19 @@ const LoginForm = () => {
                 type="submit"
                 disabled={sending}
               >
-                Login
+                {t("LoginButton")}
               </Button>
             </ButtonWrapper>
           </Form>
         </CustomTheme>
-        <ForgotPasswordWrapper>
-          <Text>Forgot your password?</Text>
+        <ForgotPasswordWrapper onClick={forgottenPasswordHandler}>
+          <Text>{t("LoginForgottenPass")}</Text>
         </ForgotPasswordWrapper>
       </LoginFormWrapper>
+      <ForgottenPassword
+        show={newPassword}
+        showHandler={forgottenPasswordHandler}
+      />
       <Snackbar
         open={errorToast}
         autoHideDuration={3000}
@@ -164,7 +176,7 @@ const LoginForm = () => {
           variant="filled"
           elevation={3}
         >
-          Wrong email or password. Try again.
+          {t("SnackBarFailedAuthentication")}
         </MuiAlert>
       </Snackbar>
     </Section>

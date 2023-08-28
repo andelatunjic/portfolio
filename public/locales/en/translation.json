@@ -26,5 +26,25 @@
   "contactMeEmail": "Email",
   "contactMeMessage": "Message",
   "contactMeRobot": "I am not a robot",
-  "contactMeSend": "Send"
+  "contactMeSend": "Send",
+
+  "footerRights": "©2023 Anđela Tunjić | All rights Reserved",
+
+  "LoginTitle": "Welcome back",
+  "LoginSubtitle": "Log in to your account",
+  "LoginEmail": "Email",
+  "LoginPassword": "Password",
+  "LoginButton": "Login",
+  "LoginForgottenPass": "Forgot your password?",
+  
+  "ForgottenPassTitle": "Forgotten password",
+  "ForgottenPassSubtitle": "To set new password, please enter your email address here. We will send you email with reset link.",
+  "ForgottenPassCancel": "Cancel",
+  "ForgottenPassSubmit": "Submit",
+
+  "SnackBarFailedAuthentication": "Wrong email or password. Try again.",
+  "SnackBarFailedEmailReset": "An error occurred. Please try again.",
+  "SnackBarSuccessfulEmailReset": "An email with a password reset link has been successfully sent.",
+  "SnackBarFailedContact": "Something is wrong. Try again.",
+  "SnackBarSuccessfulContact": "Your email is successfully sent!"
 }

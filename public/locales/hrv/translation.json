@@ -3,6 +3,7 @@
   "secondNavItem": "Vještine",
   "thirdNavItem": "Iskustvo",
   "forthNavItem": "Prijava",
+  "fifthNavItem": "Odjava",
 
   "languageTooltip": "Promijeni jezik",
   "dark": "Tamna tema",
@@ -15,7 +16,7 @@
 
   "aboutMeTitle": "O meni",
   "aboutMeSubtitle": "Bok! Ja sam Anđela, React frontend programer s oštrim okom za čist i učinkovit kod.",
-  "aboutMeContent": "Uživam u istraživanju novih tehnologija i učenju novih stvari. Rado prihvaćam nove prilike za vlastiti rast i razvoj kao što su akademije i tečajevi. <br /> Volim pretvarati složene probleme u elegantna rješenja. <br /> Moj fokus je na stvaranju ugodnih korisničkih iskustava i poniranju u svijet UI/UX. (Izgradimo nešto izvanredno zajedno! --- za kontaktirajte me)",
+  "aboutMeContent": "Uživam u istraživanju novih tehnologija i učenju novih stvari. Rado prihvaćam nove prilike za vlastiti rast i razvoj kao što su akademije i tečajevi. <br /> Volim pretvarati složene probleme u elegantna rješenja. <br /> Moj fokus je na stvaranju ugodnih korisničkih iskustava i poniranju u svijet UI/UX.",
   "aboutMeCVButton": "Preuzmi CV",
 
   "contactMeTitle": "Pošalji poruku",
@@ -25,5 +26,24 @@
   "contactMeEmail": "Email",
   "contactMeMessage": "Poruka",
   "contactMeRobot": "Nisam robot",
-  "contactMeSend": "Pošalji"
+  "contactMeSend": "Pošalji",
+
+  "footerRights": "©2023 Anđela Tunjić | Sva prava zadržana",
+
+  "LoginTitle": "Dobrodošli natrag",
+  "LoginSubtitle": "Prijavite se na svoj korisnički račun",
+  "LoginPassword": "Lozinka",
+  "LoginButton": "Prijava",
+  "LoginForgottenPass": "Zaboravljena lozinka?",
+
+  "ForgottenPassTitle": "Zaboravljena lozinka",
+  "ForgottenPassSubtitle": "Za postavljanje nove lozinke molimo unesite svoju e-mail adresu ovdje. Poslat ćemo vam e-poruku s vezom za ponovno postavljanje lozinke.",
+  "ForgottenPassCancel": "Odustani",
+  "ForgottenPassSubmit": "Pošalji",
+
+  "SnackBarFailedAuthentication": "Pogrešna adresa e-pošte ili lozinka. Pokušajte ponovno.",
+  "SnackBarFailedEmailReset": "Došlo je do pogreške. Pokušajte ponovno.",
+  "SnackBarSuccessfulEmailReset": "E-poruka s vezom za ponovno postavljanje lozinke je uspješno poslana.",
+  "SnackBarFailedContact": "Nešto nije u redu. Pokušajte ponovno.",
+  "SnackBarSuccessfulContact": "Vaša e-poruka je uspješno poslana!"
 }

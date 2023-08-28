@@ -61,6 +61,7 @@ const ContactMe = ({ reference }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     if (isFormValid) {
       setSending(true);
       emailjs
@@ -204,7 +205,7 @@ const ContactMe = ({ reference }) => {
           variant="filled"
           elevation={3}
         >
-          Your email is successfully sent!
+          {t("SnackBarSuccessfulContact")}
         </MuiAlert>
       </Snackbar>
       <Snackbar
@@ -219,7 +220,7 @@ const ContactMe = ({ reference }) => {
           variant="filled"
           elevation={3}
         >
-          Something is wrong. Try again.
+          {t("SnackBarFailedContact")}
         </MuiAlert>
       </Snackbar>
     </Section>

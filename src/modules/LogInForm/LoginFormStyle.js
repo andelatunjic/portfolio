@@ -22,8 +22,10 @@ export const Form = styled.form`
 `;
 
 export const ButtonWrapper = styled.div`
-  height: 40px;
+  height: 36px;
   margin-top: 16px;
+  display: flex;
+  gap: 12px;
 `;
 
 export const ForgotPasswordWrapper = styled.div`
