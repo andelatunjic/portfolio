@@ -25,3 +25,17 @@ export const ButtonWrapper = styled.div`
   height: 40px;
   margin-top: 16px;
 `;
+
+export const ForgotPasswordWrapper = styled.div`
+  transition: font 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const PasswordWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;

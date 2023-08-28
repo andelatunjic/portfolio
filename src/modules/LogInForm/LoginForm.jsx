@@ -2,12 +2,21 @@ import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { OptionsContext } from "../../context/OptionsContext";
 import Section from "../../components/Section/Section";
-import { LoginFormWrapper, Form, ButtonWrapper } from "./LoginFormStyle";
-import { Title, Button } from "../../utils/generalStyles";
+import {
+  LoginFormWrapper,
+  Form,
+  ButtonWrapper,
+  ForgotPasswordWrapper,
+  PasswordWrapper,
+} from "./LoginFormStyle";
+import { Title, Button, Subtitle, Text } from "../../utils/generalStyles";
 import CustomTheme from "../../components/CustomTheme/CustomTheme";
 import TextField from "@mui/material/TextField";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import IconButton from "@mui/material/IconButton";
 import { auth } from "../../firebase/firebase";
 
 const LoginForm = () => {
@@ -18,8 +27,11 @@ const LoginForm = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [sending, setSending] = useState(false);
+
+  let iconColor = darkMode ? "#FFD087" : "#5c6bc0";
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -74,10 +86,15 @@ const LoginForm = () => {
     setErrorToast(false);
   };
 
+  const showPasswordHandler = () => {
+    setShowPassword(!show);
+  };
+
   return (
     <Section>
       <LoginFormWrapper>
         <Title>Welcome back</Title>
+        <Subtitle>Log in to your account</Subtitle>
         <CustomTheme>
           <Form onSubmit={loginHandler}>
             <CustomTheme>
@@ -95,20 +112,29 @@ const LoginForm = () => {
                 inputProps={{ maxLength: 50 }}
                 autoComplete="off"
               />
-              <TextField
-                label="Password"
-                name="password"
-                value={password}
-                onChange={inputChangeHandler}
-                fullWidth
-                margin="dense"
-                required
-                variant="standard"
-                disabled={sending}
-                type="password"
-                inputProps={{ maxLength: 50 }}
-                autoComplete="off"
-              />
+              <PasswordWrapper>
+                <TextField
+                  label="Password"
+                  name="password"
+                  value={password}
+                  onChange={inputChangeHandler}
+                  fullWidth
+                  margin="dense"
+                  required
+                  variant="standard"
+                  disabled={sending}
+                  type={showPassword ? "text" : "password"}
+                  inputProps={{ maxLength: 50 }}
+                  autoComplete="off"
+                />
+                <IconButton onClick={showPasswordHandler}>
+                  {showPassword ? (
+                    <Visibility sx={{ color: iconColor }} />
+                  ) : (
+                    <VisibilityOff sx={{ color: iconColor }} />
+                  )}
+                </IconButton>
+              </PasswordWrapper>
             </CustomTheme>
             <ButtonWrapper>
               <Button
@@ -122,6 +148,9 @@ const LoginForm = () => {
             </ButtonWrapper>
           </Form>
         </CustomTheme>
+        <ForgotPasswordWrapper>
+          <Text>Forgot your password?</Text>
+        </ForgotPasswordWrapper>
       </LoginFormWrapper>
       <Snackbar
         open={errorToast}
