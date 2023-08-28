@@ -23,6 +23,19 @@ export const NavLinkWrapper = styled(NavLink)`
   }
 `;
 
+export const LogoutLinkWrapper = styled.div`
+  display: block;
+  background-color: ${colors.accentColorYellow};
+  border-radius: 0 18px 18px 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: 600;
+    background-color: ${colors.accentColorPink};
+  }
+`;
+
 export const MenuItemInner = styled.div`
   display: flex;
   align-items: center;
