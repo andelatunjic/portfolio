@@ -32,7 +32,6 @@
 
   "LoginTitle": "Welcome back",
   "LoginSubtitle": "Log in to your account",
-  "LoginEmail": "Email",
   "LoginPassword": "Password",
   "LoginButton": "Login",
   "LoginForgottenPass": "Forgot your password?",
