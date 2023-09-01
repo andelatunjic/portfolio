@@ -84,3 +84,14 @@ export const NormalVersion = styled.div`
     display: block;
   }
 `;
+
+export const AddNewWrapper = styled.div`
+  display: none;
+
+  ${(props) =>
+    props.auth &&
+    `
+    display: block;
+    margin-bottom: 14px;
+  `}
+`;

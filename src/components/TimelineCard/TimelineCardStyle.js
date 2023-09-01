@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { breakpoints } from "../../utils/theme";
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.div``;
+
+export const CardContent = styled.div`
   width: 100%;
   background-color: rgba(1, 1, 1, 0.05);
   box-shadow: 0px 20px 53px -30px rgba(1, 1, 1, 0.6);
@@ -66,4 +68,17 @@ export const CardDescription = styled.p`
   @media screen and (${breakpoints.desktop}) {
     font-size: 16px;
   }
+`;
+
+export const AdminOptions = styled.div`
+  display: none;
+
+  ${(props) =>
+    props.auth &&
+    `
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 8px;
+  `}
 `;

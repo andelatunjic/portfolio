@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { OptionsContext } from "../../context/OptionsContext";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
@@ -16,23 +17,42 @@ import {
   Date,
   MobileVersion,
   NormalVersion,
+  AddNewWrapper,
 } from "./ExperienceTimelineStyle";
 import { Subtitle, Title } from "../../utils/generalStyles";
 import TimelineCard from "../../components/TimelineCard/TimelineCard";
+import Add from "@mui/icons-material/Add";
+import IconButton from "@mui/material/IconButton";
 
 const ExperienceTimeline = () => {
+  const { darkMode, authUser } = useContext(OptionsContext);
+
   return (
     <Section>
       <TimelineWrapper>
         <DesignBox />
         <ExperienceWrapper>
-          <TextContent>
-            <Title>Work experience</Title>
-            <Subtitle moreContrast>
-              Timeline of work positions & academies
-            </Subtitle>
-          </TextContent>
-
+          <div>
+            <AddNewWrapper auth={authUser}>
+              <IconButton
+                sx={{
+                  backgroundColor: "rgba(1, 1, 1, 0.2)",
+                  "&:hover": {
+                    backgroundColor: "rgba(1, 1, 1, 0.3)",
+                  },
+                  color: "#B3AFF8",
+                }}
+              >
+                <Add sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }} fontSize="medium" />
+              </IconButton>
+            </AddNewWrapper>
+            <TextContent>
+              <Title>Work experience</Title>
+              <Subtitle moreContrast>
+                Timeline of work positions & academies
+              </Subtitle>
+            </TextContent>
+          </div>
           <MobileVersion>
             <Timeline
               sx={{
@@ -48,7 +68,9 @@ const ExperienceTimeline = () => {
                 <TimelineSeparator>
                   <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                   <TimelineDot color="secondary" variant="outlined">
-                    <WorkHistory />
+                    <WorkHistory
+                      sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
+                    />
                   </TimelineDot>
                   <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                 </TimelineSeparator>
@@ -68,7 +90,9 @@ const ExperienceTimeline = () => {
                 <TimelineSeparator>
                   <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                   <TimelineDot color="secondary" variant="outlined">
-                    <WorkHistory />
+                    <WorkHistory
+                      sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
+                    />
                   </TimelineDot>
                   <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                 </TimelineSeparator>
