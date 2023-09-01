@@ -6,6 +6,7 @@ import Experience from "./pages/Experience/Experience";
 import Login from "./pages/Login/Login";
 import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/skills" element={<Skills />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </>
