@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import PasswordCustomTheme from "../../components/PasswordCustomTheme/PasswordCustomTheme";
+import FormCustomTheme from "../../../components/FormCustomTheme/FormCustomTheme";
 import { useTranslation } from "react-i18next";
-import { Button, OutlineButton } from "../../utils/generalStyles";
+import { Button, OutlineButton } from "../../../utils/generalStyles";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -11,7 +11,7 @@ import TextField from "@mui/material/TextField";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { ButtonWrapper } from "../LogInForm/LoginFormStyle";
-import { auth } from "../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
 
 const ForgottenPassword = ({ show, showHandler }) => {
   const { t } = useTranslation();
@@ -58,7 +58,7 @@ const ForgottenPassword = ({ show, showHandler }) => {
 
   return (
     <>
-      <PasswordCustomTheme>
+      <FormCustomTheme>
         <Dialog open={show} onClose={showHandler}>
           <DialogTitle>{t("ForgottenPassTitle")}</DialogTitle>
           <DialogContent>
@@ -89,7 +89,7 @@ const ForgottenPassword = ({ show, showHandler }) => {
             </ButtonWrapper>
           </DialogActions>
         </Dialog>
-      </PasswordCustomTheme>
+      </FormCustomTheme>
       <Snackbar
         open={errorToast}
         autoHideDuration={3000}

@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { OptionsContext } from "../../context/OptionsContext";
-import Section from "../../components/Section/Section";
+import { OptionsContext } from "../../../context/OptionsContext";
+import Section from "../../../components/Section/Section";
 import ForgottenPassword from "../ForgottenPassword/ForgottenPassword";
 import {
   LoginFormWrapper,
@@ -11,15 +11,15 @@ import {
   ForgotPasswordWrapper,
   PasswordWrapper,
 } from "./LoginFormStyle";
-import { Title, Button, Subtitle, Text } from "../../utils/generalStyles";
-import CustomTheme from "../../components/CustomTheme/CustomTheme";
+import { Title, Button, Subtitle, Text } from "../../../utils/generalStyles";
+import CustomTheme from "../../../components/CustomTheme/CustomTheme";
 import TextField from "@mui/material/TextField";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
-import { auth } from "../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
 
 const LoginForm = () => {
   const { darkMode, setAuthUser } = useContext(OptionsContext);

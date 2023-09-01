@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpoints } from "../../utils/theme";
+import { breakpoints } from "../../../utils/theme";
 
 export const LoginFormWrapper = styled.div`
   height: 100vh;

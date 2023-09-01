@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 
-const PasswordCustomTheme = ({ children }) => {
+const FormCustomTheme = ({ children }) => {
   const textFieldTheme = useTheme();
 
   const customTheme = (textFieldTheme) =>
@@ -54,8 +54,8 @@ const PasswordCustomTheme = ({ children }) => {
   );
 };
 
-PasswordCustomTheme.propTypes = {
+FormCustomTheme.propTypes = {
   children: PropTypes.node,
 };
 
-export default PasswordCustomTheme;
+export default FormCustomTheme;
