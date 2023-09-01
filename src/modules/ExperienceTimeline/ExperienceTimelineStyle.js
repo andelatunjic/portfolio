@@ -9,16 +9,12 @@ export const TimelineWrapper = styled.div`
   margin-top: 104px;
 
   @media screen and (${breakpoints.tablet}) {
-    margin-top: 150px;
-  }
-
-  @media screen and (${breakpoints.desktopSmall}) {
     margin-top: 120px;
   }
 `;
 
 export const DesignBox = styled.div`
-  width: 90%;
+  width: 95%;
   height: 400px;
   background: linear-gradient(
     to right,
@@ -30,22 +26,23 @@ export const DesignBox = styled.div`
 `;
 
 export const ExperienceWrapper = styled.div`
-  background-color: rgba(1, 1, 1, 0.08);
+  background-color: rgba(1, 1, 1, 0.2);
   box-shadow: 0px 20px 53px -30px rgba(1, 1, 1, 0.6);
   backdrop-filter: blur(4px);
   border-radius: 24px;
   height: auto;
 
-  width: 800px;
+  width: 95%;
   padding: 24px 24px;
   margin-top: 124px;
+  margin-bottom: 32px;
 
   @media screen and (${breakpoints.tablet}) {
-    padding: 70px 70px;
+    padding: 40px 40px;
   }
 
   @media screen and (${breakpoints.desktopSmall}) {
-    padding: 40px 40px;
+    display: flex;
   }
 `;
 
@@ -55,4 +52,35 @@ export const TextContent = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 24px;
+`;
+
+export const Date = styled.p`
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 0.5;
+  font-style: italic;
+
+  @media screen and (${breakpoints.tablet}) {
+    font-size: 12px;
+  }
+
+  @media screen and (${breakpoints.desktop}) {
+    font-size: 14px;
+  }
+`;
+
+export const MobileVersion = styled.div`
+  display: block;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    display: none;
+  }
+`;
+
+export const NormalVersion = styled.div`
+  display: none;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    display: block;
+  }
 `;
