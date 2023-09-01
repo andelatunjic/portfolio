@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../utils/theme";
 
 export const LoginFormWrapper = styled.div`
   height: 100vh;
@@ -15,6 +16,8 @@ export const Form = styled.form`
   max-width: 460px;
   padding: 24px;
   border-radius: 24px;
+  background-color: rgba(1, 1, 1, 0.1);
+  box-shadow: 0px 4px 20px 0px rgba(1, 1, 1, 0.6);
 
   & > * {
     margin-bottom: 16px;
@@ -29,11 +32,16 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ForgotPasswordWrapper = styled.div`
+  margin-top: 16px;
   transition: font 0.3s ease-out;
   cursor: pointer;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media screen and (${breakpoints.tablet}) {
+    margin-top: 24px;
   }
 `;
 
