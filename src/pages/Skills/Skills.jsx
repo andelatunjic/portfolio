@@ -1,10 +1,17 @@
 import React from "react";
+import SkillsSection from "../../modules/SkillsSection/SkillsSection";
+import Projects from "../../modules/Projects/Projects";
+import Footer from "../../modules/Footer/Footer";
+import Comments from "../../modules/Comments/Comments";
 
 const Skills = () => {
   return (
-    <div>
-      <div>hej</div>
-    </div>
+    <>
+      <SkillsSection />
+      <Projects />
+      <Comments />
+      <Footer />
+    </>
   );
 };
 

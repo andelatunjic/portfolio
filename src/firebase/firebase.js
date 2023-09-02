@@ -17,3 +17,4 @@ export const auth = firebase.auth();
 export default app;
 
 auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+export const firestore = firebase.firestore;
