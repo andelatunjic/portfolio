@@ -94,7 +94,7 @@ export const Grid = styled.div`
     gap: 20px;
 
     ${(props) =>
-      props.skills &&
+      props.fourcols &&
       `
         gap: 26px;
     `}
@@ -106,7 +106,7 @@ export const Grid = styled.div`
   }
 
   ${(props) =>
-    props.skills &&
+    props.fourcols &&
     `
       @media screen and (${breakpoints.desktop}) {
         grid-template-columns: repeat(4, 1fr);

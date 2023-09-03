@@ -1,6 +1,12 @@
 import React from "react";
 import Section from "../../components/Section/Section";
 import { Grid } from "../../utils/generalStyles";
+import Front from "../../assets/images/frontend.png";
+import Back from "../../assets/images/backend.png";
+import Database from "../../assets/images/database.png";
+import Tools from "../../assets/images/tools.png";
+import Mobile from "../../assets/images/mobile.png";
+import Other from "../../assets/images/other.png";
 import {
   Progress,
   SkillsWrapper,
@@ -10,6 +16,9 @@ import {
   Items,
   ItemWrapper,
   Content,
+  Figure,
+  Image,
+  CardHeader,
 } from "./SkillsSectionStyle";
 
 const SkillsSection = () => {
@@ -17,9 +26,14 @@ const SkillsSection = () => {
     <Section>
       <SkillsWrapper>
         <Title>My Skills</Title>
-        <Grid skills>
+        <Grid>
           <SkillCardWrapper>
-            <Category>Front-End Development</Category>
+            <CardHeader>
+              <Figure>
+                <Image src={Front} alt="Design image" />
+              </Figure>
+              <Category>Front-End Development</Category>
+            </CardHeader>
             <Items>
               <ItemWrapper>
                 <Content>HTML, CSS, JavaScript</Content>
@@ -40,7 +54,12 @@ const SkillsSection = () => {
             </Items>
           </SkillCardWrapper>
           <SkillCardWrapper>
-            <Category>Back-End Development</Category>
+            <CardHeader>
+              <Figure>
+                <Image src={Back} alt="Design image" />
+              </Figure>
+              <Category>Back-End Development</Category>
+            </CardHeader>
             <Items>
               <ItemWrapper>
                 <Content>Java, C#</Content>
@@ -57,7 +76,12 @@ const SkillsSection = () => {
             </Items>
           </SkillCardWrapper>
           <SkillCardWrapper>
-            <Category>Database Management</Category>
+            <CardHeader>
+              <Figure>
+                <Image src={Database} alt="Design image" />
+              </Figure>
+              <Category>Database Management</Category>
+            </CardHeader>
             <Items>
               <ItemWrapper>
                 <Content>MySQL, MSS</Content>
@@ -74,7 +98,12 @@ const SkillsSection = () => {
             </Items>
           </SkillCardWrapper>
           <SkillCardWrapper>
-            <Category>Development & Colaboration Tools</Category>
+            <CardHeader>
+              <Figure>
+                <Image src={Tools} alt="Design image" />
+              </Figure>
+              <Category>Development & Colaboration Tools</Category>
+            </CardHeader>
             <Items>
               <ItemWrapper>
                 <Content>Git, GitHub, GitLab</Content>
@@ -91,7 +120,12 @@ const SkillsSection = () => {
             </Items>
           </SkillCardWrapper>
           <SkillCardWrapper>
-            <Category>Mobile App Development</Category>
+            <CardHeader>
+              <Figure>
+                <Image src={Mobile} alt="Design image" />
+              </Figure>
+              <Category>Mobile App Development</Category>
+            </CardHeader>
             <Items>
               <ItemWrapper>
                 <Content>Flutter, Dart</Content>
@@ -100,7 +134,12 @@ const SkillsSection = () => {
             </Items>
           </SkillCardWrapper>
           <SkillCardWrapper>
-            <Category>Other</Category>
+            <CardHeader>
+              <Figure>
+                <Image src={Other} alt="Design image" />
+              </Figure>
+              <Category>Other</Category>
+            </CardHeader>
             <Items>
               <ItemWrapper>
                 <Content>Communication, Teamwork</Content>

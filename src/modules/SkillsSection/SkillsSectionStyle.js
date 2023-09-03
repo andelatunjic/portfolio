@@ -71,3 +71,23 @@ export const Content = styled.p`
     font-size: 14px;
   }
 `;
+
+export const Figure = styled.figure`
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const CardHeader = styled.div`
+  display: flex;
+  gap: 24px;
+  align-items: center;
+`;

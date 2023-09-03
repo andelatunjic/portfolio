@@ -10,7 +10,7 @@ const Skills = () => {
       <SkillsSection />
       <Projects />
       <Comments />
-      <Footer />
+      <Footer/>
     </>
   );
 };
