@@ -2,6 +2,10 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
 import Tag from "../Tag/Tag";
+import Open from "@mui/icons-material/OpenInNewSharp";
+import GitHub from "@mui/icons-material/GitHub";
+import Delete from "@mui/icons-material/DeleteOutline";
+import Edit from "@mui/icons-material/EditTwoTone";
 import {
   ProjectCardWrapper,
   ProjectFigure,
@@ -13,10 +17,6 @@ import {
   Tags,
   AdminActions,
 } from "./ProjectCardStyle";
-import Open from "@mui/icons-material/OpenInNewSharp";
-import GitHub from "@mui/icons-material/GitHub";
-import Delete from "@mui/icons-material/DeleteOutline";
-import Edit from "@mui/icons-material/EditTwoTone";
 
 const ProjectCard = ({ imgSrc, imgAlt, title, description, date, tags }) => {
   const { darkMode, authUser } = useContext(OptionsContext);
@@ -90,7 +90,7 @@ ProjectCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   date: PropTypes.string,
-  tag: PropTypes.string,
+  tags: PropTypes.string,
 };
 
 export default ProjectCard;

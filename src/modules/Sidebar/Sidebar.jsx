@@ -10,6 +10,7 @@ import Experience from "../../assets/images/portfolio.png";
 import Login from "../../assets/images/login.png";
 import Logout from "../../assets/images/logout.png";
 import Close from "../../assets/images/close.png";
+import CloseDark from "../../assets/images/closeDark.png";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import Logo from "../../components/Logo/Logo";
 import {
@@ -39,7 +40,7 @@ const Sidebar = ({ closeMenu, show }) => {
   return (
     <SidebarWrapper show={show} dark={darkMode}>
       <Header>
-        <CloseIcon src={Close} onClick={closeMenu} />
+        <CloseIcon src={darkMode ? Close : CloseDark} onClick={closeMenu} />
         <Logo isSidebar />
       </Header>
       <Navigation>

@@ -5,6 +5,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { useTranslation } from "react-i18next";
 import LanguageIcon from "../../assets/images/language.png";
 import Hamburger from "../../assets/images/hamburger.png";
+import HamburgerDark from "../../assets/images/hamburgerDark.png";
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../../components/Logo/Logo";
 import Navigation from "../../components/Navigation/Navigation";
@@ -68,7 +69,7 @@ const Header = () => {
     <HeaderWrapper dark={darkMode ? "true" : "false"} scroll={cls}>
       <HeaderInner>
         <HamburgerIcon
-          src={Hamburger}
+          src={darkMode ? Hamburger : HamburgerDark}
           alt="Hamburger menu icon"
           onClick={sidebarHandler}
         />

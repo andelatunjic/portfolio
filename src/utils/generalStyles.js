@@ -17,7 +17,7 @@ export const Button = styled.button`
   color: ${colors.textPrimaryDark};
   font-weight: 500;
   font-size: 12px;
-  width: ${(props) => (props.fullWidth && "100%")};
+  width: ${(props) => props.fullWidth && "100%"};
 
   @media screen and (${breakpoints.desktopSmall}) {
     padding: 10px 18px;
@@ -83,19 +83,35 @@ export const OutlineButton = styled.button`
 
 export const Grid = styled.div`
   display: grid;
-  gap: 32px;
+  gap: 16px;
 
   @media screen and (${breakpoints.tabletSmall}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media screen and (${breakpoints.tablet}) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    ${(props) =>
+      props.skills &&
+      `
+        gap: 26px;
+    `}
   }
 
-  @media screen and (${breakpoints.desktopLarge}) {
-    grid-template-columns: repeat(4, 1fr);
+  @media screen and (${breakpoints.desktopSmall}) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
   }
+
+  ${(props) =>
+    props.skills &&
+    `
+      @media screen and (${breakpoints.desktop}) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    `}
 `;
 
 export const Title = styled.h1`
@@ -121,7 +137,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.div`
-  color: ${(props) => (!props.moreContrast && colors.textSecondary)};
+  color: ${(props) => !props.moreContrast && colors.textSecondary};
   font-size: 12px;
   letter-spacing: 1px;
   line-height: 1.5;
@@ -166,5 +182,3 @@ export const Text = styled.p`
     font-size: 16px;
   }
 `;
-
-

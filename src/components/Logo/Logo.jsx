@@ -10,7 +10,7 @@ const Logo = ({ isHeader, isSidebar }) => {
   return (
     <Link to="/">
       <LogoWrapper dark={darkMode} isHeader={isHeader} isSidebar={isSidebar}>
-        Tunjich.dev
+        @ngie
       </LogoWrapper>
     </Link>
   );

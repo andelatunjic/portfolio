@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, breakpoints } from "../../utils/theme";
+import { breakpoints } from "../../utils/theme";
 
 export const ProjectsWrapper = styled.div`
   margin-top: 24px;
