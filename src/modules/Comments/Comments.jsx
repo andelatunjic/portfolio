@@ -65,7 +65,7 @@ const Comments = () => {
             <Comment identified>
               <CommentHeader>
                 <Info>
-                  <Avatar sx={{ bgcolor: "#584" }}>AT</Avatar>
+                  <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
                   <Author>
                     <Name>Anđela Tunjić</Name>
                     <Date>20.06.2023.</Date>
@@ -102,7 +102,7 @@ const Comments = () => {
             <Comment>
               <CommentHeader>
                 <Info>
-                  <Avatar sx={{ bgcolor: "#584" }}>AT</Avatar>
+                  <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
                   <Author>
                     <Name>Anđela Tunjić</Name>
                     <Date>20.06.2023.</Date>
@@ -139,7 +139,7 @@ const Comments = () => {
             <Comment>
               <CommentHeader>
                 <Info>
-                  <Avatar sx={{ bgcolor: "#584" }}>AT</Avatar>
+                  <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
                   <Author>
                     <Name>Anđela Tunjić</Name>
                     <Date>20.06.2023.</Date>

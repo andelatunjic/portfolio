@@ -47,14 +47,13 @@ export const CommentsList = styled.div`
 `;
 
 export const Comment = styled.div`
-  border: 2px solid ${colors.textSecondary};
   border-radius: 12px;
   padding: 24px 16px;
 
   ${(props) =>
     props.identified &&
     `
-      border: 2px solid ${colors.accentColorPurple};
+      border: 1px solid ${colors.accentColorPurple};
   `}
 `;
 
@@ -105,7 +104,7 @@ export const ButtonWrapper = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  border: 2px solid ${colors.textSecondary};
+  border: 1px solid ${colors.textSecondary};
   border-radius: 12px;
   padding: 0 24px;
 
