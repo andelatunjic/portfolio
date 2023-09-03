@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
+import Tag from "../Tag/Tag";
 import {
   ProjectCardWrapper,
   ProjectFigure,
@@ -9,12 +10,18 @@ import {
   ProjectDate,
   ProjectDescription,
   Actions,
+  Tags,
+  AdminActions,
 } from "./ProjectCardStyle";
 import Open from "@mui/icons-material/OpenInNewSharp";
 import GitHub from "@mui/icons-material/GitHub";
+import Delete from "@mui/icons-material/DeleteOutline";
+import Edit from "@mui/icons-material/EditTwoTone";
 
-const ProjectCard = ({ imgSrc, imgAlt, title, description, date }) => {
+const ProjectCard = ({ imgSrc, imgAlt, title, description, date, tags }) => {
   const { darkMode, authUser } = useContext(OptionsContext);
+
+  const tagArray = tags.split(",");
 
   return (
     <ProjectCardWrapper>
@@ -24,7 +31,34 @@ const ProjectCard = ({ imgSrc, imgAlt, title, description, date }) => {
         <ProjectImage src={imgSrc} alt={imgAlt} />
       </ProjectFigure>
       <ProjectDescription>{description}</ProjectDescription>
+      <Tags>
+        {tagArray.map((tag, index) => (
+          <Tag key={index} tag={tag} />
+        ))}
+      </Tags>
       <Actions>
+        <AdminActions auth={authUser}>
+          <Delete
+            sx={{
+              color: darkMode ? "#F9FAFB" : "#1F2937",
+              cursor: "pointer",
+              "&:hover": {
+                color: "#5c6bc0",
+                transition: "0.3s ease-out",
+              },
+            }}
+          />
+          <Edit
+            sx={{
+              color: darkMode ? "#F9FAFB" : "#1F2937",
+              cursor: "pointer",
+              "&:hover": {
+                color: "#5c6bc0",
+                transition: "0.3s ease-out",
+              },
+            }}
+          />
+        </AdminActions>
         <GitHub
           sx={{
             color: darkMode ? "#F9FAFB" : "#1F2937",
@@ -56,6 +90,7 @@ ProjectCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   date: PropTypes.string,
+  tag: PropTypes.string,
 };
 
 export default ProjectCard;

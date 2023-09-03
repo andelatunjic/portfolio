@@ -14,10 +14,9 @@ export const Form = styled.form`
   flex-direction: column;
   width: 100%;
   max-width: 460px;
-  padding: 24px;
+  padding: 32px 24px;
   border-radius: 24px;
-  background-color: rgba(1, 1, 1, 0.1);
-  box-shadow: 0px 4px 20px 0px rgba(1, 1, 1, 0.6);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
   & > * {
     margin-bottom: 16px;

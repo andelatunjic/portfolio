@@ -11,7 +11,6 @@ import {
   AdminOptions,
 } from "./TimelineCardStyle";
 import IconButton from "@mui/material/IconButton";
-import Add from "@mui/icons-material/Add";
 import Delete from "@mui/icons-material/Delete";
 import Edit from "@mui/icons-material/EditTwoTone";
 

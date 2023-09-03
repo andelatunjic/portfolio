@@ -5,12 +5,11 @@ export const ProjectCardWrapper = styled.div`
   width: 100%;
   border-radius: 24px;
   padding: 20px;
-  background-color: rgba(1, 1, 1, 0.15);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
 
   &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 0px 20px rgba(92, 107, 192, 0.8);
   }
 `;
 
@@ -66,4 +65,21 @@ export const ProjectDescription = styled.p`
 export const Actions = styled.div`
   display: flex;
   gap: 8px;
+`;
+
+export const Tags = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+`;
+
+export const AdminActions = styled.div`
+  display: none;
+
+  ${(props) =>
+    props.auth &&
+    `
+    display: flex;
+    gap: 3px;
+  `}
 `;
