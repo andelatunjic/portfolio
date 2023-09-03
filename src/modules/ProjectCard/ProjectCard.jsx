@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
-import Tag from "../Tag/Tag";
+import Tag from "../../components/Tag/Tag";
 import Open from "@mui/icons-material/OpenInNewSharp";
 import GitHub from "@mui/icons-material/GitHub";
 import Delete from "@mui/icons-material/DeleteOutline";

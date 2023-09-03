@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { OptionsContext } from "../../context/OptionsContext";
 import Section from "../../components/Section/Section";
 import { ProjectsWrapper, Actions, Title, RightSide, AddNew } from "./ProjectsStyle";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import ProjectCard from "../ProjectCard/ProjectCard";
 import ufo from "../../assets/images/ufo.png";
 import { Grid } from "../../utils/generalStyles";
 import SearchBar from "../../components/SearchBar/SearchBar";
