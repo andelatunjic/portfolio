@@ -8,14 +8,15 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
 import { ButtonWrapper } from "../LogInForm/LoginFormStyle";
 import { auth } from "../../../firebase/firebase";
+import Toast from "../../../components/Toast/Toast";
 
 const ForgottenPassword = ({ show, showHandler }) => {
   const { t } = useTranslation();
 
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
   const [errorToast, setErrorToast] = useState(false);
   const [successToast, setSuccessToast] = useState(false);
 
@@ -30,6 +31,8 @@ const ForgottenPassword = ({ show, showHandler }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setSuccessMessage(t("SnackBarSuccessfulEmailReset"));
+    setErrorMessage(t("SnackBarFailedEmailReset"));
     
     try {
       auth
@@ -37,6 +40,7 @@ const ForgottenPassword = ({ show, showHandler }) => {
         .then(() => {
           setEmail("");
           showHandler();
+
           setSuccessToast(true);
         })
         .catch((err) => {
@@ -90,36 +94,14 @@ const ForgottenPassword = ({ show, showHandler }) => {
           </DialogActions>
         </Dialog>
       </FormCustomTheme>
-      <Snackbar
-        open={errorToast}
-        autoHideDuration={3000}
-        onClose={errorHandler}
-      >
-        <MuiAlert
-          onClose={errorHandler}
-          severity="error"
-          sx={{ width: "100%" }}
-          variant="filled"
-          elevation={3}
-        >
-          {t("SnackBarFailedEmailReset")}
-        </MuiAlert>
-      </Snackbar>
-      <Snackbar
-        open={successToast}
-        autoHideDuration={3000}
-        onClose={succesHandler}
-      >
-        <MuiAlert
-          onClose={succesHandler}
-          severity="success"
-          sx={{ width: "100%" }}
-          variant="filled"
-          elevation={3}
-        >
-          {t("SnackBarSuccessfulEmailReset")}
-        </MuiAlert>
-      </Snackbar>
+      <Toast
+        errorHandler={errorHandler}
+        errorToast={errorToast}
+        successToast={successToast}
+        succesHandler={succesHandler}
+        successMessage={successMessage}
+        errorMessage={errorMessage}
+      />
     </>
   );
 };

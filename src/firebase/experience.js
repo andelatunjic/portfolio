@@ -12,7 +12,6 @@ export const getAllExperiences = async () => {
           experiences.push({ id: experience.id, ...experience.data() });
         });
       }
-      console.log(experiences);
       return experiences;
     })
     .catch((error) => {
@@ -36,7 +35,7 @@ export const getExperience = async (id) => {
     });
 };
 
-//post 
+//post
 export const createExperience = async (experience) => {
   const experienceRef = firestore().collection("experiences").doc();
   return experienceRef
@@ -52,7 +51,7 @@ export const createExperience = async (experience) => {
     });
 };
 
-//put 
+//put
 export const updateExperience = async (experience, experienceId) => {
   return firestore()
     .collection("experiences")

@@ -27,6 +27,7 @@ export const ButtonWrapper = styled.div`
   height: 36px;
   margin-top: 16px;
   display: flex;
+  justify-content: flex-end;
   gap: 12px;
 `;
 

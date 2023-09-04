@@ -14,18 +14,18 @@ import {
 import { Title, Button, Subtitle, Text } from "../../../utils/generalStyles";
 import CustomTheme from "../../../components/CustomTheme/CustomTheme";
 import TextField from "@mui/material/TextField";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 import { auth } from "../../../firebase/firebase";
+import Toast from "../../../components/Toast/Toast";
 
 const LoginForm = () => {
   const { darkMode, setAuthUser } = useContext(OptionsContext);
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  const [errorMessage, setErrorMessage] = useState(false);
   const [errorToast, setErrorToast] = useState(false);
   const [newPassword, setNewPassword] = useState(false);
 
@@ -59,6 +59,8 @@ const LoginForm = () => {
   const loginHandler = (e) => {
     e.preventDefault();
     setSending(true);
+    setErrorMessage(t("SnackBarFailedAuthentication"));
+
     try {
       auth
         .signInWithEmailAndPassword(email, password)
@@ -164,21 +166,11 @@ const LoginForm = () => {
         show={newPassword}
         showHandler={forgottenPasswordHandler}
       />
-      <Snackbar
-        open={errorToast}
-        autoHideDuration={3000}
-        onClose={errorHandler}
-      >
-        <MuiAlert
-          onClose={errorHandler}
-          severity="error"
-          sx={{ width: "100%" }}
-          variant="filled"
-          elevation={3}
-        >
-          {t("SnackBarFailedAuthentication")}
-        </MuiAlert>
-      </Snackbar>
+      <Toast
+        errorHandler={errorHandler}
+        errorToast={errorToast}
+        errorMessage={errorMessage}
+      />
     </Section>
   );
 };

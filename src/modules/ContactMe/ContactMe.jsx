@@ -6,8 +6,6 @@ import emailjs from "@emailjs/browser";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
 import CustomTheme from "../../components/CustomTheme/CustomTheme";
 import { Button, Subtitle, Title } from "../../utils/generalStyles";
 import Section from "../../components/Section/Section";
@@ -17,11 +15,14 @@ import {
   ButtonWrapper,
   Form,
 } from "./ContactMeStyle";
+import Toast from "../../components/Toast/Toast";
 
 const ContactMe = ({ reference }) => {
   const { darkMode } = useContext(OptionsContext);
   const { t } = useTranslation();
 
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
   const [errorToast, setErrorToast] = useState(false);
   const [successToast, setSuccessToast] = useState(false);
 
@@ -61,6 +62,8 @@ const ContactMe = ({ reference }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setSuccessMessage(t("SnackBarSuccessfulContact"));
+    setErrorMessage(t("SnackBarFailedContact"));
 
     if (isFormValid) {
       setSending(true);
@@ -193,36 +196,14 @@ const ContactMe = ({ reference }) => {
           </ButtonWrapper>
         </Form>
       </ContactWrapper>
-      <Snackbar
-        open={successToast}
-        autoHideDuration={3000}
-        onClose={succesHandler}
-      >
-        <MuiAlert
-          onClose={succesHandler}
-          severity="success"
-          sx={{ width: "100%" }}
-          variant="filled"
-          elevation={3}
-        >
-          {t("SnackBarSuccessfulContact")}
-        </MuiAlert>
-      </Snackbar>
-      <Snackbar
-        open={errorToast}
-        autoHideDuration={3000}
-        onClose={errorHandler}
-      >
-        <MuiAlert
-          onClose={errorHandler}
-          severity="error"
-          sx={{ width: "100%" }}
-          variant="filled"
-          elevation={3}
-        >
-          {t("SnackBarFailedContact")}
-        </MuiAlert>
-      </Snackbar>
+      <Toast
+        errorHandler={errorHandler}
+        errorToast={errorToast}
+        successToast={successToast}
+        succesHandler={succesHandler}
+        successMessage={successMessage}
+        errorMessage={errorMessage}
+      />
     </Section>
   );
 };
