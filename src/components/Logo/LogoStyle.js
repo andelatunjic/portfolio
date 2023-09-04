@@ -4,7 +4,7 @@ import { colors, breakpoints, fonts } from "../../utils/theme";
 export const LogoWrapper = styled.div`
   color: ${colors.accentColorPurple};
   font-family: ${fonts.secondary};
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 800;
 
   @media screen and (${breakpoints.desktopSmall}) {
@@ -31,12 +31,8 @@ export const LogoWrapper = styled.div`
     props.isSidebar &&
     `
     display: block;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
-
-    @media screen and (${breakpoints.tabletSmall}) {
-      font-size: 18px;
-    }
   `}
 
   &:hover {

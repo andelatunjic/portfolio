@@ -108,14 +108,10 @@ export const LanguageWrapper = styled.div`
 export const HamburgerIcon = styled.img`
   display: block;
   cursor: pointer;
-  height: 18px;
+  height: 24px;
 
   &:hover {
     transform: scale(1.05);
-  }
-
-  @media screen and (${breakpoints.tabletSmall}) {
-    height: 22px;
   }
 
   @media screen and (${breakpoints.tablet}) {

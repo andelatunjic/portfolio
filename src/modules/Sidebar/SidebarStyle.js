@@ -38,12 +38,8 @@ export const Header = styled.div`
 `;
 
 export const CloseIcon = styled.img`
-  height: 18px;
+  height: 24px;
   cursor: pointer;
-
-  @media screen and (${breakpoints.tabletSmall}) {
-    height: 22px;
-  }
 
   &:hover {
     transform: scale(1.05);

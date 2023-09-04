@@ -11,9 +11,16 @@ export const ProjectsWrapper = styled.div`
 
 export const Actions = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 24px;
   margin-bottom: 32px;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
 `;
 
 export const Title = styled.h2`
