@@ -35,7 +35,7 @@
   "LoginPassword": "Password",
   "LoginButton": "Login",
   "LoginForgottenPass": "Forgot your password?",
-
+  
   "ForgottenPassTitle": "Forgotten password",
   "ForgottenPassSubtitle": "To set new password, please enter your email address here. We will send you email with reset link.",
   "ForgottenPassCancel": "Cancel",
