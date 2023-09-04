@@ -40,7 +40,6 @@ const ForgottenPassword = ({ show, showHandler }) => {
         .then(() => {
           setEmail("");
           showHandler();
-
           setSuccessToast(true);
         })
         .catch((err) => {
