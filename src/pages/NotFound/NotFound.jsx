@@ -2,7 +2,7 @@ import React from "react";
 import { NotFoundWrapper, Image, ImageWrapper, Content } from "./NotFoundStyle";
 import Section from "../../components/Section/Section";
 import { Subtitle, Text, Title } from "../../utils/generalStyles";
-import UFO from "../../assets/images/UFO.png";
+import UFO from "../../assets/images/ufo.png";
 
 const NotFound = () => {
   return (
