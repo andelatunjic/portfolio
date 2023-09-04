@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
 import Tag from "../../components/Tag/Tag";
@@ -17,28 +17,75 @@ import {
   Tags,
   AdminActions,
 } from "./ProjectCardStyle";
+import CreateUpdateProject from "../Forms/CreateUpdateProject/CreateUpdateProject";
+import DeleteProject from "../../components/DeleteProject/DeleteProject";
 
-const ProjectCard = ({ imgSrc, imgAlt, title, description, date, tags }) => {
+const ProjectCard = ({
+  id,
+  imgSrc,
+  imgAlt,
+  title,
+  description,
+  date,
+  tags,
+  gitHubUrl,
+  demoUrl,
+  refreshData,
+}) => {
   const { darkMode, authUser } = useContext(OptionsContext);
-
   const tagArray = tags.split(",");
 
+  const [deleteDialog, setDeleteDialog] = useState(false);
+  const [projectForm, setProjectForm] = useState(false);
+
+  const deleteDialogHandler = () => {
+    setDeleteDialog(!deleteDialog);
+  };
+
+  const updateProjectHandler = () => {
+    setProjectForm(!projectForm);
+  };
+
   return (
-    <ProjectCardWrapper>
-      <ProjectTitle>{title}</ProjectTitle>
-      <ProjectDate>{date}</ProjectDate>
-      <ProjectFigure>
-        <ProjectImage src={imgSrc} alt={imgAlt} />
-      </ProjectFigure>
-      <ProjectDescription>{description}</ProjectDescription>
-      <Tags>
-        {tagArray.map((tag, index) => (
-          <Tag key={index} tag={tag} />
-        ))}
-      </Tags>
-      <Actions>
-        <AdminActions auth={authUser}>
-          <Delete
+    <>
+      <ProjectCardWrapper>
+        <ProjectTitle>{title}</ProjectTitle>
+        <ProjectDate>{date}</ProjectDate>
+        <ProjectFigure>
+          <ProjectImage src={imgSrc} alt={imgAlt} />
+        </ProjectFigure>
+        <ProjectDescription>{description}</ProjectDescription>
+        <Tags>
+          {tagArray.map((tag, index) => (
+            <Tag key={index} tag={tag} />
+          ))}
+        </Tags>
+        <Actions>
+          <AdminActions auth={authUser}>
+            <Delete
+              onClick={deleteDialogHandler}
+              sx={{
+                color: darkMode ? "#F9FAFB" : "#1F2937",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#5c6bc0",
+                  transition: "0.3s ease-out",
+                },
+              }}
+            />
+            <Edit
+              onClick={updateProjectHandler}
+              sx={{
+                color: darkMode ? "#F9FAFB" : "#1F2937",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#5c6bc0",
+                  transition: "0.3s ease-out",
+                },
+              }}
+            />
+          </AdminActions>
+          <GitHub
             sx={{
               color: darkMode ? "#F9FAFB" : "#1F2937",
               cursor: "pointer",
@@ -48,7 +95,7 @@ const ProjectCard = ({ imgSrc, imgAlt, title, description, date, tags }) => {
               },
             }}
           />
-          <Edit
+          <Open
             sx={{
               color: darkMode ? "#F9FAFB" : "#1F2937",
               cursor: "pointer",
@@ -58,29 +105,22 @@ const ProjectCard = ({ imgSrc, imgAlt, title, description, date, tags }) => {
               },
             }}
           />
-        </AdminActions>
-        <GitHub
-          sx={{
-            color: darkMode ? "#F9FAFB" : "#1F2937",
-            cursor: "pointer",
-            "&:hover": {
-              color: "#5c6bc0",
-              transition: "0.3s ease-out",
-            },
-          }}
-        />
-        <Open
-          sx={{
-            color: darkMode ? "#F9FAFB" : "#1F2937",
-            cursor: "pointer",
-            "&:hover": {
-              color: "#5c6bc0",
-              transition: "0.3s ease-out",
-            },
-          }}
-        />
-      </Actions>
-    </ProjectCardWrapper>
+        </Actions>
+      </ProjectCardWrapper>
+      <DeleteProject
+        show={deleteDialog}
+        showHandler={deleteDialogHandler}
+        refreshData={refreshData}
+        id={id}
+      />
+      <CreateUpdateProject
+        show={projectForm}
+        showHandler={updateProjectHandler}
+        refreshData={refreshData}
+        update
+        id={id}
+      />
+    </>
   );
 };
 

@@ -7,9 +7,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { OutlineButton, Button } from "../../utils/generalStyles";
 import { ButtonWrapper } from "../../modules/Forms/LogInForm/LoginFormStyle";
 import Toast from "../Toast/Toast";
-import { deleteExperience } from "../../firebase/experience";
+import { deleteProject } from "../../firebase/project";
 
-const DeleteExperience = ({ show, showHandler, refreshData, id }) => {
+const DeleteProject = ({ show, showHandler, refreshData, id }) => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorToast, setErrorToast] = useState(false);
@@ -20,7 +20,7 @@ const DeleteExperience = ({ show, showHandler, refreshData, id }) => {
     setSuccessMessage("Uspješno obrisano");
     setErrorMessage("Greška prilikom brisanja. Pokušajte ponovno.");
 
-    await deleteExperience(id)
+    await deleteProject(id)
       .then((res) => {
         showHandler();
         refreshData();
@@ -42,10 +42,10 @@ const DeleteExperience = ({ show, showHandler, refreshData, id }) => {
   return (
     <>
       <Dialog open={show} onClose={showHandler}>
-        <DialogTitle>Delete experience</DialogTitle>
+        <DialogTitle>Delete proejct</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Are you sure you want to delete this experience?
+            Are you sure you want to delete this proejct?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -67,4 +67,4 @@ const DeleteExperience = ({ show, showHandler, refreshData, id }) => {
   );
 };
 
-export default DeleteExperience;
+export default DeleteProject;

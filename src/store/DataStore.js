@@ -4,12 +4,25 @@ class DataStore {
   experiences = [];
   experience = null;
 
+  projects = [];
+  project = null;
+
+  comments = [];
+  comment = null;
+
   constructor() {
     makeObservable(this, {
       experiences: observable,
       setExperiences: action,
       experiencesLength: computed,
-      getExperienceById: action,
+
+      projects: observable,
+      setProjects: action,
+      projectsLength: computed,
+
+      comments: observable,
+      setComments: action,
+      commentsLength: computed,
     });
   }
 
@@ -21,11 +34,21 @@ class DataStore {
     return this.experiences.length;
   }
 
-  getExperienceById = (id) => {
-    this.experience = this.experiences.find(
-      (experience) => experience.id === Number(id)
-    );
+  setProjects = (projects) => {
+    this.projects = projects;
   };
+
+  get projectsLength() {
+    return this.projects.length;
+  }
+
+  setComments = (comments) => {
+    this.comments = comments;
+  };
+
+  get commentsLength() {
+    return this.comments.length;
+  }
 }
 
 const dataStore = new DataStore();

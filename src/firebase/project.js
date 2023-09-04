@@ -1,18 +1,18 @@
 import { firestore } from "./firebase";
 
 //get all
-export const getAllExperiences = async () => {
+export const getAllProjects = async () => {
   return await firestore()
-    .collection("experiences")
+    .collection("projects")
     .get()
     .then((response) => {
-      let experiences = [];
+      let projects = [];
       if (response.size > 0) {
-        response.docs.forEach((experience) => {
-          experiences.push({ id: experience.id, ...experience.data() });
+        response.docs.forEach((project) => {
+          projects.push({ id: project.id, ...project.data() });
         });
       }
-      return experiences;
+      return projects;
     })
     .catch((error) => {
       console.log("Get all error: ", error);
@@ -21,9 +21,9 @@ export const getAllExperiences = async () => {
 };
 
 //get by id
-export const getExperience = async (id) => {
+export const getProject = async (id) => {
   return await firestore()
-    .collection("experiences")
+    .collection("projects")
     .doc(id)
     .get()
     .then((response) => {
@@ -36,11 +36,11 @@ export const getExperience = async (id) => {
 };
 
 //post
-export const createExperience = async (experience) => {
-  const ref = firestore().collection("experiences").doc();
+export const createProject = async (project) => {
+  const ref = firestore().collection("projects").doc();
   return ref
     .set({
-      ...experience,
+      ...project,
     })
     .then(() => {
       return ref.id;
@@ -52,11 +52,11 @@ export const createExperience = async (experience) => {
 };
 
 //put
-export const updateExperience = async (experience, experienceId) => {
+export const updateProject = async (project, projectId) => {
   return firestore()
-    .collection("experiences")
-    .doc(experienceId)
-    .update(experience)
+    .collection("projects")
+    .doc(projectId)
+    .update(project)
     .then((response) => {
       console.log(response);
     })
@@ -67,10 +67,10 @@ export const updateExperience = async (experience, experienceId) => {
 };
 
 //delete
-export const deleteExperience = async (experienceId) => {
+export const deleteProject = async (projectId) => {
   return firestore()
-    .collection("experiences")
-    .doc(experienceId)
+    .collection("projects")
+    .doc(projectId)
     .delete()
     .catch((error) => {
       console.log("Delete error: ", error);
