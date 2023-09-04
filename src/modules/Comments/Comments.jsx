@@ -1,34 +1,24 @@
 import React, { useContext, useState } from "react";
 import { OptionsContext } from "../../context/OptionsContext";
 import Section from "../../components/Section/Section";
-import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import CustomTheme from "../../components/CustomTheme/CustomTheme";
-import Delete from "@mui/icons-material/DeleteOutline";
-import Edit from "@mui/icons-material/EditTwoTone";
 import {
   CommentsWrapper,
   Title,
   CommentSection,
   CommentsList,
-  Comment,
-  CommentHeader,
-  Info,
-  Author,
-  Name,
-  Date,
-  Content,
   NewComment,
   ButtonWrapper,
   Form,
-  AdminActions,
 } from "./CommentsStyle";
 import { Button } from "../../utils/generalStyles";
+import SingleComment from "../../components/SingleComment/SingleComment";
 
 const Comments = () => {
-  const { darkMode, authUser } = useContext(OptionsContext);
+  const { darkMode } = useContext(OptionsContext);
 
   const [isFormValid, setIsFormValid] = useState(false);
   const [sending, setSending] = useState(false);
@@ -62,117 +52,21 @@ const Comments = () => {
         <Title>Testimonial & Comments</Title>
         <CommentSection>
           <CommentsList>
-            <Comment identified>
-              <CommentHeader>
-                <Info>
-                  <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
-                  <Author>
-                    <Name>Anđela Tunjić</Name>
-                    <Date>20.06.2023.</Date>
-                  </Author>
-                </Info>
-                <AdminActions identified>
-                  <Delete
-                    sx={{
-                      color: darkMode ? "#F9FAFB" : "#1F2937",
-                      cursor: "pointer",
-                      "&:hover": {
-                        color: "#5c6bc0",
-                        transition: "0.3s ease-out",
-                      },
-                    }}
-                  />
-                  <Edit
-                    sx={{
-                      color: darkMode ? "#F9FAFB" : "#1F2937",
-                      cursor: "pointer",
-                      "&:hover": {
-                        color: "#5c6bc0",
-                        transition: "0.3s ease-out",
-                      },
-                    }}
-                  />
-                </AdminActions>
-              </CommentHeader>
-              <Content>
-                Ovo je primjer teksta nekog komentara štoj e ostavljen ovdje ggg
-                ggg ggg ggggggggggggggggggggg gg gggggg gg g g g ggggggggggg.
-              </Content>
-            </Comment>
-            <Comment>
-              <CommentHeader>
-                <Info>
-                  <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
-                  <Author>
-                    <Name>Anđela Tunjić</Name>
-                    <Date>20.06.2023.</Date>
-                  </Author>
-                </Info>
-                <AdminActions>
-                  <Delete
-                    sx={{
-                      color: darkMode ? "#F9FAFB" : "#1F2937",
-                      cursor: "pointer",
-                      "&:hover": {
-                        color: "#5c6bc0",
-                        transition: "0.3s ease-out",
-                      },
-                    }}
-                  />
-                  <Edit
-                    sx={{
-                      color: darkMode ? "#F9FAFB" : "#1F2937",
-                      cursor: "pointer",
-                      "&:hover": {
-                        color: "#5c6bc0",
-                        transition: "0.3s ease-out",
-                      },
-                    }}
-                  />
-                </AdminActions>
-              </CommentHeader>
-              <Content>
-                Ovo je primjer teksta nekog komentara štoj e ostavljen ovdje ggg
-                ggg ggg ggggggggggggggggggggg gg gggggg gg g g g ggggggggggg.
-              </Content>
-            </Comment>
-            <Comment>
-              <CommentHeader>
-                <Info>
-                  <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
-                  <Author>
-                    <Name>Anđela Tunjić</Name>
-                    <Date>20.06.2023.</Date>
-                  </Author>
-                </Info>
-                <AdminActions>
-                  <Delete
-                    sx={{
-                      color: darkMode ? "#F9FAFB" : "#1F2937",
-                      cursor: "pointer",
-                      "&:hover": {
-                        color: "#5c6bc0",
-                        transition: "0.3s ease-out",
-                      },
-                    }}
-                  />
-                  <Edit
-                    sx={{
-                      color: darkMode ? "#F9FAFB" : "#1F2937",
-                      cursor: "pointer",
-                      "&:hover": {
-                        color: "#5c6bc0",
-                        transition: "0.3s ease-out",
-                      },
-                    }}
-                  />
-                </AdminActions>
-              </CommentHeader>
-              <Content>
-                Ovo je primjer teksta nekog komentara štoj e ostavljen ovdje ggg
-                ggg ggg ggggggggggggggggggggg gg gggggg gg g g g ggggggggggg.
-              </Content>
-            </Comment>
+            <SingleComment
+              id="1"
+              name="Anđela Tunjić"
+              date="20.06.2023."
+              content="Ovo je primjer teksta nekog komentara štoj e ostavljen ovdje ggg
+              ggg ggg ggggggggggggggggggggg gg gggggg gg g g g ggggggggggg."
+              creator
+            />
+            <SingleComment
+              id="1"
+              name="Anđela Tunjić"
+              date="20.06.2023."
+              content="Ovo je primjer teksta nekog komentara štoj e ostavljen ovdje ggg
+              ggg ggg ggggggggggggggggggggg gg gggggg gg g g g ggggggggggg."
+            />
           </CommentsList>
           <NewComment>
             <Form onSubmit={submitHandler}>
