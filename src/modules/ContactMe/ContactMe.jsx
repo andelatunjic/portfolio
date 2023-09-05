@@ -121,6 +121,7 @@ const ContactMe = ({ reference }) => {
               disabled={sending}
               type="text"
               inputProps={{ maxLength: 50 }}
+              autoComplete="off"
             />
             <TextField
               label={t("contactMeName")}
@@ -133,7 +134,8 @@ const ContactMe = ({ reference }) => {
               variant="standard"
               disabled={sending}
               type="text"
-              inputProps={{ maxLength: 35 }}
+              inputProps={{ maxLength: 50 }}
+              autoComplete="off"
             />
             <TextField
               label={t("contactMeEmail")}
@@ -146,7 +148,8 @@ const ContactMe = ({ reference }) => {
               variant="standard"
               disabled={sending}
               type="email"
-              inputProps={{ maxLength: 50 }}
+              inputProps={{ maxLength: 80 }}
+              autoComplete="off"
             />
             <TextField
               label={t("contactMeMessage")}
@@ -162,6 +165,7 @@ const ContactMe = ({ reference }) => {
               disabled={sending}
               type="text"
               inputProps={{ maxLength: 3000 }}
+              autoComplete="off"
             />
           </CustomTheme>
           <FormControlLabel

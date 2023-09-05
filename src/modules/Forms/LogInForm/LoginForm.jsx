@@ -119,7 +119,7 @@ const LoginForm = () => {
                 variant="standard"
                 disabled={sending}
                 type="email"
-                inputProps={{ maxLength: 50 }}
+                inputProps={{ maxLength: 80 }}
                 autoComplete="off"
               />
               <PasswordWrapper>
@@ -134,7 +134,7 @@ const LoginForm = () => {
                   variant="standard"
                   disabled={sending}
                   type={showPassword ? "text" : "password"}
-                  inputProps={{ maxLength: 50 }}
+                  inputProps={{ maxLength: 15 }}
                   autoComplete="off"
                 />
                 <IconButton onClick={showPasswordHandler}>

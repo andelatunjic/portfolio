@@ -78,7 +78,7 @@ const ForgottenPassword = ({ show, showHandler }) => {
               required
               variant="standard"
               type="email"
-              inputProps={{ maxLength: 50 }}
+              inputProps={{ maxLength: 80 }}
               autoComplete="off"
             />
           </DialogContent>
