@@ -3,14 +3,14 @@ import { OptionsContext } from "../../context/OptionsContext";
 import PropTypes from "prop-types";
 import { SearchWrapper, SearchInput } from "./SearchBarStyle";
 
-const SearchBar = ({ placeholder, disabled, onValueChange }) => {
+const SearchBar = ({ placeholder, onValueChange }) => {
   const { darkMode } = useContext(OptionsContext);
   const [searchInput, setSearchInput] = useState("");
 
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchInput(value);
-    //onValueChange(value);
+    onValueChange(value);
   };
 
   return (
@@ -19,7 +19,6 @@ const SearchBar = ({ placeholder, disabled, onValueChange }) => {
         dark={darkMode}
         placeholder={placeholder}
         value={searchInput}
-        disabled={disabled}
         onChange={handleChange}
       />
     </SearchWrapper>

@@ -26,6 +26,7 @@ const Projects = () => {
   const { projects, setProjects, projectsLength } = dataStore;
 
   const [projectForm, setProjectForm] = useState(false);
+  const [searchBackup, setSearchBackup] = useState();
 
   useEffect(() => {
     fetchProjects();
@@ -39,6 +40,7 @@ const Projects = () => {
     await getAllProjects()
       .then((res) => {
         setProjects(res);
+        setSearchBackup(res);
       })
       .catch(() => {
         console.log("Failed to fetch projects:");
@@ -47,6 +49,13 @@ const Projects = () => {
 
   const newProjectHandler = () => {
     setProjectForm(!projectForm);
+  };
+
+  const handleSearch = (value) => {
+    const filteredProjects = searchBackup.filter((project) =>
+      project.tags.toLowerCase().includes(value.toLowerCase())
+    );
+    setProjects(filteredProjects);
   };
 
   return (
@@ -75,7 +84,7 @@ const Projects = () => {
               </AddNew>
             </Tooltip>
           </RightSide>
-          <SearchBar placeholder={t("ProjectsSearch")} />
+          <SearchBar placeholder={t("ProjectsSearch")} onValueChange={handleSearch} />
         </Actions>
         <SubtitleAlignLeft>{t("ProjectsDescription")}</SubtitleAlignLeft>
         <Grid>
