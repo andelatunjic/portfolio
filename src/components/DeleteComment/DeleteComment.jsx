@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useCookies } from "react-cookie";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -11,6 +12,8 @@ import Toast from "../Toast/Toast";
 import { deleteComment } from "../../firebase/comment";
 
 const DeleteProject = ({ show, showHandler, refreshData, id }) => {
+  const { t } = useTranslation();
+
   const [errorMessage, setErrorMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorToast, setErrorToast] = useState(false);
@@ -20,8 +23,8 @@ const DeleteProject = ({ show, showHandler, refreshData, id }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setSuccessMessage("Uspješno obrisano. Osvježite stranicu.");
-    setErrorMessage("Greška prilikom brisanja. Pokušajte ponovno.");
+    setSuccessMessage(t("SnackBarSuccessfulDelete"));
+    setErrorMessage(t("SnackBarFailedDelete"));
 
     await deleteComment(id)
       .then((res) => {
@@ -47,16 +50,16 @@ const DeleteProject = ({ show, showHandler, refreshData, id }) => {
   return (
     <>
       <Dialog open={show} onClose={showHandler}>
-        <DialogTitle>Delete comment</DialogTitle>
+        <DialogTitle>{t("DeleteCommentTitle")}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Are you sure you want to delete this comment?
-          </DialogContentText>
+          <DialogContentText>{t("DeleteCommentSubtitle")}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <ButtonWrapper>
-            <OutlineButton onClick={showHandler}>Cancel</OutlineButton>
-            <Button onClick={submitHandler}>Delete</Button>
+            <OutlineButton onClick={showHandler}>
+              {t("CancelButton")}
+            </OutlineButton>
+            <Button onClick={submitHandler}>{t("DeleteButton")}</Button>
           </ButtonWrapper>
         </DialogActions>
       </Dialog>

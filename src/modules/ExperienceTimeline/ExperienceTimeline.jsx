@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { OptionsContext } from "../../context/OptionsContext";
 import { observer } from "mobx-react-lite";
 import dataStore from "../../store/DataStore";
@@ -31,7 +32,7 @@ import CreateUpdateExperience from "../Forms/CreateUpdateExperience/CreateUpdate
 const ExperienceTimeline = () => {
   const { darkMode, authUser } = useContext(OptionsContext);
   const { experiences, setExperiences, experiencesLength } = dataStore;
-  const jwtToken = localStorage.getItem("userToken");
+  const { t } = useTranslation();
 
   const [experienceForm, setExperienceForm] = useState(false);
 
@@ -44,12 +45,13 @@ const ExperienceTimeline = () => {
   }, []);
 
   const fetchExperiences = async () => {
-    try {
-      const experienceData = await getAllExperiences();
-      setExperiences(experienceData);
-    } catch (error) {
-      console.error("Failed to fetch experiences:", error);
-    }
+    await getAllExperiences()
+      .then((res) => {
+        setExperiences(res);
+      })
+      .catch(() => {
+        console.log("Failed to fetch experiences:");
+      });
   };
 
   const newExperienceHandler = () => {
@@ -80,10 +82,8 @@ const ExperienceTimeline = () => {
               </IconButton>
             </AddNewWrapper>
             <TextContent>
-              <Title>Work experience</Title>
-              <Subtitle moreContrast>
-                Timeline of work positions & academies
-              </Subtitle>
+              <Title>{t("ExperienceTitle")}</Title>
+              <Subtitle moreContrast>{t("ExperienceSubtitle")}</Subtitle>
             </TextContent>
           </div>
           <MobileVersion>
@@ -104,7 +104,7 @@ const ExperienceTimeline = () => {
                     <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                   </TimelineSeparator>
                   <TimelineContent sx={{ paddingRight: 0 }}>
-                    No experience to show.
+                    {t("ExperienceNoData")}
                   </TimelineContent>
                 </TimelineItem>
               ) : (
@@ -148,7 +148,7 @@ const ExperienceTimeline = () => {
                     <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                   </TimelineSeparator>
                   <TimelineContent sx={{ paddingRight: 0 }}>
-                    No experience to show.
+                    {t("ExperienceNoData")}
                   </TimelineContent>
                 </TimelineItem>
               ) : (

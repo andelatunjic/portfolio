@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { OptionsContext } from "../../context/OptionsContext";
 import { observer } from "mobx-react-lite";
 import dataStore from "../../store/DataStore";
@@ -40,6 +41,8 @@ const Comments = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [date, setDate] = useState("");
 
+  const { t } = useTranslation();
+
   function getCurrentDate() {
     const currentDate = new Date();
     const day = String(currentDate.getDate()).padStart(2, "0");
@@ -63,7 +66,7 @@ const Comments = () => {
         setComments(res);
       })
       .catch(() => {
-        console.log("Failed to fetch comments:");
+        console.log("Failed to fetch comments.");
       });
   };
 
@@ -90,28 +93,32 @@ const Comments = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setSuccessMessage("Uspješno kreirano");
-    setErrorMessage("Greška kod kreiranja. Pokušajte ponovno.");
+    setSuccessMessage(t("SnackBarSuccessfulCreate"));
+    setErrorMessage(t("SnackBarFailedCreate"));
     setSending(true);
 
-    await createComment(newComment)
-      .then((res) => {
-        const id = res;
-        setCookie(id, "comment cookie");
+    if (isFormValid) {
+      await createComment(newComment)
+        .then((res) => {
+          const id = res;
+          setCookie(id, "comment cookie");
 
-        setSending(false);
-        setName("");
-        setContent("");
-        setDate("");
-        fetchComments();
-        setSuccessToast(true);
-      })
-      .catch((e) => {
-        console.log(e);
-        setSending(false);
-        setErrorToast(true);
-      });
-
+          setSending(false);
+          setName("");
+          setContent("");
+          setDate("");
+          setIsChecked(false);
+          fetchComments();
+          setSuccessToast(true);
+        })
+        .catch((e) => {
+          console.log(e);
+          setSending(false);
+          setErrorToast(true);
+        });
+    } else {
+      setErrorToast(true);
+    }
     setSending(false);
   };
 
@@ -126,11 +133,11 @@ const Comments = () => {
   return (
     <Section>
       <CommentsWrapper>
-        <Title>Testimonial & Comments</Title>
+        <Title>{t("CommentsTitle")}</Title>
         <CommentSection>
           <CommentsList>
             {commentsLength === 0 ? (
-              <div>No comments to show. Be the first one to say something.</div>
+              <div>{t("CommentsNoData")}</div>
             ) : (
               comments.map((comment) => (
                 <SingleComment
@@ -149,7 +156,7 @@ const Comments = () => {
             <Form onSubmit={submitHandler}>
               <CustomTheme>
                 <TextField
-                  label="name"
+                  label={t("CommentsNameLabel")}
                   name="name"
                   value={name}
                   onChange={inputChangeHandler}
@@ -162,7 +169,7 @@ const Comments = () => {
                   inputProps={{ maxLength: 35 }}
                 />
                 <TextField
-                  label="content"
+                  label={t("CommentsContentLabel")}
                   name="content"
                   value={content}
                   onChange={inputChangeHandler}
@@ -192,7 +199,7 @@ const Comments = () => {
                     }}
                   />
                 }
-                label="I'm not a robot"
+                label={t("CommentsRobotLabel")}
                 sx={{
                   color: darkMode ? "#a4a9b0" : "#1F2937",
                 }}
@@ -204,7 +211,7 @@ const Comments = () => {
                   type="submit"
                   disabled={sending}
                 >
-                  Publish
+                  {t("CommentsPublishButton")}
                 </Button>
               </ButtonWrapper>
             </Form>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { OptionsContext } from "../../context/OptionsContext";
 import { observer } from "mobx-react-lite";
 import dataStore from "../../store/DataStore";
+import { useTranslation } from "react-i18next";
 import Section from "../../components/Section/Section";
 import {
   ProjectsWrapper,
@@ -11,7 +12,6 @@ import {
   AddNew,
 } from "./ProjectsStyle";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import ufo from "../../assets/images/ufo.png";
 import { Grid } from "../../utils/generalStyles";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Add from "@mui/icons-material/Add";
@@ -20,8 +20,8 @@ import { getAllProjects } from "../../firebase/project";
 import CreateUpdateProject from "../Forms/CreateUpdateProject/CreateUpdateProject";
 
 const Projects = () => {
+  const { t } = useTranslation();
   const { darkMode, authUser } = useContext(OptionsContext);
-
   const { projects, setProjects, projectsLength } = dataStore;
 
   const [projectForm, setProjectForm] = useState(false);
@@ -35,12 +35,13 @@ const Projects = () => {
   }, []);
 
   const fetchProjects = async () => {
-    try {
-      const projectData = await getAllProjects();
-      setProjects(projectData);
-    } catch (error) {
-      console.error("Failed to fetch projects:", error);
-    }
+    await getAllProjects()
+      .then((res) => {
+        setProjects(res);
+      })
+      .catch(() => {
+        console.log("Failed to fetch projects:");
+      });
   };
 
   const newProjectHandler = () => {
@@ -52,7 +53,7 @@ const Projects = () => {
       <ProjectsWrapper>
         <Actions>
           <RightSide>
-            <Title>My Projects</Title>
+            <Title>{t("ProjectsTitle")}</Title>
             <AddNew auth={authUser}>
               <IconButton
                 onClick={newProjectHandler}
@@ -71,18 +72,17 @@ const Projects = () => {
               </IconButton>
             </AddNew>
           </RightSide>
-          <SearchBar placeholder="Search projects..." />
+          <SearchBar placeholder={t("ProjectsSearch")} />
         </Actions>
         <Grid>
           {projects.length === 0 ? (
-            <div>No projects to show.</div>
+            <div>{t("ProjectsNoData")}</div>
           ) : (
             projects.map((project) => (
               <ProjectCard
                 key={project.id}
                 id={project.id}
                 imgSrc={project.imgUrl}
-                imgAlt="Project screenshot"
                 title={project.name}
                 description={project.description}
                 date={project.date}

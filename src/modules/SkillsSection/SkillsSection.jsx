@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Section from "../../components/Section/Section";
 import { Grid } from "../../utils/generalStyles";
 import Front from "../../assets/images/frontend.png";
@@ -22,17 +23,19 @@ import {
 } from "./SkillsSectionStyle";
 
 const SkillsSection = () => {
+  const { t } = useTranslation();
+
   return (
     <Section>
       <SkillsWrapper>
-        <Title>My Skills</Title>
+        <Title>{t("SkillsTitle")}</Title>
         <Grid>
           <SkillCardWrapper>
             <CardHeader>
               <Figure>
                 <Image src={Front} alt="Design image" />
               </Figure>
-              <Category>Front-End Development</Category>
+              <Category>{t("SkillsFront")}</Category>
             </CardHeader>
             <Items>
               <ItemWrapper>
@@ -58,7 +61,7 @@ const SkillsSection = () => {
               <Figure>
                 <Image src={Back} alt="Design image" />
               </Figure>
-              <Category>Back-End Development</Category>
+              <Category>{t("SkillsBack")}</Category>
             </CardHeader>
             <Items>
               <ItemWrapper>
@@ -80,7 +83,7 @@ const SkillsSection = () => {
               <Figure>
                 <Image src={Database} alt="Design image" />
               </Figure>
-              <Category>Database Management</Category>
+              <Category>{t("SkillsDatabase")}</Category>
             </CardHeader>
             <Items>
               <ItemWrapper>
@@ -102,7 +105,7 @@ const SkillsSection = () => {
               <Figure>
                 <Image src={Tools} alt="Design image" />
               </Figure>
-              <Category>Development & Colaboration Tools</Category>
+              <Category>{t("SkillsTools")}</Category>
             </CardHeader>
             <Items>
               <ItemWrapper>
@@ -124,7 +127,7 @@ const SkillsSection = () => {
               <Figure>
                 <Image src={Mobile} alt="Design image" />
               </Figure>
-              <Category>Mobile App Development</Category>
+              <Category>{t("SkillsMobile")}</Category>
             </CardHeader>
             <Items>
               <ItemWrapper>
@@ -138,7 +141,7 @@ const SkillsSection = () => {
               <Figure>
                 <Image src={Other} alt="Design image" />
               </Figure>
-              <Category>Other</Category>
+              <Category>{t("SkillsOther")}</Category>
             </CardHeader>
             <Items>
               <ItemWrapper>

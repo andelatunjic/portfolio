@@ -35,7 +35,7 @@
   "LoginPassword": "Password",
   "LoginButton": "Login",
   "LoginForgottenPass": "Forgot your password?",
-  
+
   "ForgottenPassTitle": "Forgotten password",
   "ForgottenPassSubtitle": "To set new password, please enter your email address here. We will send you email with reset link.",
   "ForgottenPassCancel": "Cancel",
@@ -45,5 +45,76 @@
   "SnackBarFailedEmailReset": "An error occurred. Please try again.",
   "SnackBarSuccessfulEmailReset": "An email with a password reset link has been successfully sent.",
   "SnackBarFailedContact": "Something is wrong. Try again.",
-  "SnackBarSuccessfulContact": "Your email is successfully sent!"
+  "SnackBarSuccessfulContact": "Your email is successfully sent!",
+
+  "SnackBarSuccessfulCreate": "Successfully created new item.",
+  "SnackBarFailedCreate": "Error creating new item. Please try again.",
+  "SnackBarSuccessfulDelete": "Successfully deleted item.",
+  "SnackBarFailedDelete": "Error deleting this item. Please try again.",
+  "SnackBarSuccessfulUpdate": "Item successfully updated.",
+  "SnackBarFailedUpdate": "Error updating item. Please try again.",
+
+  "SkillsTitle": "My Skills",
+  "SkillsFront": "Front-End Development",
+  "SkillsBack": "Back-End Development",
+  "SkillsDatabase": "Database Management",
+  "SkillsTools": "Development & Colaboration Tools",
+  "SkillsMobile": "Mobile App Development",
+  "SkillsOther": "Communication, Teamwork",
+
+  "ProjectsTitle": "My Projects",
+  "ProjectsSearch": "Search by technology...",
+  "ProjectsNoData": "No projects to show.",
+
+  "CommentsTitle": "Testimonial & Comments",
+  "CommentsNoData": "No comments to show. Be the first one to say something.",
+  "CommentsNameLabel": "Name",
+  "CommentsContentLabel": "Content",
+  "CommentsRobotLabel": "I'm not a robot",
+  "CommentsPublishButton": "Publish",
+
+  "ExperienceTitle": "Work experience",
+  "ExperienceSubtitle": "Timeline of work positions & academies",
+  "ExperienceNoData": "No experience to show.",
+
+  "CancelButton": "Cancel",
+  "DeleteButton": "Delete",
+  "UpdateButton": "Update",
+  "CreateButton": "Create",
+
+  "DeleteCommentTitle": "Delete comment",
+  "DeleteCommentSubtitle": "Are you sure you want to delete this comment?",
+  "DeleteExperienceTitle": "Delete experience",
+  "DeleteExperienceSubtitle": "Are you sure you want to delete this experience?",
+  "DeleteProjectTitle": "Delete project",
+  "DeleteProjectSubtitle": "Are you sure you want to delete this project?",
+
+  "CreateExperienceTitle": "Add new experience",
+  "CreateExperienceSubtitle": "To add new experience, please fill all the data here and click Create button. To cancel, click outside of this window.",
+  "CreateProjectTitle": "Add new project",
+  "CreateProjectSubtitle": "To add new project, please fill all the data here and click Create button. To cancel, click outside of this window.",
+
+  "UpdateCommentTitle": "Edit this comment",
+  "UpdateCommentSubtitle": "To edit this comment, change the data here and click Update button. To cancel, click outside of this window.",
+  "UpdateExperienceTitle": "Edit this experience",
+  "UpdateExperienceSubtitle": "To edit this experience, change the data here and click Update button. To cancel, click outside of this window.",
+  "UpdateProjectTitle": "Edit this project",
+  "UpdateProjectSubtitle": "To edit this project, change the data here and click Update button. To cancel, click outside of this window.",
+  
+  "UpdateCommentNameLabel":"Name",
+  "UpdateCommentContentLabel":"Content",
+
+  "UpdCreProjectNameLabel":"Name",
+  "UpdCreProjectDateLabel":"Date",
+  "UpdCreProjectImageLabel":"Image URL",
+  "UpdCreProjectGitHubLabel":"GitHub URL",
+  "UpdCreProjectDemoLabel":"Demo URL",
+  "UpdCreProjectTagsLabel":"Tags",
+  "UpdCreProjectDescriptionLabel":"Description",
+
+  "UpdCreExperienceDateFromLabel":"Date from",
+  "UpdCreExperienceDateToLabel":"Date to",
+  "UpdCreExperiencePositionLabel":"Position",
+  "UpdCreExperienceCompanyLabel":"Company",
+  "UpdCreExperienceDescriptionLabel":"Description"
 }

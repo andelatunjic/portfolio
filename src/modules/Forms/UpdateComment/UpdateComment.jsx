@@ -43,7 +43,7 @@ const UpdateComment = ({ show, showHandler, refreshData, id }) => {
           }
         })
         .catch((error) => {
-          console.error("Greška prilikom dohvaćanja komentara:", error);
+          console.error("Greška prilikom dohvaćanja komentara", error);
         });
     }
   }, []);
@@ -92,12 +92,12 @@ const UpdateComment = ({ show, showHandler, refreshData, id }) => {
     <>
       <FormCustomTheme>
         <Dialog open={show} onClose={showHandler}>
-          <DialogTitle>Edit comment</DialogTitle>
+          <DialogTitle>{t("UpdateCommentTitle")}</DialogTitle>
           <DialogContent>
-            <DialogContentText>Edit existing comment.</DialogContentText>
+            <DialogContentText>{t("UpdateCommentSubtitle")}</DialogContentText>
             <form onSubmit={updateHandler}>
               <TextField
-                label="Name"
+                label={t("UpdateCommentNameLabel")}
                 name="name"
                 value={name}
                 onChange={inputChangeHandler}
@@ -110,7 +110,7 @@ const UpdateComment = ({ show, showHandler, refreshData, id }) => {
                 autoComplete="off"
               />
               <TextField
-                label="Content"
+                label={t("UpdateCommentContentLabel")}
                 name="content"
                 value={content}
                 onChange={inputChangeHandler}
@@ -125,7 +125,7 @@ const UpdateComment = ({ show, showHandler, refreshData, id }) => {
                 rows={3}
               />
               <ButtonWrapper>
-                <Button type="submit">Update</Button>
+                <Button type="submit">{t("UpdateButton")}</Button>
               </ButtonWrapper>
             </form>
           </DialogContent>

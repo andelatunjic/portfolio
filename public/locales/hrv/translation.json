@@ -45,5 +45,76 @@
   "SnackBarFailedEmailReset": "Došlo je do pogreške. Pokušajte ponovno.",
   "SnackBarSuccessfulEmailReset": "E-poruka s vezom za ponovno postavljanje lozinke je uspješno poslana.",
   "SnackBarFailedContact": "Nešto nije u redu. Pokušajte ponovno.",
-  "SnackBarSuccessfulContact": "Vaša e-poruka je uspješno poslana!"
+  "SnackBarSuccessfulContact": "Vaša e-poruka je uspješno poslana!",
+
+  "SnackBarSuccessfulCreate": "Uspješno kreirano.",
+  "SnackBarFailedCreate": "Greška prilikom kreiranja. Pokušajte ponovno.",
+  "SnackBarSuccessfulDelete": "Uspješno obrisano.",
+  "SnackBarFailedDelete": "Greška prilikom brisanja. Pokušajte ponovno.",
+  "SnackBarSuccessfulUpdate": "Uspješno ažurirano.",
+  "SnackBarFailedUpdate": "Greška prilikom ažuriranja. Pokušajte ponovno.",
+
+  "SkillsTitle": "Moje vještine",
+  "SkillsFront": "Razvoj na strani korisnika",
+  "SkillsBack": "Razvoj na strani poslužitelja",
+  "SkillsDatabase": "Upravljanje bazama podataka",
+  "SkillsTools": "Razvojni i kolaboracijski alati",
+  "SkillsMobile": "Razvoj mobilnih aplikacija",
+  "SkillsOther": "Ostalo",
+
+  "ProjectsTitle": "Moji projekti",
+  "ProjectsSearch": "Pretraži po tehnologiji...",
+  "ProjectsNoData": "Nema projekata za prikaz.",
+
+  "CommentsTitle": "Izjave i komentari",
+  "CommentsNoData": "Nema komentara za prikaz. Budite prvi koji će nešto reći.",
+  "CommentsNameLabel": "Ime",
+  "CommentsContentLabel": "Sadržaj",
+  "CommentsRobotLabel": "Nisam robot",
+  "CommentsPublishButton": "Objavi",
+
+  "ExperienceTitle": "Radno isksutvo",
+  "ExperienceSubtitle": "Prikaz radnih mjesta i akademija",
+  "ExperienceNoData": "Nema radnih mjesta i akademija za prikaz.",
+
+  "CancelButton": "Odustani",
+  "DeleteButton": "Obriši",
+  "UpdateButton": "Ažuriraj",
+  "CreateButton": "Kreiraj",
+
+  "DeleteCommentTitle": "Obriši komentar",
+  "DeleteCommentSubtitle": "Jeste li sigurni da želite obrisati ovaj komentar?",
+  "DeleteExperienceTitle": "Obriši radno iskustvo",
+  "DeleteExperienceSubtitle": "Jeste li sigurni da želite obrisati ovo radno isksutvo?",
+  "DeleteProjectTitle": "Obriši projekt",
+  "DeleteProjectSubtitle": "Jeste li sigurni da želite obrisati ovaj projekt?",
+
+  "CreateExperienceTitle": "Dodaj novo iskustvo",
+  "CreateExperienceSubtitle": "Za dodavanje novog iskustva, ispunite sve podatke ovdje i kliknite gumb Kreiraj. Za odustajanje kliknite izvan ovog prozora.",
+  "CreateProjectTitle": "Dodaj novi projekt",
+  "CreateProjectSubtitle": "Za dodavanje novog projekta, ispunite sve podatke ovdje i kliknite gumb Kreiraj. Za odustajanje kliknite izvan ovog prozora.",
+
+  "UpdateCommentTitle": "Uredi komentar",
+  "UpdateCommentSubtitle": "Za uređivanje ovog komentara, promijenite podatke ovdje i kliknite gumb Ažuriraj. Za odustajanje kliknite izvan ovog prozora.",
+  "UpdateExperienceTitle": "Uredi radno iskustvo",
+  "UpdateExperienceSubtitle": "Za uređivanje ovog iskustva, promijenite podatke ovdje i kliknite gumb Ažuriraj. Za odustajanje kliknite izvan ovog prozora.",
+  "UpdateProjectTitle": "Uredi projekt",
+  "UpdateProjectSubtitle": "Za uređivanje ovog projekta, promijenite podatke ovdje i kliknite gumb Ažuriraj. Za odustajanje kliknite izvan ovog prozora.",
+
+  "UpdateCommentNameLabel": "Ime i prezime",
+  "UpdateCommentContentLabel": "Sadržaj",
+
+  "UpdCreProjectNameLabel": "Naziv",
+  "UpdCreProjectDateLabel": "Datum",
+  "UpdCreProjectImageLabel": "URL slike",
+  "UpdCreProjectGitHubLabel": "GitHub URL",
+  "UpdCreProjectDemoLabel": "Demo URL",
+  "UpdCreProjectTagsLabel": "Tagovi",
+  "UpdCreProjectDescriptionLabel": "Opis",
+
+  "UpdCreExperienceDateFromLabel": "Datum od",
+  "UpdCreExperienceDateToLabel": "Datum do",
+  "UpdCreExperiencePositionLabel": "Pozicija",
+  "UpdCreExperienceCompanyLabel": "Tvrtka",
+  "UpdCreExperienceDescriptionLabel": "Opis"
 }

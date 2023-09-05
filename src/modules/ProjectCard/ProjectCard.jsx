@@ -23,7 +23,6 @@ import DeleteProject from "../../components/DeleteProject/DeleteProject";
 const ProjectCard = ({
   id,
   imgSrc,
-  imgAlt,
   title,
   description,
   date,
@@ -52,7 +51,7 @@ const ProjectCard = ({
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectDate>{date}</ProjectDate>
         <ProjectFigure>
-          <ProjectImage src={imgSrc} alt={imgAlt} />
+          <ProjectImage src={imgSrc} alt="Project screenshot" />
         </ProjectFigure>
         <ProjectDescription>{description}</ProjectDescription>
         <Tags>

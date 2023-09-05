@@ -48,7 +48,7 @@ const CreateUpdateExperience = ({
           }
         })
         .catch((error) => {
-          console.error("Greška prilikom dohvaćanja iskustva:", error);
+          console.error("Greška prilikom dohvaćanja iskustva", error);
         });
     }
   }, []);
@@ -78,10 +78,8 @@ const CreateUpdateExperience = ({
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setSuccessMessage("Uspješno kreirano");
-    setErrorMessage(
-      "Greška kod kreiranja. Možda je datum od veći od datuma do."
-    );
+    setSuccessMessage(t("SnackBarSuccessfulCreate"));
+    setErrorMessage(t("SnackBarFailedCreate"));
 
     if (dateFrom > dateTo) {
       setErrorToast(true);
@@ -105,8 +103,8 @@ const CreateUpdateExperience = ({
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    setSuccessMessage("Uspješno ažurirano.");
-    setErrorMessage("Greška kod ažuriranja. Pokušajte ponovno.");
+    setSuccessMessage(t("SnackBarSuccessfulUpdate"));
+    setErrorMessage(t("SnackBarFailedUpdate"));
 
     await updateExperience(newExperience, id)
       .then((res) => {
@@ -132,17 +130,17 @@ const CreateUpdateExperience = ({
       <FormCustomTheme>
         <Dialog open={show} onClose={showHandler}>
           <DialogTitle>
-            {update ? "Edit experience" : "Add new experience"}
+            {update ? t("UpdateExperienceTitle") : t("CreateExperienceTitle")}
           </DialogTitle>
           <DialogContent>
             <DialogContentText>
               {update
-                ? "Edit existing experience data."
-                : "To add new experience, please fill all the data here."}
+                ? t("UpdateExperienceSubtitle")
+                : t("CreateExperienceSubtitle")}
             </DialogContentText>
             <form onSubmit={update ? updateHandler : submitHandler}>
               <TextField
-                label="Date from"
+                label={t("UpdCreExperienceDateFromLabel")}
                 name="dateFrom"
                 value={dateFrom}
                 onChange={inputChangeHandler}
@@ -156,7 +154,7 @@ const CreateUpdateExperience = ({
                 InputLabelProps={{ shrink: true }}
               />
               <TextField
-                label="Date to"
+                label={t("UpdCreExperienceDateToLabel")}
                 name="dateTo"
                 value={dateTo}
                 onChange={inputChangeHandler}
@@ -170,7 +168,7 @@ const CreateUpdateExperience = ({
                 InputLabelProps={{ shrink: true }}
               />
               <TextField
-                label="Position"
+                label={t("UpdCreExperiencePositionLabel")}
                 name="position"
                 value={position}
                 onChange={inputChangeHandler}
@@ -183,7 +181,7 @@ const CreateUpdateExperience = ({
                 autoComplete="off"
               />
               <TextField
-                label="Company"
+                label={t("UpdCreExperienceCompanyLabel")}
                 name="company"
                 value={company}
                 onChange={inputChangeHandler}
@@ -196,7 +194,7 @@ const CreateUpdateExperience = ({
                 autoComplete="off"
               />
               <TextField
-                label="Description"
+                label={t("UpdCreExperienceDescriptionLabel")}
                 name="description"
                 value={description}
                 onChange={inputChangeHandler}
@@ -211,7 +209,9 @@ const CreateUpdateExperience = ({
                 rows={3}
               />
               <ButtonWrapper>
-                <Button type="submit">{update ? "Update" : "Create"}</Button>
+                <Button type="submit">
+                  {update ? t("UpdateButton") : t("CreateButton")}
+                </Button>
               </ButtonWrapper>
             </form>
           </DialogContent>

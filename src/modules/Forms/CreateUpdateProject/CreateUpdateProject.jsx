@@ -52,7 +52,7 @@ const CreateUpdateProject = ({
           }
         })
         .catch((error) => {
-          console.error("Greška prilikom dohvaćanja projekta:", error);
+          console.error("Greška prilikom dohvaćanja projekta", error);
         });
     }
   }, []);
@@ -88,10 +88,8 @@ const CreateUpdateProject = ({
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setSuccessMessage("Uspješno kreirano");
-    setErrorMessage(
-      "Greška kod kreiranja. Možda je datum od veći od datuma do."
-    );
+    setSuccessMessage(t("SnackBarSuccessfulCreate"));
+    setErrorMessage(t("SnackBarFailedCreate"));
 
     await createProject(newProject)
       .then((res) => {
@@ -113,8 +111,8 @@ const CreateUpdateProject = ({
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    setSuccessMessage("Uspješno ažurirano.");
-    setErrorMessage("Greška kod ažuriranja. Pokušajte ponovno.");
+    setSuccessMessage(t("SnackBarSuccessfulUpdate"));
+    setErrorMessage(t("SnackBarFailedUpdate"));
 
     await updateProject(newProject, id)
       .then((res) => {
@@ -140,17 +138,15 @@ const CreateUpdateProject = ({
       <FormCustomTheme>
         <Dialog open={show} onClose={showHandler}>
           <DialogTitle>
-            {update ? "Edit project" : "Add new project"}
+            {update ? t("UpdateProjectTitle") : t("CreateProjectTitle")}
           </DialogTitle>
           <DialogContent>
             <DialogContentText>
-              {update
-                ? "Edit existing project data."
-                : "To add new project, please fill all the data here."}
+              {update ? t("UpdateProjectSubtitle") : t("CreateProjectSubtitle")}
             </DialogContentText>
             <form onSubmit={update ? updateHandler : submitHandler}>
               <TextField
-                label="Name"
+                label={t("UpdCreProjectNameLabel")}
                 name="name"
                 value={name}
                 onChange={inputChangeHandler}
@@ -163,7 +159,7 @@ const CreateUpdateProject = ({
                 autoComplete="off"
               />
               <TextField
-                label="Date"
+                label={t("UpdCreProjectDateLabel")}
                 name="date"
                 value={date}
                 onChange={inputChangeHandler}
@@ -177,7 +173,7 @@ const CreateUpdateProject = ({
                 InputLabelProps={{ shrink: true }}
               />
               <TextField
-                label="Image URL"
+                label={t("UpdCreProjectImageLabel")}
                 name="imgUrl"
                 value={imgUrl}
                 onChange={inputChangeHandler}
@@ -190,7 +186,7 @@ const CreateUpdateProject = ({
                 autoComplete="off"
               />
               <TextField
-                label="GitHub URL"
+                label={t("UpdCreProjectGitHubLabel")}
                 name="gitHubUrl"
                 value={gitHubUrl}
                 onChange={inputChangeHandler}
@@ -203,7 +199,7 @@ const CreateUpdateProject = ({
                 autoComplete="off"
               />
               <TextField
-                label="Demo URL"
+                label={t("UpdCreProjectDemoLabel")}
                 name="demoUrl"
                 value={demoUrl}
                 onChange={inputChangeHandler}
@@ -215,7 +211,7 @@ const CreateUpdateProject = ({
                 autoComplete="off"
               />
               <TextField
-                label="Tags"
+                label={t("UpdCreProjectTagsLabel")}
                 name="tags"
                 value={tags}
                 onChange={inputChangeHandler}
@@ -228,7 +224,7 @@ const CreateUpdateProject = ({
                 autoComplete="off"
               />
               <TextField
-                label="Description"
+                label={t("UpdCreProjectDescriptionLabel")}
                 name="description"
                 value={description}
                 onChange={inputChangeHandler}
@@ -243,7 +239,9 @@ const CreateUpdateProject = ({
                 rows={3}
               />
               <ButtonWrapper>
-                <Button type="submit">{update ? "Update" : "Create"}</Button>
+                <Button type="submit">
+                  {update ? t("UpdateButton") : t("CreateButton")}
+                </Button>
               </ButtonWrapper>
             </form>
           </DialogContent>
