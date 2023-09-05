@@ -122,5 +122,9 @@
   "UpdCreExperienceDateToLabel": "Datum do",
   "UpdCreExperiencePositionLabel": "Pozicija",
   "UpdCreExperienceCompanyLabel": "Tvrtka",
-  "UpdCreExperienceDescriptionLabel": "Opis"
+  "UpdCreExperienceDescriptionLabel": "Opis",
+
+  "NotFoundTitle": "404 Nije pronađeno",
+  "NotFoundSubtitle": "Ova stranica je obrisana ili nije nikad postojala.",
+  "NotFoundText": "Nismo mogli pronaći ono što tražite. Ova bi se stranica mogla uskoro pojaviti, više ne postoji ili je vidljiva samo odabranoj publici."
 }

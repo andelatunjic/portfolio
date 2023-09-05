@@ -122,5 +122,9 @@
   "UpdCreExperienceDateToLabel": "Date to",
   "UpdCreExperiencePositionLabel": "Position",
   "UpdCreExperienceCompanyLabel": "Company",
-  "UpdCreExperienceDescriptionLabel": "Description"
+  "UpdCreExperienceDescriptionLabel": "Description",
+
+  "NotFoundTitle": "404 Not Found",
+  "NotFoundSubtitle": "This page is deleted or it never existed.",
+  "NotFoundText": "We couldn't find what you're looking for. This page might come soon, no longer exists, or is only visible to a selected audience."
 }

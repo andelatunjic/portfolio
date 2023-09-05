@@ -24,10 +24,19 @@ const SingleComment = ({ id, name, date, content, refreshData }) => {
   const [cookies, setCookie] = useCookies([id]);
   const { t } = useTranslation();
 
-  const isIdentified = cookies[id];
-
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [commentForm, setCommentForm] = useState(false);
+
+  const isIdentified = cookies[id];
+
+  const nameArray = name.split(" ");
+  let userInitials= "";
+
+  if (nameArray.length >= 2) {
+    userInitials = nameArray[0].charAt(0).toUpperCase() + nameArray[1].charAt(0).toUpperCase();
+  } else if (nameArray.length === 1) {
+    userInitials = nameArray[0].charAt(0).toUpperCase();
+  }
 
   const deleteDialogHandler = () => {
     setDeleteDialog(!deleteDialog);
@@ -42,7 +51,7 @@ const SingleComment = ({ id, name, date, content, refreshData }) => {
       <Comment identified={isIdentified}>
         <CommentHeader>
           <Info>
-            <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
+            <Avatar sx={{ bgcolor: "#B3AFF8" }}>{userInitials}</Avatar>
             <Author>
               <Name>{name}</Name>
               <Date>{date}</Date>

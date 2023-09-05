@@ -93,28 +93,32 @@ const ProjectCard = ({
             </Tooltip>
           </AdminActions>
           <Tooltip title={t("ProjectsSeeRepository")}>
-            <GitHub
-              sx={{
-                color: darkMode ? "#F9FAFB" : "#1F2937",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#5c6bc0",
-                  transition: "0.3s ease-out",
-                },
-              }}
-            />
+            <a target="_blank" href={gitHubUrl}>
+              <GitHub
+                sx={{
+                  color: darkMode ? "#F9FAFB" : "#1F2937",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "#5c6bc0",
+                    transition: "0.3s ease-out",
+                  },
+                }}
+              />
+            </a>
           </Tooltip>
           <Tooltip title={t("ProjectsSeeDemo")}>
-            <Open
-              sx={{
-                color: darkMode ? "#F9FAFB" : "#1F2937",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#5c6bc0",
-                  transition: "0.3s ease-out",
-                },
-              }}
-            />
+            <a target="_blank" href={gitHubUrl}>
+              <Open
+                sx={{
+                  color: darkMode ? "#F9FAFB" : "#1F2937",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "#5c6bc0",
+                    transition: "0.3s ease-out",
+                  },
+                }}
+              />
+            </a>
           </Tooltip>
         </Actions>
       </ProjectCardWrapper>

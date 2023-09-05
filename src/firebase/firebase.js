@@ -12,9 +12,11 @@ const firebaseConfig = {
   measurementId: "G-BX2JN75RJC",
 };
 
-const app = firebase.initializeApp(firebaseConfig);
+const app = !firebase.apps.length
+  ? firebase.initializeApp(firebaseConfig)
+  : firebase.app();
 export const auth = firebase.auth();
 export default app;
 
-auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
 export const firestore = firebase.firestore;
