@@ -107,7 +107,7 @@ const ProjectCard = ({
             </a>
           </Tooltip>
           <Tooltip title={t("ProjectsSeeDemo")}>
-            <a target="_blank" href={gitHubUrl}>
+            <a target="_blank" href={demoUrl}>
               <Open
                 sx={{
                   color: darkMode ? "#F9FAFB" : "#1F2937",
