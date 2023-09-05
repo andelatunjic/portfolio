@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { OptionsContext } from "../../context/OptionsContext";
 import { useCookies } from "react-cookie";
+import { useTranslation } from "react-i18next";
 import {
   Comment,
   CommentHeader,
@@ -16,10 +17,13 @@ import Delete from "@mui/icons-material/DeleteOutline";
 import Edit from "@mui/icons-material/EditTwoTone";
 import DeleteComment from "../DeleteComment/DeleteComment";
 import UpdateComment from "../../modules/Forms/UpdateComment/UpdateComment";
+import Tooltip from "@mui/material/Tooltip";
 
 const SingleComment = ({ id, name, date, content, refreshData }) => {
   const { darkMode } = useContext(OptionsContext);
   const [cookies, setCookie] = useCookies([id]);
+  const { t } = useTranslation();
+
   const isIdentified = cookies[id];
 
   const [deleteDialog, setDeleteDialog] = useState(false);
@@ -45,28 +49,32 @@ const SingleComment = ({ id, name, date, content, refreshData }) => {
             </Author>
           </Info>
           <AdminActions identified={isIdentified}>
-            <Delete
-              onClick={deleteDialogHandler}
-              sx={{
-                color: darkMode ? "#F9FAFB" : "#1F2937",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#5c6bc0",
-                  transition: "0.3s ease-out",
-                },
-              }}
-            />
-            <Edit
-              onClick={updateCommentHandler}
-              sx={{
-                color: darkMode ? "#F9FAFB" : "#1F2937",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#5c6bc0",
-                  transition: "0.3s ease-out",
-                },
-              }}
-            />
+            <Tooltip title={t("DeleteCommentTitle")}>
+              <Delete
+                onClick={deleteDialogHandler}
+                sx={{
+                  color: darkMode ? "#F9FAFB" : "#1F2937",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "#5c6bc0",
+                    transition: "0.3s ease-out",
+                  },
+                }}
+              />
+            </Tooltip>
+            <Tooltip title={t("UpdateCommentTitle")}>
+              <Edit
+                onClick={updateCommentHandler}
+                sx={{
+                  color: darkMode ? "#F9FAFB" : "#1F2937",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "#5c6bc0",
+                    transition: "0.3s ease-out",
+                  },
+                }}
+              />
+            </Tooltip>
           </AdminActions>
         </CommentHeader>
         <Content>{content}</Content>

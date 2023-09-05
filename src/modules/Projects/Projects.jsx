@@ -18,6 +18,7 @@ import Add from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 import { getAllProjects } from "../../firebase/project";
 import CreateUpdateProject from "../Forms/CreateUpdateProject/CreateUpdateProject";
+import Tooltip from "@mui/material/Tooltip";
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -54,23 +55,25 @@ const Projects = () => {
         <Actions>
           <RightSide>
             <Title>{t("ProjectsTitle")}</Title>
-            <AddNew auth={authUser}>
-              <IconButton
-                onClick={newProjectHandler}
-                sx={{
-                  backgroundColor: "rgba(1, 1, 1, 0.2)",
-                  "&:hover": {
-                    backgroundColor: "rgba(1, 1, 1, 0.3)",
-                  },
-                  color: "#B3AFF8",
-                }}
-              >
-                <Add
-                  sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
-                  fontSize="medium"
-                />
-              </IconButton>
-            </AddNew>
+            <Tooltip title={t("CreateProjectTitle")}>
+              <AddNew auth={authUser}>
+                <IconButton
+                  onClick={newProjectHandler}
+                  sx={{
+                    backgroundColor: "rgba(1, 1, 1, 0.2)",
+                    "&:hover": {
+                      backgroundColor: "rgba(1, 1, 1, 0.3)",
+                    },
+                    color: "#B3AFF8",
+                  }}
+                >
+                  <Add
+                    sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
+                    fontSize="medium"
+                  />
+                </IconButton>
+              </AddNew>
+            </Tooltip>
           </RightSide>
           <SearchBar placeholder={t("ProjectsSearch")} />
         </Actions>

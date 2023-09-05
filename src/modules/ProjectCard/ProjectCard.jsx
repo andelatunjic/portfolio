@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { OptionsContext } from "../../context/OptionsContext";
 import Tag from "../../components/Tag/Tag";
@@ -19,6 +20,7 @@ import {
 } from "./ProjectCardStyle";
 import CreateUpdateProject from "../Forms/CreateUpdateProject/CreateUpdateProject";
 import DeleteProject from "../../components/DeleteProject/DeleteProject";
+import Tooltip from "@mui/material/Tooltip";
 
 const ProjectCard = ({
   id,
@@ -33,6 +35,8 @@ const ProjectCard = ({
 }) => {
   const { darkMode, authUser } = useContext(OptionsContext);
   const tagArray = tags.split(",");
+
+  const { t } = useTranslation();
 
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [projectForm, setProjectForm] = useState(false);
@@ -61,49 +65,57 @@ const ProjectCard = ({
         </Tags>
         <Actions>
           <AdminActions auth={authUser}>
-            <Delete
-              onClick={deleteDialogHandler}
-              sx={{
-                color: darkMode ? "#F9FAFB" : "#1F2937",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#5c6bc0",
-                  transition: "0.3s ease-out",
-                },
-              }}
-            />
-            <Edit
-              onClick={updateProjectHandler}
-              sx={{
-                color: darkMode ? "#F9FAFB" : "#1F2937",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#5c6bc0",
-                  transition: "0.3s ease-out",
-                },
-              }}
-            />
+            <Tooltip title={t("DeleteProjectTitle")}>
+              <Delete
+                onClick={deleteDialogHandler}
+                sx={{
+                  color: darkMode ? "#F9FAFB" : "#1F2937",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "#5c6bc0",
+                    transition: "0.3s ease-out",
+                  },
+                }}
+              />
+            </Tooltip>
+            <Tooltip title={t("UpdateProjectTitle")}>
+              <Edit
+                onClick={updateProjectHandler}
+                sx={{
+                  color: darkMode ? "#F9FAFB" : "#1F2937",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "#5c6bc0",
+                    transition: "0.3s ease-out",
+                  },
+                }}
+              />
+            </Tooltip>
           </AdminActions>
-          <GitHub
-            sx={{
-              color: darkMode ? "#F9FAFB" : "#1F2937",
-              cursor: "pointer",
-              "&:hover": {
-                color: "#5c6bc0",
-                transition: "0.3s ease-out",
-              },
-            }}
-          />
-          <Open
-            sx={{
-              color: darkMode ? "#F9FAFB" : "#1F2937",
-              cursor: "pointer",
-              "&:hover": {
-                color: "#5c6bc0",
-                transition: "0.3s ease-out",
-              },
-            }}
-          />
+          <Tooltip title={t("ProjectsSeeRepository")}>
+            <GitHub
+              sx={{
+                color: darkMode ? "#F9FAFB" : "#1F2937",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#5c6bc0",
+                  transition: "0.3s ease-out",
+                },
+              }}
+            />
+          </Tooltip>
+          <Tooltip title={t("ProjectsSeeDemo")}>
+            <Open
+              sx={{
+                color: darkMode ? "#F9FAFB" : "#1F2937",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#5c6bc0",
+                  transition: "0.3s ease-out",
+                },
+              }}
+            />
+          </Tooltip>
         </Actions>
       </ProjectCardWrapper>
       <DeleteProject

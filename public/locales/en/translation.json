@@ -65,6 +65,8 @@
   "ProjectsTitle": "My Projects",
   "ProjectsSearch": "Search by technology...",
   "ProjectsNoData": "No projects to show.",
+  "ProjectsSeeDemo": "See demo",
+  "ProjectsSeeRepository": "See repository",
 
   "CommentsTitle": "Testimonial & Comments",
   "CommentsNoData": "No comments to show. Be the first one to say something.",

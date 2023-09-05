@@ -28,6 +28,7 @@ import Add from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 import { getAllExperiences } from "../../firebase/experience";
 import CreateUpdateExperience from "../Forms/CreateUpdateExperience/CreateUpdateExperience";
+import Tooltip from "@mui/material/Tooltip";
 
 const ExperienceTimeline = () => {
   const { darkMode, authUser } = useContext(OptionsContext);
@@ -65,21 +66,23 @@ const ExperienceTimeline = () => {
         <ExperienceWrapper>
           <div>
             <AddNewWrapper auth={authUser}>
-              <IconButton
-                onClick={newExperienceHandler}
-                sx={{
-                  backgroundColor: "rgba(1, 1, 1, 0.2)",
-                  "&:hover": {
-                    backgroundColor: "rgba(1, 1, 1, 0.3)",
-                  },
-                  color: "#B3AFF8",
-                }}
-              >
-                <Add
-                  sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
-                  fontSize="medium"
-                />
-              </IconButton>
+              <Tooltip title={t("CreateExperienceTitle")}>
+                <IconButton
+                  onClick={newExperienceHandler}
+                  sx={{
+                    backgroundColor: "rgba(1, 1, 1, 0.2)",
+                    "&:hover": {
+                      backgroundColor: "rgba(1, 1, 1, 0.3)",
+                    },
+                    color: "#B3AFF8",
+                  }}
+                >
+                  <Add
+                    sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
+                    fontSize="medium"
+                  />
+                </IconButton>
+              </Tooltip>
             </AddNewWrapper>
             <TextContent>
               <Title>{t("ExperienceTitle")}</Title>

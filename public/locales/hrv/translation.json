@@ -65,6 +65,8 @@
   "ProjectsTitle": "Moji projekti",
   "ProjectsSearch": "Pretraži po tehnologiji...",
   "ProjectsNoData": "Nema projekata za prikaz.",
+  "ProjectsSeeDemo": "Vidi demo",
+  "ProjectsSeeRepository": "Vidi repozitorij",
 
   "CommentsTitle": "Izjave i komentari",
   "CommentsNoData": "Nema komentara za prikaz. Budite prvi koji će nešto reći.",
