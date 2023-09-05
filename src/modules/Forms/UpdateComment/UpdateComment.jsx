@@ -20,8 +20,17 @@ const UpdateComment = ({ show, showHandler, refreshData, id }) => {
   const [successToast, setSuccessToast] = useState(false);
 
   const [name, setName] = useState("");
-  const [date, setDate] = useState("");
   const [content, setContent] = useState("");
+  const [date, setDate] = useState("");
+
+  function getCurrentDate() {
+    const currentDate = new Date();
+    const day = String(currentDate.getDate()).padStart(2, "0");
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const year = currentDate.getFullYear();
+
+    return `${day}.${month}.${year}.`;
+  }
 
   useEffect(() => {
     if (id) {
@@ -49,11 +58,10 @@ const UpdateComment = ({ show, showHandler, refreshData, id }) => {
     const { name, value } = e.target;
     if (name === "name") {
       setName(value);
-    } else if (name === "date") {
-      setDate(value);
     } else if (name === "content") {
       setContent(value);
     }
+    setDate(getCurrentDate());
   };
 
   const updateHandler = async (e) => {
@@ -100,20 +108,6 @@ const UpdateComment = ({ show, showHandler, refreshData, id }) => {
                 type="text"
                 inputProps={{ maxLength: 50 }}
                 autoComplete="off"
-              />
-              <TextField
-                label="Date"
-                name="date"
-                value={date}
-                onChange={inputChangeHandler}
-                fullWidth
-                margin="dense"
-                required
-                variant="standard"
-                type="date"
-                inputProps={{ maxLength: 10, pattern: "dd/MM/yyyy" }}
-                autoComplete="off"
-                InputLabelProps={{ shrink: true }}
               />
               <TextField
                 label="Content"

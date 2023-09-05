@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { OptionsContext } from "../../context/OptionsContext";
+import { useCookies } from "react-cookie";
 import {
   Comment,
   CommentHeader,
@@ -13,45 +14,76 @@ import {
 import Avatar from "@mui/material/Avatar";
 import Delete from "@mui/icons-material/DeleteOutline";
 import Edit from "@mui/icons-material/EditTwoTone";
+import DeleteComment from "../DeleteComment/DeleteComment";
+import UpdateComment from "../../modules/Forms/UpdateComment/UpdateComment";
 
-const SingleComment = ({ id, name, date, content, creator }) => {
+const SingleComment = ({ id, name, date, content, refreshData }) => {
   const { darkMode } = useContext(OptionsContext);
+  const [cookies, setCookie] = useCookies([id]);
+  const isIdentified = cookies[id];
+
+  const [deleteDialog, setDeleteDialog] = useState(false);
+  const [commentForm, setCommentForm] = useState(false);
+
+  const deleteDialogHandler = () => {
+    setDeleteDialog(!deleteDialog);
+  };
+
+  const updateCommentHandler = () => {
+    setCommentForm(!commentForm);
+  };
 
   return (
-    <Comment identified={creator}>
-      <CommentHeader>
-        <Info>
-          <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
-          <Author>
-            <Name>{name}</Name>
-            <Date>{date}</Date>
-          </Author>
-        </Info>
-        <AdminActions identified={creator}>
-          <Delete
-            sx={{
-              color: darkMode ? "#F9FAFB" : "#1F2937",
-              cursor: "pointer",
-              "&:hover": {
-                color: "#5c6bc0",
-                transition: "0.3s ease-out",
-              },
-            }}
-          />
-          <Edit
-            sx={{
-              color: darkMode ? "#F9FAFB" : "#1F2937",
-              cursor: "pointer",
-              "&:hover": {
-                color: "#5c6bc0",
-                transition: "0.3s ease-out",
-              },
-            }}
-          />
-        </AdminActions>
-      </CommentHeader>
-      <Content>{content}</Content>
-    </Comment>
+    <>
+      <Comment identified={isIdentified}>
+        <CommentHeader>
+          <Info>
+            <Avatar sx={{ bgcolor: "#B3AFF8" }}>AT</Avatar>
+            <Author>
+              <Name>{name}</Name>
+              <Date>{date}</Date>
+            </Author>
+          </Info>
+          <AdminActions identified={isIdentified}>
+            <Delete
+              onClick={deleteDialogHandler}
+              sx={{
+                color: darkMode ? "#F9FAFB" : "#1F2937",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#5c6bc0",
+                  transition: "0.3s ease-out",
+                },
+              }}
+            />
+            <Edit
+              onClick={updateCommentHandler}
+              sx={{
+                color: darkMode ? "#F9FAFB" : "#1F2937",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#5c6bc0",
+                  transition: "0.3s ease-out",
+                },
+              }}
+            />
+          </AdminActions>
+        </CommentHeader>
+        <Content>{content}</Content>
+      </Comment>
+      <DeleteComment
+        show={deleteDialog}
+        showHandler={deleteDialogHandler}
+        refreshData={refreshData}
+        id={id}
+      />
+      <UpdateComment
+        show={commentForm}
+        showHandler={updateCommentHandler}
+        refreshData={refreshData}
+        id={id}
+      />
+    </>
   );
 };
 

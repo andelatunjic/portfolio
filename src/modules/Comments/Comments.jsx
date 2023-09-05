@@ -1,5 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { OptionsContext } from "../../context/OptionsContext";
+import { observer } from "mobx-react-lite";
+import dataStore from "../../store/DataStore";
+import { useCookies } from "react-cookie";
 import Section from "../../components/Section/Section";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
@@ -16,16 +19,59 @@ import {
 } from "./CommentsStyle";
 import { Button } from "../../utils/generalStyles";
 import SingleComment from "../../components/SingleComment/SingleComment";
+import { getAllComments, createComment } from "../../firebase/comment";
+import Toast from "../../components/Toast/Toast";
 
 const Comments = () => {
   const { darkMode } = useContext(OptionsContext);
+  const { comments, setComments, commentsLength } = dataStore;
 
+  const [cookies, setCookie] = useCookies([]);
   const [isFormValid, setIsFormValid] = useState(false);
   const [sending, setSending] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorToast, setErrorToast] = useState(false);
+  const [successToast, setSuccessToast] = useState(false);
 
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [date, setDate] = useState("");
+
+  function getCurrentDate() {
+    const currentDate = new Date();
+    const day = String(currentDate.getDate()).padStart(2, "0");
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const year = currentDate.getFullYear();
+
+    return `${day}.${month}.${year}.`;
+  }
+
+  useEffect(() => {
+    fetchComments();
+
+    if (commentsLength === 0) {
+      fetchComments();
+    }
+  }, []);
+
+  const fetchComments = async () => {
+    await getAllComments()
+      .then((res) => {
+        setComments(res);
+      })
+      .catch(() => {
+        console.log("Failed to fetch comments:");
+      });
+  };
+
+  const newComment = {
+    name: name,
+    content: content,
+    date: date,
+  };
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -34,16 +80,47 @@ const Comments = () => {
     } else if (name === "content") {
       setContent(value);
     }
+    setDate(getCurrentDate());
   };
 
   const robotHandler = (e) => {
     setIsChecked(e.target.checked);
-
     setIsFormValid(e.target.checked && name !== "" && content !== "");
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    setSuccessMessage("Uspješno kreirano");
+    setErrorMessage("Greška kod kreiranja. Pokušajte ponovno.");
+    setSending(true);
+
+    await createComment(newComment)
+      .then((res) => {
+        const id = res;
+        setCookie(id, "comment cookie");
+
+        setSending(false);
+        setName("");
+        setContent("");
+        setDate("");
+        fetchComments();
+        setSuccessToast(true);
+      })
+      .catch((e) => {
+        console.log(e);
+        setSending(false);
+        setErrorToast(true);
+      });
+
+    setSending(false);
+  };
+
+  const errorHandler = () => {
+    setErrorToast(false);
+  };
+
+  const succesHandler = () => {
+    setSuccessToast(false);
   };
 
   return (
@@ -52,21 +129,17 @@ const Comments = () => {
         <Title>Testimonial & Comments</Title>
         <CommentSection>
           <CommentsList>
-            <SingleComment
-              id="1"
-              name="Anđela Tunjić"
-              date="20.06.2023."
-              content="Ovo je primjer teksta nekog komentara štoj e ostavljen ovdje ggg
-              ggg ggg ggggggggggggggggggggg gg gggggg gg g g g ggggggggggg."
-              creator
-            />
-            <SingleComment
-              id="1"
-              name="Anđela Tunjić"
-              date="20.06.2023."
-              content="Ovo je primjer teksta nekog komentara štoj e ostavljen ovdje ggg
-              ggg ggg ggggggggggggggggggggg gg gggggg gg g g g ggggggggggg."
-            />
+            {comments.map((comment) => (
+              <SingleComment
+                key={comment.id}
+                id={comment.id}
+                name={comment.name}
+                date={comment.date}
+                content={comment.content}
+                creator
+                refreshData={fetchComments}
+              />
+            ))}
           </CommentsList>
           <NewComment>
             <Form onSubmit={submitHandler}>
@@ -134,8 +207,16 @@ const Comments = () => {
           </NewComment>
         </CommentSection>
       </CommentsWrapper>
+      <Toast
+        errorHandler={errorHandler}
+        errorToast={errorToast}
+        successToast={successToast}
+        succesHandler={succesHandler}
+        successMessage={successMessage}
+        errorMessage={errorMessage}
+      />
     </Section>
   );
 };
 
-export default Comments;
+export default observer(Comments);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCookies } from "react-cookie";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -15,18 +16,22 @@ const DeleteProject = ({ show, showHandler, refreshData, id }) => {
   const [errorToast, setErrorToast] = useState(false);
   const [successToast, setSuccessToast] = useState(false);
 
+  const [cookies, setCookie, removeCookie] = useCookies([]);
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    setSuccessMessage("Uspješno obrisano");
+    setSuccessMessage("Uspješno obrisano. Osvježite stranicu.");
     setErrorMessage("Greška prilikom brisanja. Pokušajte ponovno.");
 
     await deleteComment(id)
       .then((res) => {
-        showHandler();
+        removeCookie(id);
         refreshData();
+        showHandler();
         setSuccessToast(true);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         setErrorToast(true);
       });
   };

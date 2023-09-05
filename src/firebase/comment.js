@@ -57,9 +57,6 @@ export const updateComment = async (comment, commentId) => {
     .collection("comments")
     .doc(commentId)
     .update(comment)
-    .then((response) => {
-      console.log(response);
-    })
     .catch((error) => {
       console.log("Update error: ", error);
       throw error;

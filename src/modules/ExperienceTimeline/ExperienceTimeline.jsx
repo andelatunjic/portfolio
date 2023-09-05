@@ -30,7 +30,6 @@ import CreateUpdateExperience from "../Forms/CreateUpdateExperience/CreateUpdate
 
 const ExperienceTimeline = () => {
   const { darkMode, authUser } = useContext(OptionsContext);
-
   const { experiences, setExperiences, experiencesLength } = dataStore;
   const jwtToken = localStorage.getItem("userToken");
 
