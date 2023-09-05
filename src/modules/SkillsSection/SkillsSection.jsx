@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Section from "../../components/Section/Section";
-import { Grid } from "../../utils/generalStyles";
+import { Grid, SubtitleAlignLeft } from "../../utils/generalStyles";
 import Front from "../../assets/images/frontend.png";
 import Back from "../../assets/images/backend.png";
 import Database from "../../assets/images/database.png";
@@ -29,6 +29,7 @@ const SkillsSection = () => {
     <Section>
       <SkillsWrapper>
         <Title>{t("SkillsTitle")}</Title>
+        <SubtitleAlignLeft>{t("SkillsDescription")}</SubtitleAlignLeft>
         <Grid>
           <SkillCardWrapper>
             <CardHeader>

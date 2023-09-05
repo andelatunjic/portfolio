@@ -38,17 +38,15 @@ export const Date = styled.p`
   color: ${colors.accentColorPurple};
   font-family: ${fonts.secondary};
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
-
-  @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 14px;
-  }
 `;
 
-export const Content = styled.div`
+export const Content = styled.p`
   color: ${colors.textSecondary};
+  font-size: 14x;
 `;
+
 export const AdminActions = styled.div`
   display: none;
 

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { colors, fonts, breakpoints } from '../../utils/theme';
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
+import { colors, fonts } from "../../utils/theme";
+import { NavLink } from "react-router-dom";
 
 export const NavLinkWrapper = styled(NavLink)`
   display: block;
@@ -45,19 +45,11 @@ export const MenuItemInner = styled.div`
 
 export const ItemImage = styled.img`
   padding-right: 18px;
-  height: 16px;
-
-  @media screen and (${breakpoints.tabletSmall}) {
-    height: 18px;
-  }
+  height: 18px;
 `;
 
 export const ItemText = styled.p`
   color: ${colors.textPrimaryDark};
   font-family: ${fonts.secondary};
-  font-size: 12px;
-
-  @media screen and (${breakpoints.tabletSmall}) {
-    font-size: 14px;
-  }
+  font-size: 14px;
 `;

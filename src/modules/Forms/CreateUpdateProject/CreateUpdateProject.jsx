@@ -222,6 +222,7 @@ const CreateUpdateProject = ({
                 type="text"
                 inputProps={{ maxLength: 100 }}
                 autoComplete="off"
+                helperText={t("UpdCreProjectTagsHelperText")}
               />
               <TextField
                 label={t("UpdCreProjectDescriptionLabel")}

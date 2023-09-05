@@ -12,7 +12,7 @@ import {
   AddNew,
 } from "./ProjectsStyle";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import { Grid } from "../../utils/generalStyles";
+import { Grid, SubtitleAlignLeft } from "../../utils/generalStyles";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Add from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
@@ -77,6 +77,7 @@ const Projects = () => {
           </RightSide>
           <SearchBar placeholder={t("ProjectsSearch")} />
         </Actions>
+        <SubtitleAlignLeft>{t("ProjectsDescription")}</SubtitleAlignLeft>
         <Grid>
           {projects.length === 0 ? (
             <div>{t("ProjectsNoData")}</div>

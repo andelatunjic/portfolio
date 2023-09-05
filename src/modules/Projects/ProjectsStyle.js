@@ -13,13 +13,12 @@ export const Actions = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 
   @media screen and (${breakpoints.tabletSmall}) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 32px;
   }
 `;
 

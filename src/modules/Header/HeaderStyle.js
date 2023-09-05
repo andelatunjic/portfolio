@@ -87,12 +87,12 @@ export const SwitchLabel = styled(FormControlLabel)`
 
 export const Language = styled.p`
   margin-left: 4px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 0px;
 `;
 
 export const LanguageImg = styled.img`
-  height: 18px;
+  height: 22px;
 `;
 
 export const LanguageWrapper = styled.div`

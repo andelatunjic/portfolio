@@ -20,52 +20,36 @@ export const CardInner = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 1px;
   line-height: 1.5;
 
-  @media screen and (${breakpoints.tabletSmall}) {
-    font-size: 14px;
-  }
-
   @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 16px;
-  }
-
-  @media screen and (${breakpoints.desktop}) {
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
 
 export const CardSubtitle = styled.p`
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 8px;
 
   @media screen and (${breakpoints.tablet}) {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   @media screen and (${breakpoints.desktop}) {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 
 export const CardDescription = styled.p`
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 1px;
   line-height: 1.5;
 
-  @media screen and (${breakpoints.tabletSmall}) {
-    font-size: 12px;
-  }
-
   @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 14px;
-  }
-
-  @media screen and (${breakpoints.desktop}) {
     font-size: 16px;
   }
 `;

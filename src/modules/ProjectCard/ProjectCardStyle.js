@@ -28,7 +28,7 @@ export const ProjectImage = styled.img`
 `;
 
 export const ProjectTitle = styled.h3`
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1px;
   line-height: 1.5;
 
@@ -41,25 +41,17 @@ export const ProjectDate = styled.p`
   color: ${colors.accentColorPurple};
   font-family: ${fonts.secondary};
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 12px;
-
-  @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 14px;
-  }
 `;
 
 export const ProjectDescription = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 12px;
-
-  @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 16px;
-  }
 `;
 
 export const Actions = styled.div`

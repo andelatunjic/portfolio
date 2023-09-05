@@ -55,6 +55,7 @@
   "SnackBarFailedUpdate": "Greška prilikom ažuriranja. Pokušajte ponovno.",
 
   "SkillsTitle": "Moje vještine",
+  "SkillsDescription": "Prikaz vještina koje posjedujem po kategorijama. Svaki skup vještina ima uz sebe pokazatelj razine znanja.",
   "SkillsFront": "Razvoj na strani korisnika",
   "SkillsBack": "Razvoj na strani poslužitelja",
   "SkillsDatabase": "Upravljanje bazama podataka",
@@ -63,12 +64,14 @@
   "SkillsOther": "Ostalo",
 
   "ProjectsTitle": "Moji projekti",
+  "ProjectsDescription": "Prikaz projekata na kojima sam radila ili još uvijek radim. Pogledajte repozitorij za uvid u kod te pogledajte demo ako je dostupan.",
   "ProjectsSearch": "Pretraži po tehnologiji...",
   "ProjectsNoData": "Nema projekata za prikaz.",
   "ProjectsSeeDemo": "Vidi demo",
   "ProjectsSeeRepository": "Vidi repozitorij",
 
   "CommentsTitle": "Izjave i komentari",
+  "CommentsDescription": "Ovo je sekcija za sve pohvale, kritike i iskustva. Svaki osvrt je dobro došao.",
   "CommentsNoData": "Nema komentara za prikaz. Budite prvi koji će nešto reći.",
   "CommentsNameLabel": "Ime",
   "CommentsContentLabel": "Sadržaj",
@@ -113,6 +116,7 @@
   "UpdCreProjectDemoLabel": "Demo URL",
   "UpdCreProjectTagsLabel": "Tagovi",
   "UpdCreProjectDescriptionLabel": "Opis",
+  "UpdCreProjectTagsHelperText": "Korištene tehnologije odvojene zarezom",
 
   "UpdCreExperienceDateFromLabel": "Datum od",
   "UpdCreExperienceDateToLabel": "Datum do",

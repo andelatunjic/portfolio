@@ -13,7 +13,7 @@ export const Title = styled.h2`
   font-size: 20px;
   letter-spacing: 1px;
   line-height: 1.5;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 
   @media screen and (${breakpoints.desktopSmall}) {
     font-size: 28px;

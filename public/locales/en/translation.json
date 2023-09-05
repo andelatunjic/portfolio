@@ -55,6 +55,7 @@
   "SnackBarFailedUpdate": "Error updating item. Please try again.",
 
   "SkillsTitle": "My Skills",
+  "SkillsDescription": "Display of the skills I have by category. Each set of skills has an indicator of the level of knowledge I think I have.",
   "SkillsFront": "Front-End Development",
   "SkillsBack": "Back-End Development",
   "SkillsDatabase": "Database Management",
@@ -63,12 +64,14 @@
   "SkillsOther": "Communication, Teamwork",
 
   "ProjectsTitle": "My Projects",
+  "ProjectsDescription": "View of projects I've worked on or am still working on. Check out the repository to see the code and check out the demo if available.",
   "ProjectsSearch": "Search by technology...",
   "ProjectsNoData": "No projects to show.",
   "ProjectsSeeDemo": "See demo",
   "ProjectsSeeRepository": "See repository",
 
   "CommentsTitle": "Testimonial & Comments",
+  "CommentsDescription": "This is a section for all praise, criticism and experiences. Any feedback is welcome.",
   "CommentsNoData": "No comments to show. Be the first one to say something.",
   "CommentsNameLabel": "Name",
   "CommentsContentLabel": "Content",
@@ -102,21 +105,22 @@
   "UpdateExperienceSubtitle": "To edit this experience, change the data here and click Update button. To cancel, click outside of this window.",
   "UpdateProjectTitle": "Edit this project",
   "UpdateProjectSubtitle": "To edit this project, change the data here and click Update button. To cancel, click outside of this window.",
-  
-  "UpdateCommentNameLabel":"Name",
-  "UpdateCommentContentLabel":"Content",
 
-  "UpdCreProjectNameLabel":"Name",
-  "UpdCreProjectDateLabel":"Date",
-  "UpdCreProjectImageLabel":"Image URL",
-  "UpdCreProjectGitHubLabel":"GitHub URL",
-  "UpdCreProjectDemoLabel":"Demo URL",
-  "UpdCreProjectTagsLabel":"Tags",
-  "UpdCreProjectDescriptionLabel":"Description",
+  "UpdateCommentNameLabel": "Name",
+  "UpdateCommentContentLabel": "Content",
 
-  "UpdCreExperienceDateFromLabel":"Date from",
-  "UpdCreExperienceDateToLabel":"Date to",
-  "UpdCreExperiencePositionLabel":"Position",
-  "UpdCreExperienceCompanyLabel":"Company",
-  "UpdCreExperienceDescriptionLabel":"Description"
+  "UpdCreProjectNameLabel": "Name",
+  "UpdCreProjectDateLabel": "Date",
+  "UpdCreProjectImageLabel": "Image URL",
+  "UpdCreProjectGitHubLabel": "GitHub URL",
+  "UpdCreProjectDemoLabel": "Demo URL",
+  "UpdCreProjectTagsLabel": "Tags",
+  "UpdCreProjectDescriptionLabel": "Description",
+  "UpdCreProjectTagsHelperText": "Used technologies separated by a comma",
+
+  "UpdCreExperienceDateFromLabel": "Date from",
+  "UpdCreExperienceDateToLabel": "Date to",
+  "UpdCreExperiencePositionLabel": "Position",
+  "UpdCreExperienceCompanyLabel": "Company",
+  "UpdCreExperienceDescriptionLabel": "Description"
 }

@@ -16,12 +16,11 @@ export const Button = styled.button`
   font-family: ${fonts.secondary};
   color: ${colors.textPrimaryDark};
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
   width: ${(props) => props.fullWidth && "100%"};
 
   @media screen and (${breakpoints.desktopSmall}) {
     padding: 10px 18px;
-    font-size: 14px;
   }
 
   &:hover {
@@ -55,14 +54,13 @@ export const OutlineButton = styled.button`
   transition: background-color 0.3s ease-out;
   font-family: ${fonts.secondary};
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
   border: 1.8px solid ${colors.accentColorPink};
   background-color: transparent;
   color: ${colors.textPrimaryDark};
 
   @media screen and (${breakpoints.desktopSmall}) {
     padding: 10px 18px;
-    font-size: 14px;
   }
 
   &:hover {
@@ -138,47 +136,49 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.div`
   color: ${(props) => !props.moreContrast && colors.textSecondary};
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 16px;
   text-align: center;
 
   @media screen and (${breakpoints.tabletSmall}) {
-    font-size: 14px;
     margin-bottom: 14px;
   }
 
   @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 12px;
     text-align: left;
   }
+`;
 
-  @media screen and (${breakpoints.desktop}) {
-    font-size: 18px;
+export const SubtitleAlignLeft = styled.div`
+  color: ${(props) => !props.moreContrast && colors.textSecondary};
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    font-size: 20px;
   }
 `;
 
 export const Text = styled.p`
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 16px;
   text-align: center;
 
   @media screen and (${breakpoints.tabletSmall}) {
-    font-size: 12px;
     margin-bottom: 14px;
   }
 
   @media screen and (${breakpoints.desktopSmall}) {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 12px;
     text-align: left;
-  }
-
-  @media screen and (${breakpoints.desktop}) {
-    font-size: 16px;
   }
 `;

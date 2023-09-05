@@ -18,7 +18,7 @@ import {
   ButtonWrapper,
   Form,
 } from "./CommentsStyle";
-import { Button } from "../../utils/generalStyles";
+import { Button, SubtitleAlignLeft } from "../../utils/generalStyles";
 import SingleComment from "../../components/SingleComment/SingleComment";
 import { getAllComments, createComment } from "../../firebase/comment";
 import Toast from "../../components/Toast/Toast";
@@ -134,6 +134,7 @@ const Comments = () => {
     <Section>
       <CommentsWrapper>
         <Title>{t("CommentsTitle")}</Title>
+        <SubtitleAlignLeft>{t("CommentsDescription")}</SubtitleAlignLeft>
         <CommentSection>
           <CommentsList>
             {commentsLength === 0 ? (

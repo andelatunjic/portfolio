@@ -55,7 +55,7 @@ const Header = () => {
     };
   });
 
-  const cls = visible ? "visible" : "hidden";
+  const header = visible ? "visible" : "hidden";
 
   const themeHandler = () => {
     setDarkMode(!darkMode);
@@ -66,7 +66,7 @@ const Header = () => {
   };
 
   return (
-    <HeaderWrapper dark={darkMode ? "true" : "false"} scroll={cls}>
+    <HeaderWrapper dark={darkMode ? "true" : "false"} scroll={header}>
       <HeaderInner>
         <HamburgerIcon
           src={darkMode ? Hamburger : HamburgerDark}
@@ -87,9 +87,9 @@ const Header = () => {
             }
             label={darkMode ? t("dark") : t("light")}
             sx={{
-              fontSize: 8,
+              fontSize: 14,
               "& .MuiTypography-root": {
-                fontSize: 12,
+                fontSize: 14,
               },
             }}
           />
