@@ -57,9 +57,6 @@ export const updateExperience = async (experience, experienceId) => {
     .collection("experiences")
     .doc(experienceId)
     .update(experience)
-    .then((response) => {
-      console.log(response);
-    })
     .catch((error) => {
       console.log("Update error: ", error);
       throw error;

@@ -74,21 +74,25 @@ const Projects = () => {
           <SearchBar placeholder="Search projects..." />
         </Actions>
         <Grid>
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              id={project.id}
-              imgSrc={project.imgUrl}
-              imgAlt="Project screenshot"
-              title={project.name}
-              description={project.description}
-              date={project.date}
-              tags={project.tags}
-              gitHubUrl={project.gitHubUrl}
-              demoUrl={project.demoUrl}
-              refreshData={fetchProjects}
-            />
-          ))}
+          {projects.length === 0 ? (
+            <div>No projects to show.</div>
+          ) : (
+            projects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                imgSrc={project.imgUrl}
+                imgAlt="Project screenshot"
+                title={project.name}
+                description={project.description}
+                date={project.date}
+                tags={project.tags}
+                gitHubUrl={project.gitHubUrl}
+                demoUrl={project.demoUrl}
+                refreshData={fetchProjects}
+              />
+            ))
+          )}
         </Grid>
       </ProjectsWrapper>
       <CreateUpdateProject

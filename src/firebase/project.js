@@ -57,9 +57,6 @@ export const updateProject = async (project, projectId) => {
     .collection("projects")
     .doc(projectId)
     .update(project)
-    .then((response) => {
-      console.log(response);
-    })
     .catch((error) => {
       console.log("Update error: ", error);
       throw error;

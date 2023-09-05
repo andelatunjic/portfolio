@@ -94,61 +94,91 @@ const ExperienceTimeline = () => {
                 },
               }}
             >
-              {experiences.map((experience) => (
-                <TimelineItem key={experience.id}>
+              {experiences.length === 0 ? (
+                <TimelineItem>
                   <TimelineOppositeContent
                     sx={{ flex: 0, padding: 0 }}
                   ></TimelineOppositeContent>
                   <TimelineSeparator>
-                    <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-                    <TimelineDot color="secondary" variant="outlined">
-                      <WorkHistory
-                        sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
-                      />
-                    </TimelineDot>
+                    <TimelineDot color="secondary" variant="outlined" />
                     <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                   </TimelineSeparator>
                   <TimelineContent sx={{ paddingRight: 0 }}>
-                    <TimelineCard
-                      id={experience.id}
-                      position={experience.position}
-                      company={experience.company}
-                      description={experience.description}
-                      refreshData={fetchExperiences}
-                    />
+                    No experience to show.
                   </TimelineContent>
                 </TimelineItem>
-              ))}
+              ) : (
+                experiences.map((experience) => (
+                  <TimelineItem key={experience.id}>
+                    <TimelineOppositeContent
+                      sx={{ flex: 0, padding: 0 }}
+                    ></TimelineOppositeContent>
+                    <TimelineSeparator>
+                      <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
+                      <TimelineDot color="secondary" variant="outlined">
+                        <WorkHistory
+                          sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
+                        />
+                      </TimelineDot>
+                      <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{ paddingRight: 0 }}>
+                      <TimelineCard
+                        id={experience.id}
+                        position={experience.position}
+                        company={experience.company}
+                        description={experience.description}
+                        refreshData={fetchExperiences}
+                      />
+                    </TimelineContent>
+                  </TimelineItem>
+                ))
+              )}
             </Timeline>
           </MobileVersion>
           <NormalVersion>
             <Timeline>
-              {experiences.map((experience) => (
-                <TimelineItem key={experience.id}>
+              {experiences.length === 0 ? (
+                <TimelineItem>
                   <TimelineOppositeContent
-                    sx={{ flex: 0.3, paddingLeft: 0, m: "auto 0" }}
-                  >
-                    <Date>{experience.dateFrom}</Date> <br></br>
-                    <Date>{experience.dateTo}</Date>
-                  </TimelineOppositeContent>
+                    sx={{ flex: 0, padding: 0 }}
+                  ></TimelineOppositeContent>
                   <TimelineSeparator>
-                    <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-                    <TimelineDot color="secondary" variant="outlined">
-                      <WorkHistory />
-                    </TimelineDot>
+                    <TimelineDot color="secondary" variant="outlined" />
                     <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
                   </TimelineSeparator>
                   <TimelineContent sx={{ paddingRight: 0 }}>
-                    <TimelineCard
-                      id={experience.id}
-                      position={experience.position}
-                      company={experience.company}
-                      description={experience.description}
-                      refreshData={fetchExperiences}
-                    />
+                    No experience to show.
                   </TimelineContent>
                 </TimelineItem>
-              ))}
+              ) : (
+                experiences.map((experience) => (
+                  <TimelineItem key={experience.id}>
+                    <TimelineOppositeContent
+                      sx={{ flex: 0.3, paddingLeft: 0, m: "auto 0" }}
+                    >
+                      <Date>{experience.dateFrom}</Date> <br></br>
+                      <Date>{experience.dateTo}</Date>
+                    </TimelineOppositeContent>
+                    <TimelineSeparator>
+                      <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
+                      <TimelineDot color="secondary" variant="outlined">
+                        <WorkHistory />
+                      </TimelineDot>
+                      <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{ paddingRight: 0 }}>
+                      <TimelineCard
+                        id={experience.id}
+                        position={experience.position}
+                        company={experience.company}
+                        description={experience.description}
+                        refreshData={fetchExperiences}
+                      />
+                    </TimelineContent>
+                  </TimelineItem>
+                ))
+              )}
             </Timeline>
           </NormalVersion>
         </ExperienceWrapper>

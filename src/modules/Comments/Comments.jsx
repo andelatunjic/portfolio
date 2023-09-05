@@ -129,17 +129,21 @@ const Comments = () => {
         <Title>Testimonial & Comments</Title>
         <CommentSection>
           <CommentsList>
-            {comments.map((comment) => (
-              <SingleComment
-                key={comment.id}
-                id={comment.id}
-                name={comment.name}
-                date={comment.date}
-                content={comment.content}
-                creator
-                refreshData={fetchComments}
-              />
-            ))}
+            {commentsLength === 0 ? (
+              <div>No comments to show. Be the first one to say something.</div>
+            ) : (
+              comments.map((comment) => (
+                <SingleComment
+                  key={comment.id}
+                  id={comment.id}
+                  name={comment.name}
+                  date={comment.date}
+                  content={comment.content}
+                  creator
+                  refreshData={fetchComments}
+                />
+              ))
+            )}
           </CommentsList>
           <NewComment>
             <Form onSubmit={submitHandler}>
