@@ -88,13 +88,9 @@ export const NormalVersion = styled.div`
 export const Options = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 18px;
   margin-bottom: 14px;
-
-  @media screen and (${breakpoints.tabletSmall}) {
-    justify-content: flex-end;
-  }
 
   @media screen and (${breakpoints.desktopSmall}) {
     justify-content: flex-start;
