@@ -17,8 +17,13 @@ import {
   NewComment,
   ButtonWrapper,
   Form,
+  CommentsHeader,
 } from "./CommentsStyle";
-import { Button, SubtitleAlignLeft } from "../../utils/generalStyles";
+import {
+  Button,
+  SelectForm,
+  SubtitleAlignLeft,
+} from "../../utils/generalStyles";
 import SingleComment from "../../components/SingleComment/SingleComment";
 import { getAllComments, createComment } from "../../firebase/comment";
 import Toast from "../../components/Toast/Toast";
@@ -41,6 +46,8 @@ const Comments = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [date, setDate] = useState("");
 
+  const [sort, setSort] = useState("1");
+
   const { t } = useTranslation();
 
   function getCurrentDate() {
@@ -48,21 +55,33 @@ const Comments = () => {
     const day = String(currentDate.getDate()).padStart(2, "0");
     const month = String(currentDate.getMonth() + 1).padStart(2, "0");
     const year = currentDate.getFullYear();
+    const hour = String(currentDate.getHours()).padStart(2, "0");
+    const minute = String(currentDate.getMinutes()).padStart(2, "0");
+    const second = String(currentDate.getSeconds()).padStart(2, "0");
 
-    return `${day}.${month}.${year}.`;
+    return `${day}.${month}.${year}. ${hour}:${minute}:${second}`;
   }
 
   useEffect(() => {
-    fetchComments();
-
     if (commentsLength === 0) {
       fetchComments();
     }
   }, []);
 
+  useEffect(() => {
+    fetchComments();
+  }, [sort]);
+
   const fetchComments = async () => {
     await getAllComments()
       .then((res) => {
+        res.sort((a, b) => {
+          const dateA = new window.Date(a.date);
+          const dateB = new window.Date(b.date);
+          if (sort == "0") return dateA - dateB;
+          else return dateB - dateA;
+        });
+
         setComments(res);
       })
       .catch(() => {
@@ -101,7 +120,9 @@ const Comments = () => {
       await createComment(newComment)
         .then((res) => {
           const id = res;
-          setCookie(id, "comment cookie");
+          setCookie(id, "comment cookie", {
+            expires: new Date(Date.now() + 31536000 * 1000),
+          });
 
           setSending(false);
           setName("");
@@ -130,10 +151,20 @@ const Comments = () => {
     setSuccessToast(false);
   };
 
+  const sortHandler = (event) => {
+    setSort(event.target.value);
+  };
+
   return (
     <Section>
       <CommentsWrapper>
-        <Title>{t("CommentsTitle")}</Title>
+        <CommentsHeader>
+          <Title>{t("CommentsTitle")}</Title>
+          <SelectForm dark={darkMode} name="Sort" onChange={sortHandler}>
+            <option value="1">{t("SortByDateDesc")}</option>
+            <option value="0">{t("SortByDateAsc")}</option>
+          </SelectForm>
+        </CommentsHeader>
         <SubtitleAlignLeft>{t("CommentsDescription")}</SubtitleAlignLeft>
         <CommentSection>
           <CommentsList>

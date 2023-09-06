@@ -21,6 +21,7 @@ import {
 import CreateUpdateProject from "../Forms/CreateUpdateProject/CreateUpdateProject";
 import DeleteProject from "../../components/DeleteProject/DeleteProject";
 import Tooltip from "@mui/material/Tooltip";
+import { format } from 'date-fns';
 
 const ProjectCard = ({
   id,
@@ -49,11 +50,15 @@ const ProjectCard = ({
     setProjectForm(!projectForm);
   };
 
+  const formatDate = (date) => {
+    return format(new Date(date), 'dd.MM.yyyy.');
+  };
+
   return (
     <>
       <ProjectCardWrapper>
         <ProjectTitle>{title}</ProjectTitle>
-        <ProjectDate>{date}</ProjectDate>
+        <ProjectDate>{formatDate(date)}</ProjectDate>
         <ProjectFigure>
           <ProjectImage src={imgSrc} alt="Project screenshot" />
         </ProjectFigure>

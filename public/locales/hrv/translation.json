@@ -70,7 +70,7 @@
   "ProjectsSeeDemo": "Vidi demo",
   "ProjectsSeeRepository": "Vidi repozitorij",
 
-  "CommentsTitle": "Izjave i komentari",
+  "CommentsTitle": "Komentari",
   "CommentsDescription": "Ovo je sekcija za sve pohvale, kritike i iskustva. Svaki osvrt je dobro došao.",
   "CommentsNoData": "Nema komentara za prikaz. Budite prvi koji će nešto reći.",
   "CommentsNameLabel": "Ime",
@@ -126,5 +126,8 @@
 
   "NotFoundTitle": "404 Nije pronađeno",
   "NotFoundSubtitle": "Ova stranica je obrisana ili nije nikad postojala.",
-  "NotFoundText": "Nismo mogli pronaći ono što tražite. Ova bi se stranica mogla uskoro pojaviti, više ne postoji ili je vidljiva samo odabranoj publici."
+  "NotFoundText": "Nismo mogli pronaći ono što tražite. Ova bi se stranica mogla uskoro pojaviti, više ne postoji ili je vidljiva samo odabranoj publici.",
+
+  "SortByDateAsc": "Datum Uzlazno",
+  "SortByDateDesc": "Datum Silazno"
 }

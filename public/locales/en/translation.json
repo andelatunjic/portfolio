@@ -70,8 +70,8 @@
   "ProjectsSeeDemo": "See demo",
   "ProjectsSeeRepository": "See repository",
 
-  "CommentsTitle": "Testimonial & Comments",
-  "CommentsDescription": "This is a section for all praise, criticism and experiences. Any feedback is welcome.",
+  "CommentsTitle": "Comments",
+  "CommentsDescription": "This is a section for all testimonials, criticism and experiences. Any feedback is welcome.",
   "CommentsNoData": "No comments to show. Be the first one to say something.",
   "CommentsNameLabel": "Name",
   "CommentsContentLabel": "Content",
@@ -126,5 +126,8 @@
 
   "NotFoundTitle": "404 Not Found",
   "NotFoundSubtitle": "This page is deleted or it never existed.",
-  "NotFoundText": "We couldn't find what you're looking for. This page might come soon, no longer exists, or is only visible to a selected audience."
+  "NotFoundText": "We couldn't find what you're looking for. This page might come soon, no longer exists, or is only visible to a selected audience.",
+
+  "SortByDateAsc": "Date Ascending",
+  "SortByDateDesc": "Date Descending"
 }

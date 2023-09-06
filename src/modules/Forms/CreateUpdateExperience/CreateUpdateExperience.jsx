@@ -160,7 +160,6 @@ const CreateUpdateExperience = ({
                 onChange={inputChangeHandler}
                 fullWidth
                 margin="dense"
-                required
                 variant="standard"
                 type="date"
                 inputProps={{ maxLength: 10, pattern: "dd/MM/yyyy" }}

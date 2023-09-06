@@ -85,13 +85,28 @@ export const NormalVersion = styled.div`
   }
 `;
 
-export const AddNewWrapper = styled.div`
+export const Options = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 14px;
+
+  @media screen and (${breakpoints.tabletSmall}) {
+    justify-content: flex-end;
+  }
+
+  @media screen and (${breakpoints.desktopSmall}) {
+    justify-content: flex-start;
+  }
+`;
+
+export const AdminOptions = styled.div`
   display: none;
 
   ${(props) =>
     props.auth &&
     `
     display: block;
-    margin-bottom: 14px;
   `}
 `;

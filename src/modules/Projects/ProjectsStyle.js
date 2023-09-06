@@ -15,7 +15,7 @@ export const Actions = styled.div`
   gap: 24px;
   margin-bottom: 12px;
 
-  @media screen and (${breakpoints.tabletSmall}) {
+  @media screen and (${breakpoints.tablet}) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -35,7 +35,7 @@ export const Title = styled.h2`
 export const RightSide = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
 `;
 
 export const AddNew = styled.div`

@@ -20,15 +20,17 @@ import {
   Date,
   MobileVersion,
   NormalVersion,
-  AddNewWrapper,
+  Options,
+  AdminOptions,
 } from "./ExperienceTimelineStyle";
-import { Subtitle, Title } from "../../utils/generalStyles";
+import { Subtitle, Title, SelectForm } from "../../utils/generalStyles";
 import TimelineCard from "../../components/TimelineCard/TimelineCard";
 import Add from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 import { getAllExperiences } from "../../firebase/experience";
 import CreateUpdateExperience from "../Forms/CreateUpdateExperience/CreateUpdateExperience";
 import Tooltip from "@mui/material/Tooltip";
+import { format } from "date-fns";
 
 const ExperienceTimeline = () => {
   const { darkMode, authUser } = useContext(OptionsContext);
@@ -36,27 +38,45 @@ const ExperienceTimeline = () => {
   const { t } = useTranslation();
 
   const [experienceForm, setExperienceForm] = useState(false);
+  const [sort, setSort] = useState("1");
 
   useEffect(() => {
-    fetchExperiences();
-
     if (experiencesLength === 0) {
       fetchExperiences();
     }
   }, []);
 
+  useEffect(() => {
+    fetchExperiences();
+  }, [sort]);
+
   const fetchExperiences = async () => {
     await getAllExperiences()
       .then((res) => {
+        res.sort((a, b) => {
+          const dateA = new window.Date(a.dateFrom);
+          const dateB = new window.Date(b.dateFrom);
+          if (sort == "0") return dateA - dateB;
+          else return dateB - dateA;
+        });
+
         setExperiences(res);
       })
-      .catch(() => {
-        console.log("Failed to fetch experiences:");
+      .catch((error) => {
+        console.log("Failed to fetch experiences:", error);
       });
   };
 
   const newExperienceHandler = () => {
     setExperienceForm(!experienceForm);
+  };
+
+  const sortHandler = (event) => {
+    setSort(event.target.value);
+  };
+
+  const formatDate = (date) => {
+    return format(new window.Date(date), "dd.MM.yyyy.");
   };
 
   return (
@@ -65,29 +85,35 @@ const ExperienceTimeline = () => {
         <DesignBox />
         <ExperienceWrapper>
           <div>
-            <AddNewWrapper auth={authUser}>
-              <Tooltip title={t("CreateExperienceTitle")}>
-                <IconButton
-                  onClick={newExperienceHandler}
-                  sx={{
-                    backgroundColor: "rgba(1, 1, 1, 0.2)",
-                    "&:hover": {
-                      backgroundColor: "rgba(1, 1, 1, 0.3)",
-                    },
-                    color: "#B3AFF8",
-                  }}
-                >
-                  <Add
-                    sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
-                    fontSize="medium"
-                  />
-                </IconButton>
-              </Tooltip>
-            </AddNewWrapper>
             <TextContent>
               <Title>{t("ExperienceTitle")}</Title>
               <Subtitle moreContrast>{t("ExperienceSubtitle")}</Subtitle>
             </TextContent>
+            <Options>
+              <AdminOptions auth={authUser}>
+                <Tooltip title={t("CreateExperienceTitle")}>
+                  <IconButton
+                    onClick={newExperienceHandler}
+                    sx={{
+                      backgroundColor: "rgba(1, 1, 1, 0.2)",
+                      "&:hover": {
+                        backgroundColor: "rgba(1, 1, 1, 0.3)",
+                      },
+                      color: "#B3AFF8",
+                    }}
+                  >
+                    <Add
+                      sx={{ color: darkMode ? "#F9FAFB" : "#1F2937" }}
+                      fontSize="medium"
+                    />
+                  </IconButton>
+                </Tooltip>
+              </AdminOptions>
+              <SelectForm dark={darkMode} name="Sort" onChange={sortHandler}>
+                <option value="1">{t("SortByDateDesc")}</option>
+                <option value="0">{t("SortByDateAsc")}</option>
+              </SelectForm>
+            </Options>
           </div>
           <MobileVersion>
             <Timeline
@@ -160,8 +186,8 @@ const ExperienceTimeline = () => {
                     <TimelineOppositeContent
                       sx={{ flex: 0.3, paddingLeft: 0, m: "auto 0" }}
                     >
-                      <Date>{experience.dateFrom}</Date> <br></br>
-                      <Date>{experience.dateTo}</Date>
+                      <Date>{formatDate(experience.dateFrom)}</Date> <br></br>
+                      <Date>{formatDate(experience.dateTo)}</Date>
                     </TimelineOppositeContent>
                     <TimelineSeparator>
                       <TimelineConnector sx={{ bgcolor: "secondary.main" }} />

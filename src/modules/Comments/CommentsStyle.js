@@ -13,7 +13,6 @@ export const Title = styled.h2`
   font-size: 20px;
   letter-spacing: 1px;
   line-height: 1.5;
-  margin-bottom: 12px;
 
   @media screen and (${breakpoints.desktopSmall}) {
     font-size: 28px;
@@ -63,3 +62,9 @@ export const Form = styled.form`
     padding: 0 24px;
   }
 `;
+
+export const CommentsHeader = styled.div`
+  display: flex;
+  gap: 18px;
+  margin-bottom: 12px;
+`

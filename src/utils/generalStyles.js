@@ -182,3 +182,20 @@ export const Text = styled.p`
     text-align: left;
   }
 `;
+
+export const SelectForm = styled.select`
+  background-color: rgba(1, 1, 1, 0.3);
+  border: none;
+  border-radius: 24px;
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  color: ${colors.textPrimaryDark};
+
+  ${(props) =>
+    props.dark &&
+    `
+      color: ${colors.textPrimaryLight};
+  `}
+`;

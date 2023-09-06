@@ -12,7 +12,7 @@ import {
   AddNew,
 } from "./ProjectsStyle";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import { Grid, SubtitleAlignLeft } from "../../utils/generalStyles";
+import { Grid, SelectForm, SubtitleAlignLeft } from "../../utils/generalStyles";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Add from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
@@ -27,18 +27,28 @@ const Projects = () => {
 
   const [projectForm, setProjectForm] = useState(false);
   const [searchBackup, setSearchBackup] = useState();
+  const [sort, setSort] = useState("1");
 
   useEffect(() => {
-    fetchProjects();
-
     if (projectsLength === 0) {
       fetchProjects();
     }
   }, []);
 
+  useEffect(() => {
+    fetchProjects();
+  }, [sort]);
+
   const fetchProjects = async () => {
     await getAllProjects()
       .then((res) => {
+        res.sort((a, b) => {
+          const dateA = new window.Date(a.date);
+          const dateB = new window.Date(b.date);
+          if (sort == "0") return dateA - dateB;
+          else return dateB - dateA;
+        });
+
         setProjects(res);
         setSearchBackup(res);
       })
@@ -56,6 +66,10 @@ const Projects = () => {
       project.tags.toLowerCase().includes(value.toLowerCase())
     );
     setProjects(filteredProjects);
+  };
+
+  const sortHandler = (event) => {
+    setSort(event.target.value);
   };
 
   return (
@@ -83,8 +97,15 @@ const Projects = () => {
                 </IconButton>
               </AddNew>
             </Tooltip>
+            <SelectForm dark={darkMode} name="Sort" onChange={sortHandler}>
+              <option value="1">{t("SortByDateDesc")}</option>
+              <option value="0">{t("SortByDateAsc")}</option>
+            </SelectForm>
           </RightSide>
-          <SearchBar placeholder={t("ProjectsSearch")} onValueChange={handleSearch} />
+          <SearchBar
+            placeholder={t("ProjectsSearch")}
+            onValueChange={handleSearch}
+          />
         </Actions>
         <SubtitleAlignLeft>{t("ProjectsDescription")}</SubtitleAlignLeft>
         <Grid>

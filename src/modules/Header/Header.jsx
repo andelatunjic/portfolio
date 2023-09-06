@@ -39,7 +39,9 @@ const Header = () => {
   useEffect(() => {
     const cookieValue = darkMode ? "dark" : "light";
     document.body.style.backgroundColor = darkMode ? "#1F2937" : "#FFFFFF";
-    setCookie("theme", cookieValue);
+    setCookie("theme", cookieValue, {
+      expires: new Date(Date.now() + 31536000 * 1000),
+    });
   }, [darkMode]);
 
   useEffect(() => {
