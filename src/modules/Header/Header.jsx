@@ -3,20 +3,19 @@ import { useCookies } from "react-cookie";
 import { OptionsContext } from "../../context/OptionsContext";
 import Tooltip from "@mui/material/Tooltip";
 import { useTranslation } from "react-i18next";
-import LanguageIcon from "../../assets/images/language.png";
 import Hamburger from "../../assets/images/hamburger.png";
 import HamburgerDark from "../../assets/images/hamburgerDark.png";
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../../components/Logo/Logo";
 import Navigation from "../../components/Navigation/Navigation";
+import LightMode from "@mui/icons-material/LightModeOutlined";
+import DarkMode from "@mui/icons-material/NightlightOutlined";
+import LanguageIcon from "@mui/icons-material/LanguageOutlined";
 import {
   HeaderWrapper,
   HeaderInner,
   WebsiteOptions,
-  ThemeSwitch,
-  SwitchLabel,
   Language,
-  LanguageImg,
   LanguageWrapper,
   HamburgerIcon,
 } from "./HeaderStyle";
@@ -78,23 +77,19 @@ const Header = () => {
         <Logo isHeader />
         <Navigation />
         <WebsiteOptions>
-          <SwitchLabel
-            dark={darkMode ? "true" : "false"}
-            control={
-              <ThemeSwitch
-                size="small"
-                checked={darkMode}
-                onChange={themeHandler}
-              />
-            }
-            label={darkMode ? t("dark") : t("light")}
-            sx={{
-              fontSize: 14,
-              "& .MuiTypography-root": {
-                fontSize: 14,
-              },
-            }}
-          />
+          {darkMode ? (
+            <LightMode
+              onClick={themeHandler}
+              sx={{ color: "#F9FAFB", cursor: "pointer" }}
+              fontSize="medium"
+            />
+          ) : (
+            <DarkMode
+              onClick={themeHandler}
+              sx={{ color: "#5c6bc0", cursor: "pointer" }}
+              fontSize="medium"
+            />
+          )}
           <Tooltip title={t("languageTooltip")}>
             <LanguageWrapper
               onClick={() =>
@@ -103,9 +98,13 @@ const Header = () => {
                 )
               }
             >
-              <LanguageImg src={LanguageIcon} alt="Language icon" />
+              <LanguageIcon
+                onClick={themeHandler}
+                sx={{ color: darkMode ? "#F9FAFB" : "#5c6bc0" }}
+                fontSize="medium"
+              />
               <Language>
-                {i18n.resolvedLanguage === "en" ? "EN" : "HRV"}
+                {i18n.resolvedLanguage === "en" ? "HRV" : "EN"}
               </Language>
             </LanguageWrapper>
           </Tooltip>

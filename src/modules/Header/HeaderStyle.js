@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { colors, breakpoints, fonts } from "../../utils/theme";
-import Switch from "@mui/material/Switch";
-import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const HeaderWrapper = styled.header`
   position: fixed;
@@ -54,55 +52,17 @@ export const WebsiteOptions = styled.div`
   gap: 16px;
 `;
 
-export const ThemeSwitch = styled(Switch)(() => ({
-  "& .MuiSwitch-switchBase": {
-    transitionDuration: "300ms",
-    color: "#1F2937",
-    "& + .MuiSwitch-track": {
-      backgroundColor: "#B3AFF8",
-      opacity: 1,
-    },
-    "&.Mui-checked": {
-      color: "#FFFFFF",
-      "& + .MuiSwitch-track": {
-        backgroundColor: "#B3AFF8",
-        opacity: 1,
-      },
-    },
-  },
-}));
-
-export const SwitchLabel = styled(FormControlLabel)`
-  && {
-    color: ${colors.textPrimaryDark};
-    margin: 0;
-
-    ${(props) =>
-      props.dark == "true" &&
-      `
-      color: ${colors.textPrimaryLight}
-    `}
-  }
-`;
-
 export const Language = styled.p`
   margin-left: 4px;
   font-size: 14px;
   line-height: 0px;
-`;
-
-export const LanguageImg = styled.img`
-  height: 22px;
+  font-weight: 500;
 `;
 
 export const LanguageWrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-
-  &:hover {
-    color: ${colors.accentColorPurpleLight};
-  }
 `;
 
 export const HamburgerIcon = styled.img`
