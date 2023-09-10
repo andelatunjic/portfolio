@@ -11,6 +11,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import LightMode from "@mui/icons-material/LightModeOutlined";
 import DarkMode from "@mui/icons-material/NightlightOutlined";
 import LanguageIcon from "@mui/icons-material/LanguageOutlined";
+import { auth } from "../../firebase/firebase";
 import {
   HeaderWrapper,
   HeaderInner,
@@ -23,7 +24,7 @@ import {
 const Header = () => {
   const { t, i18n } = useTranslation();
 
-  const { darkMode, setDarkMode } = useContext(OptionsContext);
+  const { darkMode, setDarkMode, setAuthUser } = useContext(OptionsContext);
   const [cookies, setCookie] = useCookies(["theme", "language"]);
   const [position, setPosition] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
@@ -33,6 +34,13 @@ const Header = () => {
     if (cookies.theme) {
       setDarkMode(cookies.theme == "dark" ? true : false);
     }
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -99,7 +107,6 @@ const Header = () => {
               }
             >
               <LanguageIcon
-                onClick={themeHandler}
                 sx={{ color: darkMode ? "#F9FAFB" : "#5c6bc0" }}
                 fontSize="medium"
               />

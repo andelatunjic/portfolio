@@ -18,5 +18,5 @@ const app = !firebase.apps.length
 export const auth = firebase.auth();
 export default app;
 
-auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 export const firestore = firebase.firestore;

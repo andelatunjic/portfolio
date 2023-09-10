@@ -37,16 +37,6 @@ const LoginForm = () => {
 
   let iconColor = darkMode ? "#FFD087" : "#5c6bc0";
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
-    });
-  }, []);
-
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
     if (name === "email") {
